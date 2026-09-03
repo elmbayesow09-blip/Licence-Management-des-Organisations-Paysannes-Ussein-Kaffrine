@@ -1,427 +1,147 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<titre>Club des Managers Ussein Kaffrine-USSEIN | Management des Organisations Paysannes</title>
-<meta name="description" content="Plateforme officielle de la licence Management des Organisations Paysannes de l'Université du Sine Saloum El Hadji Ibrahima Niass — Campus de Kaffrine.">
-<!-- Politiques Google Fonts -->
-<link rel="preconnect" href=" https://fonts.googleapis.com ">
-<link rel="preconnect" href=" https://fonts.gstatic.com " crossorigin>
-<link href=" https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap " rel="stylesheet">
-
-<style>
-:racine {
---primaire : #1B4324 ; /* Vert MOP / Agriculture */
---lumière primaire : #2E6036 ; /* Vert secondaire */
---accent : #D4AF37 ; /* Touche dorée / Excellence */
---bg-light: #F8FAF6; /* Fond clair */
---text-dark : #1F2921 ; /* Texte sombre */
---blanc: #FFFFFF;
---gris-lumière : #EAF0EB ;
+<titre>Club des Managers -USSEIN | Gestion des Organisations Paysannes</title>
+<!-- Tailwind CSS CDN pour un design professionnel instantané -->
+<script src=" https://cdn.tailwindcss.com "></script>
+<!-- Polices Google -->
+<link href=" https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap " rel="stylesheet">
+<script>
+tailwind.config = {
+thème: {
+étendre: {
+fontFamily : { sans : ['Plus Jakarta Sans', 'sans-serif'] },
+couleurs : {
+serpillière: {
+sombre : '#112D17',
+vert : '#1B4324',
+lumière : '#2E6036',
+or : '#D4AF37',
+accent : '#EAB308',
+fond : '#F8FAF6'
 }
-
-* {
-box-sizing: border-box;
-marge : 0 ;
-marge intérieure : 0 ;
 }
-
-corps {
-famille de polices : « Plus Jakarta Sans », sans empattement ;
-couleur de fond : var(--bg-light);
-couleur : var(--text-dark);
-hauteur de ligne : 1,6 ;
 }
-
-/* --- EN-TÊTE ET NAVIGATION --- */
-en-tête {
-couleur de fond : var(--primaire);
-couleur : var(--blanc);
-marge intérieure : 1rem 2rem ;
-position : collante ;
-haut : 0 ;
-z-index : 1000 ;
-box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-bordure inférieure : 4px solide var(--accent);
 }
-
-.header-container {
-largeur maximale : 1200px ;
-marge : 0 auto ;
-affichage : flexible ;
-justificatif-contenu : espace-entre ;
-aligner les éléments : centrer ;
-flex-wrap : envelopper ;
-écart : 1rem ;
 }
-
-.marque {
-affichage : flexible ;
-aligner les éléments : centrer ;
-écart : 12 px ;
-}
-
-.image de marque {
-hauteur : 50px ;
-largeur : automatique ;
-bordure-radius: 6px;
-}
-
-.brand-text h1 {
-taille de police : 1,2 rem ;
-police-weight: 800;
-espacement des lettres : 0,5 px ;
-couleur : var(--blanc);
-}
-
-.brand-text p {
-taille de police : 0,75rem ;
-couleur : var(--accent);
-police-weight: 600;
-}
-
-navigation {
-affichage : flexible ;
-écart : 15 px ;
-flex-wrap : envelopper ;
-}
-
-navigation a {
-couleur : var(--blanc);
-text-decoration: aucune;
-police-weight: 600;
-taille de police : 0,9rem ;
-transition : couleur 0,3 s ;
-}
-
-navigation a:survol {
-couleur : var(--accent);
-}
-
-/* --- SECTION HÉROS --- */
-.héros {
-arrière-plan : dégradé linéaire (135 degrés, var (--primary) 0 %, var (--primary-light) 100 % );
-couleur : var(--blanc);
-marge intérieure : 4rem 1,5rem 3rem 1,5rem ;
-text-align: centre;
-}
-
-.hero-content {
-largeur maximale : 850 px ;
-marge : 0 auto ;
-}
-
-.badge-campus {
-affichage : bloc en ligne ;
-arrière-plan : rgba(212, 175, 55, 0,2);
-border: 1px solid var(--accent);
-couleur : var(--accent);
-marge intérieure : 6 px 16 px ;
-bordure-radius: 20px;
-taille de police : 0,85rem ;
-police-weight: 700;
-marge inférieure : 1,5 rem ;
-text-transform: uppercase;
-}
-
-.hero h2 {
-taille de police : 2,3 rem ;
-police-weight: 800;
-hauteur de ligne : 1,25 ;
-marge inférieure : 1rem ;
-}
-
-.héros p {
-taille de police : 1,15 rem ;
-couleur : #D3E4D5 ;
-marge inférieure : 2rem ;
-}
-
-.cta-group {
-affichage : flexible ;
-justifier-contenu : centre ;
-écart : 15 px ;
-flex-wrap : envelopper ;
-}
-
-.btn {
-affichage : bloc en ligne ;
-marge intérieure : 12px 24px ;
-bordure-radius: 8px;
-police-weight: 700;
-text-decoration: aucune;
-transition : 0,3 s d'accélération ;
-taille de police : 0,95rem ;
-}
-
-.btn-accent {
-couleur de fond : var(--accent);
-couleur : var(--primaire);
-}
-
-.btn-accent:hover {
-couleur de fond : #b8952d ;
-transform: translateY(-2px);
-}
-
-.btn-outline {
-bordure : 2px solide var(--blanc);
-couleur : var(--blanc);
-}
-
-.btn-outline:hover {
-couleur de fond : var(--blanc);
-couleur : var(--primaire);
-transform: translateY(-2px);
-}
-
-/* --- SECTION DOCUMENTAIRE --- */
-.media-section {
-largeur maximale : 1000px ;
-marge : -2rem auto 4rem auto ;
-marge intérieure : 0 1,5 rem ;
-position : relative ;
-z-index: 10;
-}
-
-.carte-vidéo {
-couleur de fond : var(--blanc);
-marge intérieure : 20px ;
-bordure-radius: 16px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-bordure : 1px solide var(--gris clair);
-text-align: centre;
-}
-
-.carte vidéo h3 {
-taille de police : 1,3 rem ;
-couleur : var(--primaire);
-marge inférieure : 8 px ;
-}
-
-.carte vidéo p {
-taille de police : 0,9rem ;
-couleur : #666 ;
-marge inférieure : 15px ;
-}
-
-.video-wrapper {
-position : relative ;
-padding-bottom: 56.25%; /* Ratio 16:9 */
-hauteur : 0 ;
-débordement : caché ;
-bordure-radius: 10px;
-couleur de fond : #000 ;
-}
-
-.video-wrapper vidéo,
-.video-wrapper iframe {
-position : absolue ;
-haut : 0 ;
-gauche : 0 ;
-largeur : 100 % ;
-hauteur : 100 % ;
-bordure : aucune ;
-}
-
-/* --- SECTION APERÇU NIVEAUX --- */
-.niveaux-section {
-largeur maximale : 1200px ;
-marge : 0 auto 4rem auto ;
-marge intérieure : 0 1,5 rem ;
-}
-
-.section-title {
-text-align: centre;
-taille de police : 1,8 rem ;
-couleur : var(--primaire);
-marge inférieure : 2,5 rem ;
-police-weight: 800;
-}
-
-.grid-levels {
-affichage : grille ;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-écart : 20 px ;
-}
-
-.level-card {
-couleur de fond : var(--blanc);
-marge intérieure : 25 px ;
-bordure-radius: 12px;
-bordure supérieure : 5px solide var(--primaire);
-box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-transition : transformation 0,3s ;
-}
-
-.level-card:hover {
-transform: translateY(-5px);
-}
-
-.level-card h4 {
-taille de police : 1,2 rem ;
-couleur : var(--primaire);
-marge inférieure : 10px ;
-}
-
-.level-card p {
-taille de police : 0,9rem ;
-couleur : #555 ;
-marge inférieure : 15px ;
-}
-
-.level-card ul {
-style de liste : aucun ;
-taille de police : 0,85rem ;
-couleur : var(--text-dark);
-}
-
-.level-card ul li {
-marge inférieure : 8 px ;
-affichage : flexible ;
-aligner les éléments : centrer ;
-écart : 8 px ;
-}
-
-/* --- PIED DE PAGE --- */
-pied de page {
-couleur de fond : var(--primaire);
-couleur : var(--blanc);
-marge intérieure : 3rem 1,5rem 1,5rem 1,5rem ;
-}
-
-.footer-container {
-largeur maximale : 1200px ;
-marge : 0 automatique ;
-affichage : grille ;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-écart : 30 px ;
-marge inférieure : 2rem ;
-}
-
-.footer-col h5 {
-couleur : var(--accent);
-taille de police : 1,1rem ;
-marge inférieure : 1rem ;
-}
-
-.footer-col p, .footer-col a {
-couleur : #D3E4D5 ;
-taille de police : 0,9rem ;
-text-decoration: aucune;
-affichage : bloc ;
-marge inférieure : 8 px ;
-}
-
-.footer-bottom {
-text-align: centre;
-bordure supérieure : 1px solide rgba(255,255,255,0.1);
-rembourrage supérieur : 1,5 rem ;
-taille de police : 0,8rem ;
-couleur : #A3C4A7 ;
-}
-
-@media (max-width: 768px) {
-.hero h2 { font-size: 1.7rem; }
-.header-container { flex-direction: column; text-align: center; }
-}
-</style>
+</script>
 </head>
-<corps>
+<body class="bg-mop-bg text-gray-800 font-sans antialiased selection:bg-mop-gold selection:text-mop-dark">
 
-<!-- EN-TÊTE / NAVIGATION -->
-<header>
-<div class="header-container">
-<div class="brand">
-<!-- Remplacer 'assets/images/logo-mop.png' par le lien exact de votre logo -->
-<img src="assets/images/logo-mop.png" alt="Logo MOP-USSEIN" onerror="this.style.display='none'">
-<div class="brand-text">
-<h1>MOP - USSEIN</h1>
-<p>Campus de Kaffrine</p>
+<!-- EN-TÊTE / NAVBAR -->
+<header class="sticky top-0 z-50 bg-mop-dark/95 backdrop-blur-md border-b-2 border-mop-gold text-white shadow-lg">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg bg-mop-gold flex items-center justify-center font-bold text-mop-dark text-xl shadow-md">
+🌾
+</div>
+<div>
+<span class="text-lg font-extrabold tracking-wider block leading-none">MOP — USSEIN</span>
+Campus de Kaffrine
 </div>
 </div>
-<nav>
-<a href="index.html">Accueil</a>
-<a href="licence.html">La Licence</a>
-<a href="parcours.html">Parcours</a>
-<a href="debouches.html">Débouchés</a>
-<a href="espace-etudiant.html">Espace Étudiant</a>
-<a href="bacheliers.html">Nouveaux Bacheliers</a>
-<a href="contact.html">Contactez-nous</a>
+
+<nav class="hidden md:flex space-x-6 text-sm font-semibold">
+<a href="#accueil" class="hover:text-mop-gold transition">Accueil</a>
+<a href="#documentaire" class="hover:text-mop-gold transition">Documentaire</a>
+<a href="#parcours" class="hover:text-mop-gold transition">Parcours</a>
+<a href="#debouches" class="hover:text-mop-gold transition">Débouchés</a>
+<a href="#contact" class="hover:text-mop-gold transition">Contactez-nous</a>
 </nav>
+
+<a href="#étudiants" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-bold bg-mop-gold text-mop-dark hover:bg-yellow-400 transition shadow-sm">
+Espace Étudiant 🎓
+</a>
 </div>
 </header>
 
 <!-- SECTION HÉROS -->
-<section class="hero">
-<div class="hero-content">
-<span class="badge-campus">📍Campus de Kaffrine</span>
-<h2>« Former, accompagner et construire les acteurs du développement rural. »</h2>
-<p>Bienvenue sur la plateforme officielle de la Licence Management des Organisations Paysannes (MOP) de l'Université du Sine Saloum El Hadji Ibrahima Niass.</p>
-<div class="cta-group">
-<a href="licence.html" class="btn btn-accent">🎓 Découvrez la licence</a>
-<a href="espace-etudiant.html" class="btn btn-outline">📚 Espace étudiant</a>
-<a href="bacheliers.html" class="btn btn-accent">📝 Nouveaux bacheliers</a>
+<section id="accueil" class="relative bg-gradient-to-b from-mop-dark via-mop-green to-mop-light text-white py-20 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+<div class="max-w-4xl mx-auto relative z-10">
+<span class="inline-block px-4 py-1.5 rounded-full text-xs font-extrabold bg-white/10 border border-mop-gold/40 text-mop-gold uppercase tracking-widest mb-6">
+📍Université du Sine Saloum El Hadji Ibrahima Niass See More
+</span>
+<h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-6 tracking-tight">
+        « Former, accompagner et construire les acteurs du développement rural. »
+</h1>
+<p class="text-base sm:text-xl text-green-100 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+Une formation académique et professionnelle d'excellence au service des organisations communautaires et de l'agriculture de demain.
+</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#parcours" class="px-6 py-3.5 rounded-xl font-bold bg-mop-gold text-mop-dark hover:bg-yellow-400 transition shadow-lg hover:-translate-y-0.5">
+🎓 Découvrir la licence
+</a>
+<a href="#bacheliers" class="px-6 py-3.5 rounded-xl font-bold bg-white/10 border border-white/30 text-white hover:bg-white/20 transition backdrop-blur-sm">
+📝 Nouveaux Bacheliers
+</a>
 </div>
 </div>
 </section>
 
-<!-- DOCUMENTAIRE D'IMMERSION -->
-<section class="media-section">
-<div class="carte vidéo">
-<h3>🎥 Documentaire d'Immersion MOP</h3>
-<p>Découvrez le quotidien, les activités de terrain et les ambitions des étudiants de la filière MOP.</p>
-<div class="video-wrapper">
-<!-- Option 1 : Vidéo locale (dans votre dossier assets/media/immersion.mp4) -->
-<video controls poster="assets/images/hero-bg.jpg">
+<!-- LECTEUR DOCUMENTAIRE MODERNISÉ -->
+<section id="documentaire" class="max-w-5xl mx-auto px-4 sm:px-6 -mt-10 relative z-20 mb-20">
+<div class="bg-white p-4 sm:p-6 rounded-2xl shadow-2xl border border-gray-100">
+<div class="text-center mb-4">
+<h2 class="text-xl sm:text-2xl font-bold text-mop-green">🎥 Documentaire d'Immersion MOP</h2>
+<p class="text-xs sm:text-sm text-gray-500">Découvrez le quotidien, les activités de terrain et les ambitions des étudiants.</p>
+</div>
+<!-- Conteneur Vidéo Responsive -->
+<div class="relative aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
+<!-- Option 1 : Lecteur Vidéo local (assurez-vous d'avoir assets/media/immersion.mp4) -->
+<video controls class="w-full h-full object-cover" poster="assets/images/hero-bg.jpg">
 <source src="assets/media/immersion.mp4" type="video/mp4">
-Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+Votre navigateur ne supporte pas la lecture vidéo HTML5.
 </video>
-<!-- Option 2 : Si la vidéo est sur YouTube, remplacez le bloc vidéo ci-dessus par :
-<iframe src=" https://www.youtube.com/embed/VOTRE_ID_YOUTUBE "allowfullscreen></iframe>
--->
 </div>
 </div>
 </section>
 
-<!-- APERÇU DU PARCOURS -->
-<section class="levels-section">
-<h3 class="section-title">Un parcours structuré sur 3 ans</h3>
-<div class="grid-levels">
+<!-- PARCOURS ACADÉMIQUE (CARTES MODERNES) -->
+<section id="parcours" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+<div class="text-center max-w-3xl mx-auto mb-12">
+<h2 class="text-2xl sm:text-4xl font-extrabold text-mop-dark mb-3">Un Parcours Académique en 3 Ans</h2>
+<p class="text-gray-600 text-sm sm:text-base">Une progression pédagogique adaptée aux exigences du monde rural.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- L1 -->
-<div class="level-card">
-<h4>🟢 Licence 1</h4>
-<p><strong>Découverte & Fondamentaux</strong></p>
-<ul>
-<li>🌾Développement rural & OP</li>
-<li>🤝 Sociologie & Anthropologie</li>
-<li>📢 Conseil agricole et rural</li>
-<li>📊 Comptabilité & Entrepreneuriat</li>
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition relative border-t-4 border-mop-green">
+<div class="inline-block px-3 py-1 rounded-md bg-green-50 text-mop-green text-xs font-bold mb-3">Licence 1</div>
+<h3 class="text-xl font-bold text-mop-dark mb-2">Découverte & Fondamentaux</h3>
+<p class="text-xs text-gray-500 mb-4">Acquisition des bases en sciences sociales, agricoles et économiques.</p>
+<ul class="space-y-2 text-xs text-gray-700">
+<li class="flex items-center">🌾 Développement rural & OP</li>
+<li class="flex items-center">🤝 Sociologie et anthropologie</li>
+<li class="flex items-center">📢 Conseil agricole et rural</li>
+<li class="flex items-center">📊 Comptabilité & Entrepreneuriat</li>
 </ul>
 </div>
 
 <!-- L2 -->
-<div class="level-card">
-<h4>🟢 Licence 2</h4>
-<p><strong>Structuration & Accompagnement</strong></p>
-<ul>
-<li>⚙️ Gestion administrative des OP</li>
-<li>📜 Politiques agricoles et rurales</li>
-<li>🗺️ Gestion foncière & Climat</li>
-<li>📈 Chaînes de valeur rurale</li>
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition relative border-t-4 border-mop-gold">
+<div class="inline-block px-3 py-1 rounded-md bg-yellow-50 text-yellow-800 text-xs font-bold mb-3">Licence 2</div>
+<h3 class="text-xl font-bold text-mop-dark mb-2">Structuration & Accompagnement</h3>
+<p class="text-xs text-gray-500 mb-4">Maîtrise de la gestion administrative et des politiques rurales.</p>
+<ul class="space-y-2 text-xs text-gray-700">
+<li class="flex items-center">⚙️ Gestion administrative des OP</li>
+<li class="flex items-center">📜 Politiques agricoles et rurales</li>
+<li class="flex items-center">🗺️ Gestion foncière & Climat</li>
+<li class="flex items-center">📈 Chaînes de valeur rurale</li>
 </ul>
 </div>
 
 <!-- L3 -->
-<div class="level-card">
-<h4>🟢 Licence 3</h4>
-<p><strong>Professionnalisation & Action</strong></p>
-<ul>
-<li>🚀 Gestion de projet & Marketing</li>
-<li>🔍Audit & Construction de partenariats</li>
-<li>💼 Stage professionnel sur le terrain</li>
-<li>📄Rapport de fin de cycle</li>
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition relative border-t-4 border-mop-dark">
+<div class="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold mb-3">Licence 3</div>
+<h3 class="text-xl font-bold text-mop-dark mb-2">Professionnalisation et action</h3>
+<p class="text-xs text-gray-500 mb-4">Conception de projets, étapes de terrain et mémoire de fin d'études.</p>
+<ul class="space-y-2 text-xs text-gray-700">
+<li class="flex items-center">🚀 Gestion de projet & Marketing</li>
+<li class="flex items-center">🔍 Audit & Construction de partenariats</li>
+<li class="flex items-center">💼 Stage professionnel sur le terrain</li>
+<li class="flex items-center">📄 Rapport de fin de cycle</li>
 </ul>
 </div>
 
@@ -429,35 +149,30 @@ Votre navigateur ne supporte pas la lecture de vidéos HTML5.
 </section>
 
 <!-- PIED DE PAGE -->
-<footer>
-<div class="footer-container">
-<div class="footer-col">
-<h5>MOP - USSEIN</h5>
-<p>Université du Sine Saloum El Hadji Ibrahima Niass</p>
-<p>Campus de Kaffrine, Sénégal</p>
+<footer id="contact" class="bg-mop-dark text-white pt-12 pb-6 border-t-4 border-mop-gold">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-sm">
+<div>
+<h4 class="text-mop-gold font-bold mb-3 text-base">MOP — USSEIN</h4>
+<p class="text-gray-300 text-xs leader-relaxed">Université du Sine Saloum El Hadji Ibrahima Niass<br>Campus de Kaffrine, Sénégal</p>
 </div>
-
-<div class="footer-col">
-<h5>Navigation Rapide</h5>
-<a href="licence.html">Présentation de la Licence</a>
-<a href="parcours.html">Programme d'études</a>
-<a href="debouches.html">Débouchés professionnels</a>
-<a href="bacheliers.html">Guide des Bacheliers</a>
+<div>
+<h4 class="text-mop-gold font-bold mb-3 text-base">Liens Rapides</h4>
+<ul class="space-y-1 text-xs text-gray-300">
+<li><a href="#parcours" class="hover:underline">Parcours Pédagogique</a></li>
+<li><a href="#documentaire" class="hover:underline">Documentaire d'immersion</a></li>
+<li><a href="#bacheliers" class="hover:underline">Espace Nouveaux Bacheliers</a></li>
+</ul>
 </div>
-
-<div class="footer-col">
-<h5>Contact & Réseaux</h5>
-<p>📧 Courriel : clubdesmanagers7@gmail.com</p>
-<p>🔗Facebook | YouTube | TikTok</p>
-<p>📱 Club des Managers Ussein Kaffrine</p>
+<div>
+<h4 class="text-mop-gold font-bold mb-3 text-base">Contactez-nous</h4>
+<p class="text-xs text-gray-300 mb-1">📧 clubdesmanagers7@gmail.com </p>
+<p class="text-xs text-gray-300">📍 Kaffrine, Sénégal</p>
 </div>
 </div>
-
-<div class="footer-bottom">
-<p>&copie; 2026 Licence MOP – USSEIN Campus Kaffrine. Projet étudiant du Club Club des Managers Ussein Kaffrine.</p>
+<div class="text-center text-xs text-gray-500 border-t border-white/10 pt-4">
+2026 Licence MOP — USSEIN Kaffrine. Plateforme réalisée par le Club MOP.
 </div>
 </footer>
 
 </body>
 </html>
-
