@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth"> 
+<html lang="fr" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="Club des Managers-USSEIN — Licence Management des Organisations Paysannes. Découvrez la formation, les parcours L1, L2 et L3, les compétences et les débouchés professionnels.">
+        content="MOP-USSEIN — Licence Management des Organisations Paysannes. Découvrez la formation, les parcours L1, L2 et L3, les compétences et les débouchés professionnels.">
 
     <meta name="theme-color" content="#102b17">
 
@@ -1508,53 +1508,49 @@
 
 
 <!-- ============================================================
-     DOCUMENTAIRE MOP-USSEIN
+     DOCUMENTAIRE
 ============================================================ -->
 
 <section id="documentaire" class="py-24 lg:py-32 bg-mop-50">
 
     <div class="max-w-7xl mx-auto px-5 lg:px-8">
 
-        <!-- TITRE -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
+
+        <div class="text-center max-w-3xl mx-auto reveal">
 
             <span class="text-mop-600 font-extrabold uppercase tracking-widest text-xs">
-                🎥 IMMERSION MOP
+                🎥 Immersion
             </span>
 
             <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-mop-900 mt-4">
-                Découvrez la Licence MOP de l'intérieur.
+                Découvrez MOP de l'intérieur.
             </h2>
 
-            <p class="text-gray-500 mt-5 leading-relaxed">
-                Découvrez notre formation, nos étudiants, nos activités
-                et notre vision du développement rural.
+            <p class="text-gray-500 mt-5">
+                Découvrez les étudiants, les enseignants, les activités et la vision de la Licence Management des Organisations Paysannes.
             </p>
 
         </div>
 
 
-        <!-- VIDEO -->
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-5xl mx-auto mt-14 reveal">
 
             <div class="bg-mop-900 p-3 sm:p-5 rounded-[2rem] shadow-2xl">
 
                 <div class="relative aspect-video bg-black rounded-2xl overflow-hidden">
 
                     <video
-                        id="mopVideo"
+                        id="documentaryVideo"
                         controls
-                        playsinline
                         preload="metadata"
-                        class="w-full h-full object-cover"
-                    >
+                        poster="assets/images/poster-documentaire.jpg"
+                        class="w-full h-full object-cover">
 
                         <source
-                            src="./assets/media/immersion.mp4"
-                            type="video/mp4"
-                        >
+                            src="assets/media/immersion.mp4"
+                            type="video/mp4">
 
-                        Votre navigateur ne peut pas lire cette vidéo.
+                        Votre navigateur ne supporte pas la lecture vidéo HTML5.
 
                     </video>
 
@@ -1563,24 +1559,58 @@
             </div>
 
 
-            <!-- INFORMATIONS -->
-            <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+            <div class="grid sm:grid-cols-3 gap-4 mt-6">
 
-                <span class="px-4 py-2 bg-white rounded-full border border-mop-100 text-mop-700">
-                    🎓 Formation
-                </span>
 
-                <span class="px-4 py-2 bg-white rounded-full border border-mop-100 text-mop-700">
-                    🌾 Monde rural
-                </span>
+                <div class="bg-white rounded-xl p-5 border border-mop-100">
 
-                <span class="px-4 py-2 bg-white rounded-full border border-mop-100 text-mop-700">
-                    🤝 Organisations paysannes
-                </span>
+                    <i data-lucide="graduation-cap"
+                        class="w-6 h-6 text-mop-600 mb-3">
+                    </i>
 
-                <span class="px-4 py-2 bg-white rounded-full border border-mop-100 text-mop-700">
-                    🚀 Professionnalisation
-                </span>
+                    <h3 class="font-bold text-mop-900">
+                        La formation
+                    </h3>
+
+                    <p class="text-xs text-gray-500 mt-1">
+                        Comprendre les objectifs et les compétences.
+                    </p>
+
+                </div>
+
+
+                <div class="bg-white rounded-xl p-5 border border-mop-100">
+
+                    <i data-lucide="users"
+                        class="w-6 h-6 text-mop-600 mb-3">
+                    </i>
+
+                    <h3 class="font-bold text-mop-900">
+                        Les étudiants
+                    </h3>
+
+                    <p class="text-xs text-gray-500 mt-1">
+                        Découvrir leurs expériences et leurs ambitions.
+                    </p>
+
+                </div>
+
+
+                <div class="bg-white rounded-xl p-5 border border-mop-100">
+
+                    <i data-lucide="map-pin"
+                        class="w-6 h-6 text-mop-600 mb-3">
+                    </i>
+
+                    <h3 class="font-bold text-mop-900">
+                        Le terrain
+                    </h3>
+
+                    <p class="text-xs text-gray-500 mt-1">
+                        Voir comment les connaissances prennent vie.
+                    </p>
+
+                </div>
 
             </div>
 
@@ -1590,18 +1620,6 @@
 
 </section>
 
-
-<script>
-
-const video = document.getElementById("mopVideo");
-
-video.addEventListener("error", function () {
-
-    console.error("Erreur lors du chargement de la vidéo.");
-
-});
-
-</script>
 
 
 <!-- ============================================================
@@ -2330,7 +2348,7 @@ video.addEventListener("error", function () {
             </p>
 
             <p>
-                Plateforme réalisée par le Club des Managers-USSEIN.
+                Plateforme réalisée par le Club MOP-USSEIN.
             </p>
 
         </div>
