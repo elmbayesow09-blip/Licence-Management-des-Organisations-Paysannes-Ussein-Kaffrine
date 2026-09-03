@@ -1516,7 +1516,6 @@
     <div class="max-w-7xl mx-auto px-5 lg:px-8">
 
         <!-- TITRE -->
-
         <div class="text-center max-w-3xl mx-auto mb-12">
 
             <span class="text-mop-600 font-extrabold uppercase tracking-widest text-xs">
@@ -1536,7 +1535,6 @@
 
 
         <!-- VIDEO -->
-
         <div class="max-w-5xl mx-auto">
 
             <div class="bg-mop-900 p-3 sm:p-5 rounded-[2rem] shadow-2xl">
@@ -1544,17 +1542,19 @@
                 <div class="relative aspect-video bg-black rounded-2xl overflow-hidden">
 
                     <video
+                        id="mopVideo"
                         controls
                         playsinline
                         preload="metadata"
-                        class="w-full h-full object-cover">
+                        class="w-full h-full object-cover"
+                    >
 
                         <source
-                            src="assets/media/immersion.mp4"
-                            type="video/mp4">
+                            src="./assets/media/immersion.mp4"
+                            type="video/mp4"
+                        >
 
-                        Votre navigateur ne supporte pas
-                        la lecture vidéo HTML5.
+                        Votre navigateur ne peut pas lire cette vidéo.
 
                     </video>
 
@@ -1563,8 +1563,7 @@
             </div>
 
 
-            <!-- INFORMATIONS SOUS LA VIDEO -->
-
+            <!-- INFORMATIONS -->
             <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
 
                 <span class="px-4 py-2 bg-white rounded-full border border-mop-100 text-mop-700">
@@ -1591,6 +1590,18 @@
 
 </section>
 
+
+<script>
+
+const video = document.getElementById("mopVideo");
+
+video.addEventListener("error", function () {
+
+    console.error("Erreur lors du chargement de la vidéo.");
+
+});
+
+</script>
 
 
 <!-- ============================================================
