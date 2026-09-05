@@ -27,26 +27,35 @@
         </div>
     </header>
 
-    <!-- Présentation -->
+    <!-- Grande présentation avec photo -->
+    <section
+        class="relative bg-green-900 px-6 py-24 text-center text-white"
+        style="
+            background-image:
+            linear-gradient(rgba(0, 70, 35, 0.75), rgba(0, 70, 35, 0.75)),
+            url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        "
+    >
+        <div class="relative mx-auto max-w-4xl">
+            <p class="mb-4 font-semibold uppercase tracking-widest text-yellow-300">
+                Licence professionnelle
+            </p>
+
+            <h1 class="mb-6 text-4xl font-extrabold md:text-6xl">
+                Management des Organisations Paysannes
+            </h1>
+
+            <p class="mx-auto max-w-3xl text-lg leading-8 text-green-100">
+                Une formation professionnelle destinée à préparer des
+                gestionnaires capables d'accompagner, d'organiser et de
+                développer les organisations paysannes.
+            </p>
+        </div>
+    </section>
+
     <main>
-
-        <section class="bg-green-900 px-6 py-20 text-center text-white">
-            <div class="mx-auto max-w-4xl">
-                <p class="mb-4 font-semibold uppercase tracking-widest text-yellow-300">
-                    Licence professionnelle
-                </p>
-
-                <h1 class="mb-6 text-4xl font-extrabold md:text-6xl">
-                    Management des Organisations Paysannes
-                </h1>
-
-                <p class="mx-auto max-w-3xl text-lg leading-8 text-green-100">
-                    Une formation professionnelle destinée à préparer des
-                    gestionnaires capables d'accompagner, d'organiser et de
-                    développer les organisations paysannes.
-                </p>
-            </div>
-        </section>
 
         <!-- Informations générales -->
         <section class="px-6 py-16">
@@ -58,55 +67,92 @@
 
                 <div class="grid gap-8 md:grid-cols-3">
 
-                    <div class="rounded-2xl bg-white p-8 shadow-lg">
-                        <div class="mb-4 text-4xl">🎓</div>
+                    <!-- Carte 1 -->
+                    <div class="overflow-hidden rounded-2xl bg-white shadow-lg">
+                        <img
+                            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
+                            alt="Étudiants en formation"
+                            class="h-52 w-full object-cover"
+                        >
 
-                        <h3 class="mb-3 text-xl font-bold text-green-900">
-                            Niveau
-                        </h3>
+                        <div class="p-8">
+                            <div class="mb-4 text-4xl">🎓</div>
 
-                        <p class="leading-7 text-gray-600">
-                            Formation de niveau Licence professionnelle,
-                            destinée aux étudiants souhaitant travailler
-                            dans le domaine du développement rural.
-                        </p>
+                            <h3 class="mb-3 text-xl font-bold text-green-900">
+                                Niveau
+                            </h3>
+
+                            <p class="leading-7 text-gray-600">
+                                Formation de niveau Licence professionnelle,
+                                destinée aux étudiants souhaitant travailler
+                                dans le domaine du développement rural.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="rounded-2xl bg-white p-8 shadow-lg">
-                        <div class="mb-4 text-4xl">📚</div>
+                    <!-- Carte 2 -->
+                    <div class="overflow-hidden rounded-2xl bg-white shadow-lg">
+                        <img
+                            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
+                            alt="Activité agricole"
+                            class="h-52 w-full object-cover"
+                        >
 
-                        <h3 class="mb-3 text-xl font-bold text-green-900">
-                            Domaine
-                        </h3>
+                        <div class="p-8">
+                            <div class="mb-4 text-4xl">📚</div>
 
-                        <p class="leading-7 text-gray-600">
-                            Management, économie rurale, développement local,
-                            gestion des organisations et accompagnement
-                            des producteurs.
-                        </p>
+                            <h3 class="mb-3 text-xl font-bold text-green-900">
+                                Domaine
+                            </h3>
+
+                            <p class="leading-7 text-gray-600">
+                                Management, économie rurale, développement local,
+                                gestion des organisations et accompagnement
+                                des producteurs.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="rounded-2xl bg-white p-8 shadow-lg">
-                        <div class="mb-4 text-4xl">📍</div>
+                    <!-- Carte 3 -->
+                    <div class="overflow-hidden rounded-2xl bg-white shadow-lg">
+                        <img
+                            src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=80"
+                            alt="Campus universitaire"
+                            class="h-52 w-full object-cover"
+                        >
 
-                        <h3 class="mb-3 text-xl font-bold text-green-900">
-                            Lieu
-                        </h3>
+                        <div class="p-8">
+                            <div class="mb-4 text-4xl">📍</div>
 
-                        <p class="leading-7 text-gray-600">
-                            Université du Sine-Saloum El Hadji Ibrahima Niass,
-                            campus de Kaffrine.
-                        </p>
+                            <h3 class="mb-3 text-xl font-bold text-green-900">
+                                Lieu
+                            </h3>
+
+                            <p class="leading-7 text-gray-600">
+                                Université du Sine-Saloum El Hadji Ibrahima Niass,
+                                campus de Kaffrine.
+                            </p>
+                        </div>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- Objectifs -->
+        <!-- Objectifs avec photo -->
         <section class="bg-white px-6 py-16">
-            <div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+            <div class="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
 
+                <!-- Photo -->
+                <div class="overflow-hidden rounded-2xl shadow-xl">
+                    <img
+                        src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&w=1000&q=80"
+                        alt="Travail agricole et développement rural"
+                        class="h-full min-h-[350px] w-full object-cover"
+                    >
+                </div>
+
+                <!-- Texte -->
                 <div>
                     <p class="mb-3 font-bold uppercase tracking-widest text-green-700">
                         Notre objectif
@@ -123,10 +169,40 @@
                         organisations paysannes.
                     </p>
 
-                    <p class="leading-8 text-gray-600">
+                    <p class="mb-6 leading-8 text-gray-600">
                         Les étudiants apprennent à analyser les besoins des
                         producteurs, à gérer les projets et à accompagner
                         les organisations dans leur développement.
+                    </p>
+
+                    <a
+                        href="#competences"
+                        class="inline-block rounded-xl bg-green-900 px-6 py-4 font-bold text-white hover:bg-green-800"
+                    >
+                        Découvrir les compétences
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section id="competences" class="bg-green-50 px-6 py-16">
+            <div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+
+                <div>
+                    <p class="mb-3 font-bold uppercase tracking-widest text-green-700">
+                        Formation pratique
+                    </p>
+
+                    <h2 class="mb-6 text-3xl font-bold text-green-950">
+                        Des compétences adaptées au monde rural
+                    </h2>
+
+                    <p class="leading-8 text-gray-600">
+                        La Licence MOP prépare les étudiants à travailler
+                        avec les producteurs, les coopératives, les ONG,
+                        les associations et les projets de développement.
                     </p>
                 </div>
 
@@ -159,6 +235,11 @@
                         <li class="flex gap-3">
                             <span class="text-yellow-300">✓</span>
                             Communication et leadership
+                        </li>
+
+                        <li class="flex gap-3">
+                            <span class="text-yellow-300">✓</span>
+                            Gestion administrative et financière
                         </li>
                     </ul>
                 </div>
