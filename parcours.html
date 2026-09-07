@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Parcours de la Licence MOP-USSEIN</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f8f4;
+      color: #243424;
+      line-height: 1.6;
+    }
+
+    /* EN-TÊTE */
+    header {
+      background: white;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.10);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: apparition 0.8s ease-out;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 12px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+    }
+
+    .brand h1 {
+      color: #176b35;
+      font-size: 23px;
+    }
+
+    .brand p {
+      color: #444;
+      font-size: 14px;
+    }
+
+    .brand small {
+      color: #777;
+      font-size: 11px;
+    }
+
+    .desktop-menu {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .desktop-menu a {
+      color: #243424;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .desktop-menu a:hover {
+      color: #16803b;
+      transform: translateY(-2px);
+    }
+
+    .menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .bar {
+      display: block;
+      width: 28px;
+      height: 3px;
+      margin: 5px;
+      background: #176b35;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+      background: white;
+    }
+
+    .mobile-menu a {
+      color: #243424;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* BANNIÈRE */
+    .hero {
+      min-height: 390px;
+      padding: 90px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(
+          rgba(8, 65, 35, 0.75),
+          rgba(8, 65, 35, 0.75)
+        ),
+        url("assets/images/parcours.jpg") center/cover;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      animation: apparition 1s ease-out;
+    }
+
+    .hero h2 {
+      font-size: 45px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 19px;
+    }
+
+    /* CONTENU */
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 65px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #176b35;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .section-intro {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+      color: #555;
+    }
+
+    /* CARTES DES NIVEAUX */
+    .parcours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .parcours-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: 0.4s;
+    }
+
+    .parcours-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .parcours-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    .card-content h3 {
+      color: #176b35;
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .card-content h4 {
+      color: #b88a19;
+      margin: 15px 0 8px;
+    }
+
+    .card-content ul {
+      padding-left: 20px;
+      color: #555;
+    }
+
+    /* ÉTAPES */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .timeline-item {
+      background: #e5f1e6;
+      padding: 28px;
+      border-left: 5px solid #176b35;
+      border-radius: 10px;
+    }
+
+    .timeline-item span {
+      display: inline-block;
+      background: #176b35;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .timeline-item h3 {
+      color: #176b35;
+      margin-bottom: 10px;
+    }
+
+    /* DÉBOUCHÉS */
+    .debouches {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .debouche-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    }
+
+    .debouche-card h3 {
+      color: #176b35;
+      margin-bottom: 10px;
+    }
+
+    /* BOUTON */
+    .button-container {
+      text-align: center;
+      margin-top: 45px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #b99532;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #92731f;
+      transform: translateY(-3px);
+    }
+
+    /* PIED DE PAGE */
+    footer {
+      background: #123f27;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 30px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes apparition {
+      from {
+        opacity: 0;
+        transform: translateY(-25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* TÉLÉPHONE */
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 10px 15px;
+      }
+
+      .logo {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand h1 {
+        font-size: 18px;
+      }
+
+      .brand p {
+        font-size: 11px;
+      }
+
+      .brand small {
+        font-size: 9px;
+      }
+
+      .desktop-menu {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+        animation: apparition 0.4s ease;
+      }
+
+      .menu-button.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .menu-button.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-button.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      .hero {
+        min-height: 320px;
+        padding: 60px 20px;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .parcours-grid,
+      .timeline,
+      .debouches {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- EN-TÊTE -->
+  <header>
+
+    <div class="header-container">
+
+      <a href="index.html" class="brand">
+        <img
+          src="assets/images/logo-mop.jpg"
+          alt="Logo MOP-USSEIN"
+          class="logo"
+        >
+
+        <div>
+          <h1>MOP-USSEIN</h1>
+          <p>Management des Organisations Paysannes</p>
+          <small>Université du Sine-Saloum El Hadji Ibrahima Niass</small>
+        </div>
+      </a>
+
+      <nav class="desktop-menu">
+        <a href="index.html">Accueil</a>
+        <a href="formation.html">Formation</a>
+        <a href="parcours.html">Parcours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button
+        id="menu-button"
+        class="menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+    </div>
+
+    <nav id="mobile-menu" class="mobile-menu">
+      <a href="index.html">Accueil</a>
+      <a href="formation.html">Formation</a>
+      <a href="parcours.html">Parcours</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </header>
+
+
+  <!-- BANNIÈRE -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Le parcours de la Licence MOP</h2>
+      <p>
+        Découvrez les différentes étapes de la formation en
+        Management des Organisations Paysannes.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- PRÉSENTATION -->
+  <main>
+
+    <section class="container">
+
+      <h2 class="section-title">
+        Présentation du parcours
+      </h2>
+
+      <p class="section-intro">
+        La Licence professionnelle Management des Organisations
+        Paysannes prépare les étudiants à accompagner, gérer et
+        développer les organisations rurales et agricoles.
+      </p>
+
+      <!-- NIVEAUX L1 L2 L3 -->
+      <div class="parcours-grid">
+
+        <article class="parcours-card">
+
+          <img
+            src="assets/images/l1.jpg"
+            alt="Étudiants en première année"
+          >
+
+          <div class="card-content">
+            <h3>L1</h3>
+
+            <h4>Première année</h4>
+
+            <p>
+              Découverte des bases du management, de l’économie
+              et du fonctionnement des organisations.
+            </p>
+
+            <h4>Enseignements principaux</h4>
+
+            <ul>
+              <li>Introduction au management</li>
+              <li>Économie générale</li>
+              <li>Comptabilité</li>
+              <li>Communication professionnelle</li>
+              <li>Informatique</li>
+            </ul>
+          </div>
+
+        </article>
+
+
+        <article class="parcours-card">
+
+          <img
+            src="assets/images/l2.jpg"
+            alt="Étudiants en deuxième année"
+          >
+
+          <div class="card-content">
+            <h3>L2</h3>
+
+            <h4>Deuxième année</h4>
+
+            <p>
+              Approfondissement des compétences en gestion,
+              en développement rural et en organisation paysanne.
+            </p>
+
+            <h4>Enseignements principaux</h4>
+
+            <ul>
+              <li>Gestion des organisations</li>
+              <li>Marketing agricole</li>
+              <li>Développement rural</li>
+              <li>Gestion des ressources humaines</li>
+              <li>Économie sociale et solidaire</li>
+            </ul>
+          </div>
+
+        </article>
+
+
+        <article class="parcours-card">
+
+          <img
+            src="assets/images/l3.jpg"
+            alt="Étudiants en troisième année"
+          >
+
+          <div class="card-content">
+            <h3>L3</h3>
+
+            <h4>Troisième année</h4>
+
+            <p>
+              Professionnalisation, conduite de projets et
+              préparation à l’insertion professionnelle.
+            </p>
+
+            <h4>Enseignements principaux</h4>
+
+            <ul>
+              <li>Management des coopératives</li>
+              <li>Montage de projets</li>
+              <li>Entrepreneuriat rural</li>
+              <li>Suivi et évaluation</li>
+              <li>Stage professionnel</li>
+            </ul>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ORGANISATION DU PARCOURS -->
+    <section class="container">
+
+      <h2 class="section-title">
+        Organisation de la formation
+      </h2>
+
+      <p class="section-intro">
+        Le parcours est organisé progressivement afin de permettre
+        à l’étudiant d’acquérir des connaissances théoriques,
+        des compétences pratiques et une expérience professionnelle.
+      </p>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <span>Étape 1</span>
+          <h3>Acquisition des bases</h3>
+          <p>
+            L’étudiant découvre les notions fondamentales de
+            l’économie, de la gestion et du management.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span>Étape 2</span>
+          <h3>Spécialisation</h3>
+          <p>
+            L’étudiant approfondit ses connaissances dans le
+            domaine des organisations paysannes et du développement rural.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span>Étape 3</span>
+          <h3>Professionnalisation</h3>
+          <p>
+            L’étudiant réalise des projets, participe à des activités
+            pratiques et effectue un stage professionnel.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DÉBOUCHÉS -->
+    <section class="container">
+
+      <h2 class="section-title">
+        Débouchés professionnels
+      </h2>
+
+      <p class="section-intro">
+        Après la formation, les diplômés peuvent travailler dans
+        plusieurs secteurs liés à la gestion, au développement rural
+        et à l’accompagnement des organisations.
+      </p>
+
+      <div class="debouches">
+
+        <div class="debouche-card">
+          <h3>Organisations paysannes</h3>
+          <p>
+            Gestionnaire, animateur ou responsable administratif
+            d’une organisation paysanne.
+          </p>
+        </div>
+
+        <div class="debouche-card">
+          <h3>ONG et projets de développement</h3>
+          <p>
+            Assistant de projet, chargé de suivi-évaluation ou
+            agent de développement local.
+          </p>
+        </div>
+
+        <div class="debouche-card">
+          <h3>Coopératives agricoles</h3>
+          <p>
+            Responsable de coopérative, chargé de production ou
+            gestionnaire des activités économiques.
+          </p>
+        </div>
+
+        <div class="debouche-card">
+          <h3>Entrepreneuriat rural</h3>
+          <p>
+            Création et gestion d’une entreprise agricole,
+            agroalimentaire ou de services ruraux.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="button-container">
+        <a href="formation.html" class="button">
+          Découvrir la formation
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- PIED DE PAGE -->
+  <footer id="contact">
+    <p>
+      © 2026 MOP-USSEIN — Management des Organisations Paysannes
+    </p>
+
+    <p>
+      Université du Sine-Saloum El Hadji Ibrahima Niass
+    </p>
+  </footer>
+
+
+  <!-- JAVASCRIPT DU MENU -->
+  <script>
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", function () {
+      const menuOuvert = mobileMenu.classList.toggle("active");
+
+      menuButton.classList.toggle("active", menuOuvert);
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        menuOuvert ? "true" : "false"
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        menuOuvert ? "Fermer le menu" : "Ouvrir le menu"
+      );
+    });
+
+    document.querySelectorAll("#mobile-menu a").forEach(function (lien) {
+      lien.addEventListener("click", function () {
+        mobileMenu.classList.remove("active");
+        menuButton.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Ouvrir le menu");
+      });
+    });
+  </script>
+
+</body>
+</html>
