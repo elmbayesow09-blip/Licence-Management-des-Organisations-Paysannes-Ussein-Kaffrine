@@ -4,25 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Débouchés professionnels | MOP-USSEIN</title>
+  <title>Débouchés professionnels | Licence MOP - USSEIN</title>
 
-  <meta
-    name="description"
-    content="Découvrez les débouchés professionnels de la Licence Management des Organisations Paysannes de l'USSEIN."
-  >
+  <meta name="description" content="Découvrez les débouchés professionnels de la Licence Management des Organisations Paysannes à l'USSEIN de Kaffrine.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --vert-fonce: #124d2c;
-      --vert: #198754;
-      --vert-clair: #eaf6ee;
-      --or: #c49a3a;
-      --texte: #243424;
-      --gris: #647067;
-      --blanc: #ffffff;
-      --fond: #f5f8f5;
-      --ombre: 0 12px 35px rgba(18, 77, 44, 0.10);
-      --rayon: 18px;
+      --primary: #166534;
+      --primary-dark: #14532d;
+      --primary-light: #22c55e;
+      --secondary: #f59e0b;
+      --cream: #fffdf5;
+      --dark: #17221b;
+      --text: #526158;
+      --white: #ffffff;
+      --border: #e6eee8;
+      --shadow: 0 20px 60px rgba(20, 83, 45, 0.10);
+      --radius: 22px;
     }
 
     * {
@@ -36,14 +39,16 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--fond);
-      color: var(--texte);
-      line-height: 1.6;
+      font-family: "Inter", sans-serif;
+      background: #ffffff;
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
     img {
@@ -51,316 +56,425 @@
       display: block;
     }
 
-    /* ================= EN-TÊTE ================= */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: var(--blanc);
-      box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
-      animation: apparition 0.8s ease-out;
+    button {
+      font: inherit;
+      cursor: pointer;
     }
 
-    .header-container {
-      max-width: 1200px;
+    .container {
+      width: min(1180px, 92%);
       margin: auto;
-      min-height: 92px;
-      padding: 12px 25px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      margin-bottom: 18px;
+      border-radius: 100px;
+      background: #ecfdf3;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      color: var(--dark);
+    }
+
+    .section-description {
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 24px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--primary);
+      box-shadow: 0 10px 25px rgba(22, 101, 52, 0.20);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(22, 101, 52, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--primary);
+      background: white;
+      border: 1px solid #dce9df;
+    }
+
+    .btn-secondary:hover {
+      background: #f0fdf4;
+      transform: translateY(-3px);
+    }
+
+    /* Navigation */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(230, 238, 232, 0.8);
+    }
+
+    .nav-content {
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 25px;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
       gap: 12px;
-      color: var(--texte);
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1rem;
     }
 
-    .logo-mop {
-      width: 70px;
-      height: 70px;
+    .logo img {
+      width: 48px;
+      height: 48px;
       object-fit: contain;
       border-radius: 50%;
-      transition: transform 0.4s ease;
     }
 
-    .logo-mop:hover {
-      transform: rotate(8deg) scale(1.06);
+    .logo span {
+      max-width: 220px;
+      line-height: 1.25;
     }
 
-    .brand h1 {
-      color: var(--vert-fonce);
-      font-size: 23px;
-      font-weight: 800;
-    }
-
-    .brand p {
-      font-size: 14px;
-      color: #444;
-    }
-
-    .brand small {
-      display: block;
-      margin-top: 2px;
-      font-size: 11px;
-      color: var(--gris);
-    }
-
-    .desktop-menu {
+    .nav-links {
       display: flex;
       align-items: center;
       gap: 25px;
+      list-style: none;
     }
 
-    .desktop-menu a {
-      position: relative;
-      color: var(--texte);
-      font-weight: 700;
+    .nav-links a {
+      color: #405248;
+      font-size: 14px;
+      font-weight: 600;
       transition: color 0.3s ease;
     }
 
-    .desktop-menu a:hover,
-    .desktop-menu a.active {
-      color: var(--vert);
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
     }
 
-    .desktop-menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 0;
-      height: 3px;
+    .nav-cta {
+      padding: 11px 18px;
+      color: white !important;
+      background: var(--primary);
       border-radius: 10px;
-      background: var(--or);
-      transition: width 0.3s ease;
-    }
-
-    .desktop-menu a:hover::after,
-    .desktop-menu a.active::after {
-      width: 100%;
     }
 
     .menu-button {
       display: none;
-      border: 0;
+      border: none;
       background: transparent;
-      cursor: pointer;
-      padding: 8px;
+      font-size: 28px;
+      color: var(--primary);
     }
 
-    .bar {
-      display: block;
-      width: 28px;
-      height: 3px;
-      margin: 5px 0;
-      border-radius: 5px;
-      background: var(--vert-fonce);
-      transition: 0.3s ease;
-    }
-
-    .mobile-menu {
-      display: none;
-      background: var(--blanc);
-      padding: 20px;
-      flex-direction: column;
-      gap: 16px;
-      border-top: 1px solid #edf0ed;
-    }
-
-    .mobile-menu a {
-      color: var(--texte);
-      font-weight: 700;
-    }
-
-    /* ================= BANNIÈRE ================= */
+    /* Hero */
 
     .hero {
-      min-height: 420px;
-      padding: 90px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
+      position: relative;
+      padding: 180px 0 110px;
       background:
-        linear-gradient(
-          rgba(11, 65, 36, 0.82),
-          rgba(11, 65, 36, 0.82)
-        ),
-        url("assets/images/debouches.jpg") center/cover;
-      animation: apparition 0.9s ease-out;
+        linear-gradient(120deg, rgba(20, 83, 45, 0.95), rgba(22, 101, 52, 0.82)),
+        url("assets/images/agriculture-rurale.jpg") center/cover;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -160px;
+      bottom: -160px;
+      width: 450px;
+      height: 450px;
+      border: 70px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
     }
 
     .hero-content {
-      max-width: 850px;
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
     }
 
-    .hero-label {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 8px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-radius: 30px;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.10);
       font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      font-weight: 700;
     }
 
-    .hero h2 {
-      margin-bottom: 18px;
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.15;
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.08;
+      margin-bottom: 25px;
     }
 
-    .hero p {
-      max-width: 720px;
-      margin: auto;
-      font-size: 19px;
-      color: #f1f8f2;
+    .hero h1 span {
+      color: #fcd34d;
     }
 
-    /* ================= CONTENEUR ================= */
-
-    .container {
-      width: min(1150px, 92%);
-      margin: auto;
-      padding: 75px 0;
+    .hero-description {
+      max-width: 690px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.12rem;
+      margin-bottom: 35px;
     }
 
-    .section-heading {
-      max-width: 760px;
-      margin: 0 auto 45px;
-      text-align: center;
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
-    .section-heading .eyebrow {
-      color: var(--or);
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+    .hero .btn-primary {
+      background: #f59e0b;
+      color: #1f2937;
     }
 
-    .section-heading h2 {
-      margin: 10px 0 15px;
-      color: var(--vert-fonce);
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.2;
+    .hero .btn-primary:hover {
+      background: #fbbf24;
     }
 
-    .section-heading p {
-      color: var(--gris);
-      font-size: 16px;
+    .hero .btn-secondary {
+      color: white;
+      background: rgba(255, 255, 255, 0.10);
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
-    /* ================= CARTES DES DÉBOUCHÉS ================= */
+    .hero .btn-secondary:hover {
+      background: white;
+      color: var(--primary);
+    }
 
-    .career-grid {
+    /* Introduction */
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .intro-image {
+      position: relative;
+    }
+
+    .intro-image img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-image::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      left: -25px;
+      bottom: -25px;
+      border-radius: 20px;
+      background: #dcfce7;
+      z-index: -1;
+    }
+
+    .intro-content .section-title {
+      text-align: left;
+    }
+
+    .intro-content p {
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 14px;
+      margin: 25px 0 30px;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #34443a;
+      font-weight: 600;
+    }
+
+    .check-list li span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      color: white;
+      background: var(--primary-light);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    /* Jobs */
+
+    .jobs-section {
+      background: var(--cream);
+    }
+
+    .jobs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      gap: 24px;
     }
 
-    .career-card {
+    .job-card {
       position: relative;
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 25px rgba(20, 83, 45, 0.04);
+      transition: all 0.35s ease;
       overflow: hidden;
-      background: var(--blanc);
-      border: 1px solid #e4ece5;
-      border-radius: var(--rayon);
-      box-shadow: var(--ombre);
-      transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
     }
 
-    .career-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 45px rgba(18, 77, 44, 0.16);
-    }
-
-    .career-card::before {
+    .job-card::before {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--vert), var(--or));
+      height: 4px;
+      background: var(--primary-light);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
     }
 
-    .career-image {
-      height: 190px;
-      overflow: hidden;
+    .job-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+      border-color: #ccebd5;
     }
 
-    .career-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+    .job-card:hover::before {
+      transform: scaleX(1);
     }
 
-    .career-card:hover .career-image img {
-      transform: scale(1.08);
-    }
-
-    .career-content {
-      padding: 25px;
-    }
-
-    .career-icon {
-      width: 52px;
-      height: 52px;
-      margin-bottom: 18px;
+    .job-icon {
+      width: 62px;
+      height: 62px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--vert-clair);
-      border-radius: 14px;
-      color: var(--vert-fonce);
-      font-size: 25px;
+      margin-bottom: 22px;
+      border-radius: 18px;
+      background: #ecfdf3;
+      font-size: 30px;
     }
 
-    .career-content h3 {
-      margin-bottom: 10px;
-      color: var(--vert-fonce);
-      font-size: 21px;
+    .job-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--dark);
     }
 
-    .career-content p {
-      color: var(--gris);
-      font-size: 15px;
+    .job-card p {
+      color: var(--text);
+      font-size: 0.94rem;
+      margin-bottom: 20px;
     }
 
-    .career-content ul {
-      margin-top: 15px;
-      padding-left: 20px;
-      color: var(--gris);
-      font-size: 14px;
+    .job-tag {
+      display: inline-block;
+      padding: 6px 11px;
+      border-radius: 8px;
+      background: #f0fdf4;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .career-content li {
-      margin-bottom: 6px;
-    }
-
-    /* ================= STATISTIQUES ================= */
+    /* Stats */
 
     .stats-section {
-      background: var(--vert-fonce);
+      background: var(--primary);
       color: white;
+      position: relative;
+      overflow: hidden;
     }
 
-    .stats-section .container {
-      padding: 55px 0;
+    .stats-section::before {
+      content: "";
+      position: absolute;
+      top: -180px;
+      left: -180px;
+      width: 400px;
+      height: 400px;
+      border: 60px solid rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
     }
 
     .stats-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 25px;
@@ -368,207 +482,408 @@
     }
 
     .stat-item {
-      padding: 15px;
+      padding: 20px;
     }
 
     .stat-number {
-      display: block;
-      margin-bottom: 8px;
-      color: #f0ca68;
-      font-size: 40px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 800;
+      line-height: 1;
+      margin-bottom: 15px;
+      color: #fcd34d;
     }
 
     .stat-label {
-      color: #e3f0e6;
-      font-size: 14px;
+      color: rgba(255, 255, 255, 0.80);
+      font-size: 0.95rem;
     }
 
-    /* ================= COMPÉTENCES ================= */
+    /* Skills */
 
-    .skills-layout {
+    .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: stretch;
+      gap: 24px;
     }
 
-    .skills-panel {
-      background: white;
-      padding: 35px;
-      border-radius: var(--rayon);
-      box-shadow: var(--ombre);
-    }
-
-    .skills-panel h3 {
-      margin-bottom: 20px;
-      color: var(--vert-fonce);
-      font-size: 25px;
-    }
-
-    .skill {
-      margin-bottom: 20px;
-    }
-
-    .skill:last-child {
-      margin-bottom: 0;
-    }
-
-    .skill-title {
+    .skill-card {
       display: flex;
+      gap: 20px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      border-color: #b7e4c2;
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-number {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 14px;
+      color: white;
+      background: var(--primary);
+      font-weight: 800;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .skill-card p {
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    /* Career path */
+
+    .career-section {
+      background: #f8faf9;
+    }
+
+    .career-path {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .career-path::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: #bbf7d0;
+      z-index: 0;
+    }
+
+    .career-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .career-circle {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+      border: 8px solid #f0fdf4;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-size: 25px;
+      font-weight: 800;
+      box-shadow: 0 0 0 1px #bbf7d0;
+    }
+
+    .career-step h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .career-step p {
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    /* Bacheliers */
+
+    .bacheliers-section {
+      padding: 90px 0;
+      background:
+        linear-gradient(120deg, rgba(20, 83, 45, 0.95), rgba(22, 101, 52, 0.88)),
+        url("assets/images/campus.jpg") center/cover;
+      color: white;
+    }
+
+    .bacheliers-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .bacheliers-content h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .bacheliers-content p {
+      color: rgba(255, 255, 255, 0.84);
+      margin-bottom: 25px;
+    }
+
+    .orientation-box {
+      padding: 35px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      border-radius: var(--radius);
+      backdrop-filter: blur(12px);
+    }
+
+    .orientation-box h3 {
+      margin-bottom: 18px;
+      font-size: 1.25rem;
+    }
+
+    .orientation-list {
+      list-style: none;
+      display: grid;
+      gap: 13px;
+    }
+
+    .orientation-list li {
+      display: flex;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.90);
+      font-size: 0.95rem;
+    }
+
+    .orientation-list li::before {
+      content: "✓";
+      color: #fcd34d;
+      font-weight: 900;
+    }
+
+    /* FAQ */
+
+    .faq-container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      margin-bottom: 7px;
-      font-weight: bold;
-      font-size: 14px;
+      gap: 20px;
+      padding: 23px 0;
+      border: none;
+      background: transparent;
+      text-align: left;
+      color: var(--dark);
+      font-size: 1rem;
+      font-weight: 700;
     }
 
-    .progress {
-      height: 9px;
+    .faq-question span:last-child {
+      color: var(--primary);
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
       overflow: hidden;
-      background: #e6eee8;
-      border-radius: 20px;
+      transition: max-height 0.4s ease;
     }
 
-    .progress span {
-      display: block;
-      height: 100%;
-      width: 85%;
-      background: linear-gradient(90deg, var(--vert), var(--or));
-      border-radius: 20px;
-      animation: progression 1.5s ease-out;
+    .faq-answer p {
+      padding: 0 0 23px;
+      color: var(--text);
     }
 
-    .progress span.p2 {
-      width: 75%;
+    .faq-item.active .faq-question span:last-child {
+      transform: rotate(45deg);
     }
 
-    .progress span.p3 {
-      width: 90%;
+    /* Contact */
+
+    .contact-section {
+      background: var(--cream);
     }
 
-    .progress span.p4 {
-      width: 70%;
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 55px;
+      background: white;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
-    .professional-list {
+    .contact-card h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .contact-card p {
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+
+    .email-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: #ecfdf3;
+      color: var(--primary);
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .contact-options {
       display: grid;
       gap: 15px;
     }
 
-    .professional-list li {
+    .contact-option {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      list-style: none;
-      color: var(--gris);
+      align-items: center;
+      gap: 15px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      transition: all 0.3s ease;
     }
 
-    .check {
-      flex-shrink: 0;
-      width: 25px;
-      height: 25px;
+    .contact-option:hover {
+      border-color: #b7e4c2;
+      background: #f8fffa;
+      transform: translateX(5px);
+    }
+
+    .contact-option-icon {
+      width: 45px;
+      height: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--vert-clair);
-      color: var(--vert);
-      border-radius: 50%;
-      font-weight: bold;
+      border-radius: 12px;
+      background: #ecfdf3;
+      font-size: 20px;
     }
 
-    /* ================= APPEL À L'ACTION ================= */
-
-    .cta {
-      width: min(1000px, 92%);
-      margin: 0 auto 75px;
-      padding: 55px 30px;
-      border-radius: 25px;
-      text-align: center;
-      color: white;
-      background:
-        linear-gradient(
-          120deg,
-          rgba(18, 77, 44, 0.96),
-          rgba(25, 135, 84, 0.94)
-        );
-      box-shadow: var(--ombre);
+    .contact-option strong {
+      display: block;
+      margin-bottom: 2px;
     }
 
-    .cta h2 {
-      margin-bottom: 15px;
-      font-size: 32px;
+    .contact-option small {
+      color: var(--text);
     }
 
-    .cta p {
-      max-width: 700px;
-      margin: 0 auto 25px;
-      color: #edf8ef;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 27px;
-      border-radius: 30px;
-      background: var(--or);
-      color: white;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-
-    .button:hover {
-      background: #a47e27;
-      transform: translateY(-3px);
-    }
-
-    .button-light {
-      margin-left: 10px;
-      background: white;
-      color: var(--vert-fonce);
-    }
-
-    .button-light:hover {
-      background: #edf7ef;
-    }
-
-    /* ================= PIED DE PAGE ================= */
+    /* Footer */
 
     footer {
-      padding: 35px 20px;
-      text-align: center;
-      background: #0b321d;
+      padding: 35px 0;
+      background: #102318;
       color: white;
     }
 
-    footer p {
-      margin: 5px 0;
-      font-size: 14px;
-      color: #dcebdd;
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
     }
 
-    /* ================= ANIMATIONS ================= */
-
-    @keyframes apparition {
-      from {
-        opacity: 0;
-        transform: translateY(-25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
     }
 
-    @keyframes progression {
-      from {
-        width: 0;
-      }
+    .footer-brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 50%;
     }
 
-    /* ================= RESPONSIVE ================= */
+    .footer-content p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.88rem;
+    }
 
-    @media (max-width: 900px) {
-      .career-grid {
+    .footer-email {
+      color: #86efac;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Scroll reveal */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Back to top */
+
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-size: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 900;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-4px);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1000px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .jobs-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -576,102 +891,122 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .skills-layout {
-        grid-template-columns: 1fr;
+      .career-path {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 45px 25px;
+      }
+
+      .career-path::before {
+        display: none;
       }
     }
 
-    @media (max-width: 700px) {
-      .header-container {
-        min-height: 75px;
-        padding: 10px 15px;
-      }
-
-      .logo-mop {
-        width: 55px;
-        height: 55px;
-      }
-
-      .brand h1 {
-        font-size: 18px;
-      }
-
-      .brand p {
-        font-size: 11px;
-      }
-
-      .brand small {
-        font-size: 9px;
-      }
-
-      .desktop-menu {
-        display: none;
+    @media (max-width: 768px) {
+      .section {
+        padding: 70px 0;
       }
 
       .menu-button {
         display: block;
       }
 
-      .mobile-menu.active {
+      .nav-links {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 15px 5%;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.06);
+      }
+
+      .nav-links.active {
         display: flex;
-        animation: apparition 0.35s ease-out;
       }
 
-      .menu-button.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+      .nav-links li a {
+        display: block;
+        padding: 13px 0;
       }
 
-      .menu-button.active .bar:nth-child(2) {
-        opacity: 0;
-      }
-
-      .menu-button.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+      .nav-cta {
+        text-align: center;
+        margin-top: 8px;
       }
 
       .hero {
-        min-height: 350px;
-        padding: 65px 20px;
+        padding: 145px 0 80px;
       }
 
-      .hero p {
-        font-size: 16px;
+      .intro-grid,
+      .bacheliers-content,
+      .contact-card {
+        grid-template-columns: 1fr;
       }
 
-      .career-grid {
+      .intro-image img {
+        height: 330px;
+      }
+
+      .jobs-grid,
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
       }
 
-      .stat-number {
-        font-size: 32px;
+      .contact-card {
+        padding: 30px 22px;
       }
 
-      .container {
-        padding: 55px 0;
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo span {
+        font-size: 0.78rem;
+        max-width: 170px;
       }
 
-      .skills-panel {
-        padding: 25px;
+      .logo img {
+        width: 40px;
+        height: 40px;
       }
 
-      .cta {
-        padding: 40px 22px;
+      .hero h1 {
+        font-size: 2.45rem;
       }
 
-      .cta h2 {
-        font-size: 27px;
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .button,
-      .button-light {
-        display: block;
-        margin: 10px auto;
-        max-width: 260px;
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .career-path {
+        grid-template-columns: 1fr;
+      }
+
+      .career-step {
+        max-width: 280px;
+        margin: auto;
       }
     }
   </style>
@@ -679,306 +1014,774 @@
 
 <body>
 
-  <!-- ================= EN-TÊTE ================= -->
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-content">
 
-  <header class="site-header">
-
-    <div class="header-container">
-
-      <a href="index.html" class="brand">
-        <img
-          src="assets/images/logo-mop.jpg"
-          alt="Logo MOP-USSEIN"
-          class="logo-mop"
-        >
-
-        <div>
-          <h1>MOP-USSEIN</h1>
-          <p>Management des Organisations Paysannes</p>
-          <small>
-            Université du Sine-Saloum El Hadji Ibrahima Niass
-          </small>
-        </div>
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo-mop.png" alt="Logo MOP">
+        <span>
+          Licence Management<br>
+          des Organisations Paysannes
+        </span>
       </a>
 
-      <nav class="desktop-menu">
-        <a href="index.html">Accueil</a>
-        <a href="formation.html">Formation</a>
-        <a href="parcours.html">Parcours</a>
-        <a href="debouches.html" class="active">Débouchés</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <button
-        id="menu-button"
-        class="menu-button"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-      >
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+      <button class="menu-button" id="menuButton" aria-label="Ouvrir le menu">
+        ☰
       </button>
 
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="formation.html">La formation</a></li>
+        <li><a href="parcours.html">Parcours</a></li>
+        <li><a href="débouchés.html" class="active">Débouchés</a></li>
+        <li><a href="espace-etudiants.html">Espace étudiants</a></li>
+        <li>
+          <a href="mailto:clubdesmanagers7@gmail.com" class="nav-cta">
+            Nous contacter
+          </a>
+        </li>
+      </ul>
+
     </div>
-
-    <nav id="mobile-menu" class="mobile-menu">
-      <a href="index.html">Accueil</a>
-      <a href="formation.html">Formation</a>
-      <a href="parcours.html">Parcours</a>
-      <a href="debouches.html">Débouchés</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
   </header>
 
-
-  <!-- ================= BANNIÈRE ================= -->
-
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-content">
-      <span class="hero-label">Insertion professionnelle</span>
+    <div class="container">
+      <div class="hero-content reveal">
 
-      <h2>
-        Les débouchés de la Licence MOP
-      </h2>
+        <div class="hero-badge">
+          <span>🎓</span>
+          Votre avenir commence ici
+        </div>
 
-      <p>
-        Une formation orientée vers la gestion des organisations,
-        le développement rural et l’accompagnement des acteurs du monde agricole.
-      </p>
+        <h1>
+          Une licence pour construire
+          <span>votre avenir professionnel</span>
+        </h1>
+
+        <p class="hero-description">
+          La Licence Management des Organisations Paysannes prépare des
+          professionnels capables d'accompagner, de gérer et de développer
+          les organisations agricoles et rurales.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#metiers" class="btn btn-primary">
+            Découvrir les métiers
+            <span>→</span>
+          </a>
+
+          <a href="mailto:clubdesmanagers7@gmail.com" class="btn btn-secondary">
+            Poser une question
+            <span>✉</span>
+          </a>
+        </div>
+
+      </div>
     </div>
   </section>
 
+  <!-- Introduction -->
+  <section class="section">
+    <div class="container intro-grid">
 
-  <!-- ================= PRÉSENTATION ================= -->
+      <div class="intro-image reveal">
+        <img
+          src="assets/images/agriculture-rurale.jpg"
+          alt="Étudiants et acteurs du monde rural"
+        >
+      </div>
 
-  <main>
+      <div class="intro-content reveal">
+        <span class="section-label">Une formation tournée vers l'emploi</span>
 
-    <section class="container">
-
-      <div class="section-heading">
-        <span class="eyebrow">Votre avenir professionnel</span>
-
-        <h2>
-          Des compétences pour agir sur le terrain
+        <h2 class="section-title">
+          De la connaissance à l'action
         </h2>
 
         <p>
-          La Licence Management des Organisations Paysannes prépare
-          les étudiants à exercer des fonctions de gestion, de coordination,
-          d’accompagnement et de développement dans différents secteurs.
+          La Licence Management des Organisations Paysannes offre une
+          formation polyvalente à la croisée du management, de l'agriculture,
+          de l'économie sociale et du développement rural.
+        </p>
+
+        <p>
+          Elle permet aux étudiants de développer les compétences nécessaires
+          pour gérer des projets, accompagner les producteurs et participer
+          à la transformation des territoires.
+        </p>
+
+        <ul class="check-list">
+          <li>
+            <span>✓</span>
+            Comprendre le fonctionnement des organisations paysannes
+          </li>
+
+          <li>
+            <span>✓</span>
+            Maîtriser les outils de gestion et de management
+          </li>
+
+          <li>
+            <span>✓</span>
+            Participer au développement économique des territoires
+          </li>
+
+          <li>
+            <span>✓</span>
+            Développer un esprit entrepreneurial et innovant
+          </li>
+        </ul>
+
+        <a href="formation.html" class="btn btn-primary">
+          Découvrir la formation
+          <span>→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Métiers -->
+  <section class="section jobs-section" id="metiers">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Les opportunités</span>
+
+        <h2 class="section-title">
+          Quels métiers après la licence ?
+        </h2>
+
+        <p class="section-description">
+          Les compétences acquises permettent d'accéder à plusieurs métiers
+          dans les organisations paysannes, les ONG, les projets de
+          développement, les collectivités et le secteur privé.
         </p>
       </div>
 
-      <!-- CARTES DES DÉBOUCHÉS -->
+      <div class="jobs-grid">
 
-      <div class="career-grid">
-
-        <article class="career-card">
-
-          <div class="career-image">
-            <img
-              src="assets/images/organisation-paysanne.jpg"
-              alt="Organisation paysanne"
-            >
-          </div>
-
-          <div class="career-content">
-
-            <div class="career-icon">🌾</div>
-
-            <h3>Organisations paysannes</h3>
-
-            <p>
-              Participez à la gestion et au développement des organisations
-              de producteurs et des coopératives agricoles.
-            </p>
-
-            <ul>
-              <li>Responsable administratif</li>
-              <li>Animateur d’organisation</li>
-              <li>Chargé de gestion</li>
-            </ul>
-
-          </div>
-
+        <article class="job-card reveal">
+          <div class="job-icon">👨‍🌾</div>
+          <h3>Animateur rural</h3>
+          <p>
+            Accompagner les producteurs, organiser des réunions et faciliter
+            la participation des communautés rurales.
+          </p>
+          <span class="job-tag">Développement rural</span>
         </article>
 
-
-        <article class="career-card">
-
-          <div class="career-image">
-            <img
-              src="assets/images/ong-developpement.jpg"
-              alt="Projet de développement rural"
-            >
-          </div>
-
-          <div class="career-content">
-
-            <div class="career-icon">🤝</div>
-
-            <h3>ONG et projets</h3>
-
-            <p>
-              Intégrez des projets de développement local, agricole,
-              social ou communautaire.
-            </p>
-
-            <ul>
-              <li>Assistant de projet</li>
-              <li>Agent de développement</li>
-              <li>Chargé de suivi-évaluation</li>
-            </ul>
-
-          </div>
-
+        <article class="job-card reveal">
+          <div class="job-icon">📊</div>
+          <h3>Assistant de gestion</h3>
+          <p>
+            Participer à la gestion administrative, financière et
+            organisationnelle d'une structure.
+          </p>
+          <span class="job-tag">Gestion</span>
         </article>
 
-
-        <article class="career-card">
-
-          <div class="career-image">
-            <img
-              src="assets/images/cooperative-agricole.jpg"
-              alt="Coopérative agricole"
-            >
-          </div>
-
-          <div class="career-content">
-
-            <div class="career-icon">🏢</div>
-
-            <h3>Coopératives agricoles</h3>
-
-            <p>
-              Accompagnez les coopératives dans leur organisation,
-              leur production et leur développement économique.
-            </p>
-
-            <ul>
-              <li>Gestionnaire de coopérative</li>
-              <li>Responsable de production</li>
-              <li>Chargé de commercialisation</li>
-            </ul>
-
-          </div>
-
+        <article class="job-card reveal">
+          <div class="job-icon">🌱</div>
+          <h3>Conseiller agricole</h3>
+          <p>
+            Appuyer les exploitants et les organisations dans l'amélioration
+            de leurs activités agricoles.
+          </p>
+          <span class="job-tag">Agriculture</span>
         </article>
 
-
-        <article class="career-card">
-
-          <div class="career-image">
-            <img
-              src="assets/images/entrepreneuriat-rural.jpg"
-              alt="Entrepreneuriat rural"
-            >
-          </div>
-
-          <div class="career-content">
-
-            <div class="career-icon">💼</div>
-
-            <h3>Entrepreneuriat rural</h3>
-
-            <p>
-              Créez ou développez une activité dans l’agriculture,
-              l’agroalimentaire ou les services ruraux.
-            </p>
-
-            <ul>
-              <li>Entrepreneur agricole</li>
-              <li>Créateur d’entreprise</li>
-              <li>Responsable d’activité</li>
-            </ul>
-
-          </div>
-
+        <article class="job-card reveal">
+          <div class="job-icon">🤝</div>
+          <h3>Chargé de projet</h3>
+          <p>
+            Participer à la conception, à la mise en œuvre et au suivi des
+            projets de développement.
+          </p>
+          <span class="job-tag">Gestion de projet</span>
         </article>
 
-
-        <article class="career-card">
-
-          <div class="career-image">
-            <img
-              src="assets/images/consultant-agricole.jpg"
-              alt="Conseil agricole"
-            >
-          </div>
-
-          <div class="career-content">
-
-            <div class="career-icon">📊</div>
-
-            <h3>Conseil et accompagnement</h3>
-
-            <p>
-              Apportez un appui technique et organisationnel aux acteurs
-              du secteur agricole et rural.
-            </p>
-
-            <ul>
-              <li>Conseiller agricole</li>
-              <li>Assistant consultant</li>
-              <li>Accompagnateur de projets</li>
-            </ul>
-
-          </div>
-
+        <article class="job-card reveal">
+          <div class="job-icon">🏢</div>
+          <h3>Assistant administratif</h3>
+          <p>
+            Assurer le suivi des dossiers, la rédaction des documents et la
+            coordination des activités.
+          </p>
+          <span class="job-tag">Administration</span>
         </article>
 
+        <article class="job-card reveal">
+          <div class="job-icon">🚀</div>
+          <h3>Entrepreneur rural</h3>
+          <p>
+            Créer ou développer une activité dans l'agriculture,
+            l'agroalimentaire ou les services ruraux.
+          </p>
+          <span class="job-tag">Entrepreneuriat</span>
+        </article>
 
-        <article class="career-card">
+        <article class="job-card reveal">
+          <div class="job-icon">📣</div>
+          <h3>Chargé de communication</h3>
+          <p>
+            Valoriser les activités d'une organisation et développer ses
+            relations avec les partenaires.
+          </p>
+          <span class="job-tag">Communication</span>
+        </article>
 
-          <div class="career-image">
-            <img
-              src="assets/images/institution-publique.jpg"
-              alt="Institution publique"
-            >
-          </div>
+        <article class="job-card reveal">
+          <div class="job-icon">💰</div>
+          <h3>Assistant suivi-évaluation</h3>
+          <p>
+            Collecter les données, mesurer les résultats et contribuer à
+            l'amélioration des projets.
+          </p>
+          <span class="job-tag">Suivi-évaluation</span>
+        </article>
 
-          <div class="career-content">
-
-            <div class="career-icon">🏛️</div>
-
-            <h3>Institutions publiques</h3>
-
-            <p>
-              Travaillez dans les services publics et les structures
-              qui interviennent dans le développement rural.
-            </p>
-
-            <ul>
-              <li>Agent de développement local</li>
-              <li>Assistant administratif</li>
-              <li>Chargé de programme</li>
-            </ul>
-
-          </div>
-
+        <article class="job-card reveal">
+          <div class="job-icon">🌍</div>
+          <h3>Agent de développement</h3>
+          <p>
+            Participer aux actions des ONG, collectivités et programmes
+            intervenant dans les territoires ruraux.
+          </p>
+          <span class="job-tag">Développement</span>
         </article>
 
       </div>
+    </div>
+  </section>
 
-    </section>
+  <!-- Statistiques -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-grid">
 
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="4">0</div>
+          <div class="stat-label">Domaines de compétences</div>
+        </div>
 
-    <!-- ================= STATISTIQUES ================= -->
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="9">0</div>
+          <div class="stat-label">Familles de métiers</div>
+        </div>
 
-    <section class="stats-section">
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="3">0</div>
+          <div class="stat-label">Années de formation</div>
+        </div>
 
-      <div class="container">
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="100" data-suffix="%">0</div>
+          <div class="stat-label">Orientation vers le monde professionnel</div>
+        </div>
 
-        <div class="stats-grid">
+      </div>
+    </div>
+  </section>
 
-          <div class="stat-item">
-            <span class="stat-number">03</span>
-            <span class="stat-label">Années de formation</span>
+  <!-- Compétences -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Votre valeur ajoutée</span>
+
+        <h2 class="section-title">
+          Les compétences qui feront la différence
+        </h2>
+
+        <p class="section-description">
+          Les employeurs recherchent des profils capables de comprendre les
+          réalités du terrain tout en maîtrisant les outils modernes de gestion.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-number">01</div>
+          <div>
+            <h3>Management des organisations</h3>
+            <p>
+              Organiser les activités, coordonner les équipes et participer
+              à la prise de décision.
+            </p>
           </div>
+        </div>
 
-          <div class="stat-item">
-            <span class="stat-number">06</span>
-            <span class="stat-label">Sec
+        <div class="skill-card reveal">
+          <div class="skill-number">02</div>
+          <div>
+            <h3>Gestion de projet</h3>
+            <p>
+              Planifier les activités, gérer les ressources et suivre les
+              résultats d'un projet.
+            </p>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-number">03</div>
+          <div>
+            <h3>Communication professionnelle</h3>
+            <p>
+              Rédiger des rapports, présenter des projets et travailler avec
+              différents partenaires.
+            </p>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-number">04</div>
+          <div>
+            <h3>Entrepreneuriat rural</h3>
+            <p>
+              Identifier les opportunités et développer des initiatives
+              économiques adaptées au milieu rural.
+            </p>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-number">05</div>
+          <div>
+            <h3>Analyse des données</h3>
+            <p>
+              Collecter, analyser et utiliser les informations pour améliorer
+              les décisions.
+            </p>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-number">06</div>
+          <div>
+            <h3>Travail en équipe</h3>
+            <p>
+              Collaborer avec les producteurs, les institutions, les ONG et
+              les partenaires techniques.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcours professionnel -->
+  <section class="section career-section">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Construisez votre avenir</span>
+
+        <h2 class="section-title">
+          Un parcours qui ouvre plusieurs portes
+        </h2>
+
+        <p class="section-description">
+          Après la licence, vous pouvez intégrer le monde professionnel ou
+          poursuivre vos études selon votre projet personnel.
+        </p>
+      </div>
+
+      <div class="career-path">
+
+        <div class="career-step reveal">
+          <div class="career-circle">1</div>
+          <h3>Licence</h3>
+          <p>
+            Acquérir les bases du management et du développement rural.
+          </p>
+        </div>
+
+        <div class="career-step reveal">
+          <div class="career-circle">2</div>
+          <h3>Stage pratique</h3>
+          <p>
+            Découvrir le terrain et développer une première expérience.
+          </p>
+        </div>
+
+        <div class="career-step reveal">
+          <div class="career-circle">3</div>
+          <h3>Insertion</h3>
+          <p>
+            Intégrer une organisation, un projet ou créer une activité.
+          </p>
+        </div>
+
+        <div class="career-step reveal">
+          <div class="career-circle">4</div>
+          <h3>Spécialisation</h3>
+          <p>
+            Poursuivre en master ou se spécialiser dans un domaine.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Nouveaux bacheliers -->
+  <section class="bacheliers-section">
+    <div class="container bacheliers-content">
+
+      <div class="reveal">
+        <h2>
+          Vous êtes nouveau bachelier ?
+          Votre avenir peut commencer dans le monde rural.
+        </h2>
+
+        <p>
+          Si vous aimez l'agriculture, la gestion, l'entrepreneuriat,
+          l'environnement ou le développement de votre territoire, cette
+          licence peut être une excellente orientation pour vous.
+        </p>
+
+        <a href="mailto:clubdesmanagers7@gmail.com" class="btn btn-primary">
+          Demander des informations
+          <span>✉</span>
+        </a>
+      </div>
+
+      <div class="orientation-box reveal">
+        <h3>Cette licence est adaptée si vous aimez :</h3>
+
+        <ul class="orientation-list">
+          <li>Le travail en équipe</li>
+          <li>La gestion et l'organisation</li>
+          <li>L'agriculture et le développement rural</li>
+          <li>Les projets communautaires</li>
+          <li>L'entrepreneuriat</li>
+          <li>Les métiers de terrain</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Questions fréquentes</span>
+
+        <h2 class="section-title">
+          Vous avez encore des questions ?
+        </h2>
+
+        <p class="section-description">
+          Voici quelques réponses pour vous aider à mieux comprendre les
+          possibilités offertes par cette licence.
+        </p>
+      </div>
+
+      <div class="faq-container">
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            <span>Peut-on travailler directement après la licence ?</span>
+            <span>+</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Oui. La licence permet de développer des compétences utiles
+              pour intégrer des organisations paysannes, des ONG, des projets
+              de développement, des collectivités ou des entreprises.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            <span>Peut-on poursuivre les études après la licence ?</span>
+            <span>+</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Oui. Les étudiants peuvent envisager une poursuite d'études
+              en master dans des domaines liés au management, au développement
+              rural, à l'économie sociale ou à la gestion de projet.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            <span>La formation prépare-t-elle à l'entrepreneuriat ?</span>
+            <span>+</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              La formation développe des compétences en organisation, gestion,
+              analyse des opportunités et conduite de projets qui peuvent
+              aider les étudiants à créer leur propre activité.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question">
+            <span>Comment contacter le club des étudiants ?</span>
+            <span>+</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Vous pouvez contacter le club des managers par email à
+              l'adresse clubdesmanagers7@gmail.com pour poser vos questions
+              sur la licence, la vie étudiante et l'orientation.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact-section">
+    <div class="container">
+
+      <div class="contact-card reveal">
+
+        <div>
+          <span class="section-label">Besoin d'informations ?</span>
+
+          <h2>
+            Échangez avec le club des managers
+          </h2>
+
+          <p>
+            Vous êtes étudiant, nouveau bachelier ou parent et vous souhaitez
+            en savoir plus sur la Licence Management des Organisations
+            Paysannes ? Écrivez-nous.
+          </p>
+
+          <a
+            href="mailto:clubdesmanagers7@gmail.com"
+            class="email-box"
+          >
+            ✉ clubdesmanagers7@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-options">
+
+          <a
+            href="mailto:clubdesmanagers7@gmail.com?subject=Demande%20d'informations%20sur%20la%20Licence%20MOP"
+            class="contact-option"
+          >
+            <div class="contact-option-icon">🎓</div>
+            <div>
+              <strong>Informations sur la licence</strong>
+              <small>Écrire au club pour découvrir la formation</small>
+            </div>
+          </a>
+
+          <a
+            href="mailto:clubdesmanagers7@gmail.com?subject=Orientation%20nouveau%20bachelier"
+            class="contact-option"
+          >
+            <div class="contact-option-icon">📚</div>
+            <div>
+              <strong>Orientation des nouveaux bacheliers</strong>
+              <small>Obtenir des conseils pour votre orientation</small>
+            </div>
+          </a>
+
+          <a
+            href="mailto:clubdesmanagers7@gmail.com?subject=Vie%20etudiante%20et%20club"
+            class="contact-option"
+          >
+            <div class="contact-option-icon">🤝</div>
+            <div>
+              <strong>Vie étudiante et activités</strong>
+              <small>Découvrir les activités du club</small>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+
+      <div class="footer-brand">
+        <img src="assets/images/logo-mop.png" alt="Logo MOP">
+
+        <div>
+          <div>Licence Management des Organisations Paysannes</div>
+          <p>USSEIN - Kaffrine</p>
+        </div>
+      </div>
+
+      <div>
+        <a
+          href="mailto:clubdesmanagers7@gmail.com"
+          class="footer-email"
+        >
+          clubdesmanagers7@gmail.com
+        </a>
+
+        <p>
+          © <span id="currentYear"></span> Club des Managers
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Bouton retour en haut -->
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    ↑
+  </button>
+
+  <script>
+    // Menu mobile
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+
+      if (navLinks.classList.contains("active")) {
+        menuButton.textContent = "✕";
+      } else {
+        menuButton.textContent = "☰";
+      }
+    });
+
+    // Fermer le menu après avoir cliqué sur un lien
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuButton.textContent = "☰";
+      });
+    });
+
+    // Animation d'apparition au défilement
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+    // Compteurs animés
+    const counters = document.querySelectorAll(".stat-number");
+    let countersStarted = false;
+
+    function animateCounters() {
+      if (countersStarted) return;
+
+      const statsSection = document.querySelector(".stats-section");
+      const sectionTop = statsSection.getBoundingClientRect().top;
+
+      if (sectionTop < window.innerHeight - 100) {
+        countersStarted = true;
+
+        counters.forEach(counter => {
+          const target = Number(counter.dataset.target);
+          const suffix = counter.dataset.suffix || "";
+          let current = 0;
+
+          const increment = Math.max(1, Math.ceil(target / 50));
+
+          const timer = setInterval(() => {
+            current += increment;
+
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+
+            counter.textContent = current + suffix;
+          }, 30);
+        });
+      }
+    }
+
+    window.addEventListener("scroll", animateCounters);
+    animateCounters();
+
+    // FAQ accordéon
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(question => {
+      question.addEventListener("click", () => {
+        const item = question.parentElement;
+        const answer = item.querySelector(".faq-answer");
+
+        document.querySelectorAll(".faq-item").forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove("active");
+            otherItem.querySelector(".faq-answer").style.maxHeight = null;
+          }
+        });
+
+        item.classList.toggle("active");
+
+        if (item.classList.contains("active")) {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+          answer.style.maxHeight = null;
+        }
+      });
+    });
+
+    // Bouton retour en haut
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    // Année automatique dans le footer
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
