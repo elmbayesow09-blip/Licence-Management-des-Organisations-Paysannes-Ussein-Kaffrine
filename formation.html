@@ -1,322 +1,3055 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-    <title>La formation - MOP USSEIN Kaffrine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+  <title>La Formation | Licence MOP - USSEIN Kaffrine</title>
+
+  <meta
+    name="description"
+    content="Découvrez la Licence Management des Organisations Paysannes de l'Université du Sine Saloum El Hadji Ibrahima Niass - Campus de Kaffrine."
+  >
+
+  <meta
+    name="keywords"
+    content="USSEIN, Kaffrine, Management des Organisations Paysannes, Licence MOP, agriculture, management, Sénégal"
+  >
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    :root {
+      --green: #0b6b3a;
+      --green-dark: #06482a;
+      --green-light: #16a05d;
+
+      --gold: #f3b51b;
+      --gold-light: #fff3c4;
+
+      --dark: #10231a;
+      --text: #53635a;
+      --white: #ffffff;
+
+      --background: #f7faf8;
+      --cream: #fffdf6;
+
+      --border: #e3ebe6;
+
+      --shadow:
+        0 20px 60px rgba(10, 72, 42, 0.10);
+
+      --shadow-small:
+        0 8px 25px rgba(10, 72, 42, 0.08);
+
+      --radius: 24px;
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+
+    /* =====================================================
+       BOUTONS
+    ===================================================== */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      padding: 15px 24px;
+
+      border-radius: 12px;
+
+      font-weight: 700;
+
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+
+      box-shadow:
+        0 12px 30px rgba(11, 107, 58, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #17220c;
+    }
+
+    .btn-gold:hover {
+      background: #ffc936;
+      transform: translateY(-3px);
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--green);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-3px);
+      background: #f5fff8;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    .navbar {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      z-index: 1000;
+
+      background: rgba(255,255,255,0.94);
+
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(220,230,223,0.8);
+    }
+
+    .nav-container {
+      min-height: 78px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      font-weight: 800;
+
+      color: var(--green);
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+
+      object-fit: contain;
+
+      border-radius: 50%;
+    }
+
+    .brand-text {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .brand-text small {
+      display: block;
+
+      color: #728078;
+
+      font-size: 10px;
+
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+
+      font-weight: 600;
+
+      color: #405148;
+
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--green);
+    }
+
+    .nav-contact {
+      background: var(--green);
+
+      color: white !important;
+
+      padding: 10px 17px;
+
+      border-radius: 10px;
+    }
+
+    .menu-button {
+      display: none;
+
+      border: none;
+
+      background: transparent;
+
+      font-size: 28px;
+
+      color: var(--green);
+
+      cursor: pointer;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      position: relative;
+
+      min-height: 720px;
+
+      display: flex;
+
+      align-items: center;
+
+      padding-top: 100px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4, 55, 31, 0.96),
+          rgba(5, 87, 45, 0.78),
+          rgba(5, 87, 45, 0.25)
+        ),
+        url("https://www.elevate-her.eu/sites/default/files/2024-05/USSEIN%201.jpg")
+        center / cover;
+
+      color: white;
+
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      right: -180px;
+      bottom: -200px;
+
+      width: 520px;
+      height: 520px;
+
+      border: 80px solid rgba(255,255,255,0.06);
+
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 780px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 9px 16px;
+
+      margin-bottom: 25px;
+
+      border-radius: 100px;
+
+      background: rgba(255,255,255,0.11);
+
+      border: 1px solid rgba(255,255,255,0.22);
+
+      font-size: 13px;
+
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+
+      line-height: 1.06;
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #ffd44e;
+    }
+
+    .hero-description {
+      max-width: 700px;
+
+      color: rgba(255,255,255,0.88);
+
+      font-size: 1.08rem;
+
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 14px;
+    }
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      max-width: 750px;
+
+      margin: 0 auto 55px;
+
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-flex;
+
+      padding: 8px 15px;
+
+      margin-bottom: 16px;
+
+      border-radius: 100px;
+
+      background: #eaf8ef;
+
+      color: var(--green);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(2rem, 4vw, 3.3rem);
+
+      line-height: 1.2;
+
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: var(--text);
+
+      font-size: 1rem;
+    }
+
+
+    /* =====================================================
+       INTRODUCTION
+    ===================================================== */
+
+    .intro {
+      background: white;
+    }
+
+    .intro-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 65px;
+
+      align-items: center;
+    }
+
+    .intro-image {
+      position: relative;
+    }
+
+    .intro-image img {
+      height: 500px;
+
+      object-fit: cover;
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .image-caption {
+      position: absolute;
+
+      left: 25px;
+      right: 25px;
+      bottom: 25px;
+
+      padding: 18px;
+
+      border-radius: 16px;
+
+      background: rgba(5,55,32,0.88);
+
+      backdrop-filter: blur(10px);
+
+      color: white;
+
+      font-size: 13px;
+    }
+
+    .intro-content h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(2rem,4vw,3.3rem);
+
+      line-height: 1.2;
+
+      margin-bottom: 22px;
+    }
+
+    .intro-content p {
+      color: var(--text);
+
+      margin-bottom: 18px;
+    }
+
+    .check-list {
+      display: grid;
+
+      gap: 14px;
+
+      margin: 28px 0;
+
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+
+      gap: 12px;
+
+      align-items: flex-start;
+
+      font-weight: 600;
+
+      color: #35453c;
+    }
+
+    .check {
+      width: 24px;
+      height: 24px;
+
+      flex-shrink: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      color: white;
+
+      font-size: 12px;
+
+      margin-top: 2px;
+    }
+
+
+    /* =====================================================
+       STATS
+    ===================================================== */
+
+    .stats {
+      background: var(--green);
+
+      color: white;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 20px;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .stat {
+      padding: 25px;
+
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3.3rem;
+
+      font-weight: 800;
+
+      color: #ffd44e;
+
+      line-height: 1;
+
+      margin-bottom: 12px;
+    }
+
+    .stat p {
+      color: rgba(255,255,255,0.78);
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       POURQUOI MOP
+    ===================================================== */
+
+    .features {
+      background: var(--background);
+    }
+
+    .features-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 24px;
+    }
+
+    .feature-card {
+      padding: 30px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow-small);
+
+      transition: all 0.35s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+
+      box-shadow: var(--shadow);
+
+      border-color: #c7e5d1;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-bottom: 22px;
+
+      border-radius: 18px;
+
+      background: #eaf8ef;
+
+      font-size: 28px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+
+      font-size: 1.1rem;
+    }
+
+    .feature-card p {
+      color: var(--text);
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       PROGRAMME
+    ===================================================== */
+
+    .programme {
+      background: white;
+    }
+
+    .programme-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 25px;
+    }
+
+    .year-card {
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow-small);
+
+      transition: all 0.3s ease;
+    }
+
+    .year-card:hover {
+      transform: translateY(-6px);
+
+      box-shadow: var(--shadow);
+    }
+
+    .year-header {
+      padding: 28px;
+
+      background: var(--green);
+
+      color: white;
+    }
+
+    .year-header span {
+      display: block;
+
+      color: #b9f1ce;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      margin-bottom: 7px;
+    }
+
+    .year-header h3 {
+      font-size: 1.4rem;
+    }
+
+    .year-content {
+      padding: 25px;
+
+      background: white;
+    }
+
+    .course-list {
+      list-style: none;
+
+      display: grid;
+
+      gap: 14px;
+    }
+
+    .course-list li {
+      display: flex;
+
+      gap: 10px;
+
+      align-items: flex-start;
+
+      color: #4d5d54;
+
+      font-size: 14px;
+    }
+
+    .course-list li::before {
+      content: "✓";
+
+      color: var(--green);
+
+      font-weight: 900;
+    }
+
+
+    /* =====================================================
+       CAMPUS
+    ===================================================== */
+
+    .campus {
+      background: var(--cream);
+    }
+
+    .campus-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 60px;
+
+      align-items: center;
+    }
+
+    .campus-image {
+      overflow: hidden;
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .campus-image img {
+      height: 470px;
+
+      object-fit: cover;
+
+      transition: transform 0.6s ease;
+    }
+
+    .campus-image:hover img {
+      transform: scale(1.04);
+    }
+
+    .campus-content h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(2rem,4vw,3.2rem);
+
+      line-height: 1.2;
+
+      margin-bottom: 20px;
+    }
+
+    .campus-content p {
+      color: var(--text);
+
+      margin-bottom: 18px;
+    }
+
+    .campus-info {
+      display: grid;
+
+      gap: 12px;
+
+      margin: 25px 0;
+    }
+
+    .campus-info-item {
+      display: flex;
+
+      gap: 14px;
+
+      padding: 15px;
+
+      border-radius: 14px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+    }
+
+    .campus-info-icon {
+      font-size: 22px;
+    }
+
+    .campus-info strong {
+      display: block;
+
+      font-size: 14px;
+    }
+
+    .campus-info small {
+      color: var(--text);
+    }
+
+
+    /* =====================================================
+       GALERIE
+    ===================================================== */
+
+    .gallery {
+      background: #10251a;
+
+      color: white;
+    }
+
+    .gallery .section-description {
+      color: rgba(255,255,255,0.70);
+    }
+
+    .gallery-grid {
+      display: grid;
+
+      grid-template-columns: 1.4fr 1fr 1fr;
+
+      grid-template-rows: 250px 250px;
+
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+    }
+
+    .gallery-item:first-child {
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      padding: 25px 18px 18px;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,0.80)
+        );
+
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       ORIENTATION
+    ===================================================== */
+
+    .orientation {
+      padding: 90px 0;
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(7,75,41,0.97),
+          rgba(12,112,61,0.91)
+        );
+    }
+
+    .orientation-box {
+      display: grid;
+
+      grid-template-columns: 1.2fr 0.8fr;
+
+      gap: 60px;
+
+      align-items: center;
+
+      color: white;
+    }
+
+    .orientation h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(2rem,4vw,3.4rem);
+
+      line-height: 1.2;
+
+      margin-bottom: 18px;
+    }
+
+    .orientation p {
+      color: rgba(255,255,255,0.82);
+
+      margin-bottom: 25px;
+    }
+
+    .orientation-list {
+      padding: 30px;
+
+      background: rgba(255,255,255,0.10);
+
+      border: 1px solid rgba(255,255,255,0.20);
+
+      border-radius: var(--radius);
+
+      backdrop-filter: blur(10px);
+    }
+
+    .orientation-list h3 {
+      margin-bottom: 18px;
+    }
+
+    .orientation-list ul {
+      list-style: none;
+
+      display: grid;
+
+      gap: 12px;
+    }
+
+    .orientation-list li {
+      color: rgba(255,255,255,0.88);
+    }
+
+    .orientation-list li::before {
+      content: "✓";
+
+      color: #ffd44e;
+
+      font-weight: 900;
+
+      margin-right: 10px;
+    }
+
+
+    /* =====================================================
+       FAQ
+    ===================================================== */
+
+    .faq {
+      background: var(--background);
+    }
+
+    .faq-container {
+      max-width: 850px;
+
+      margin: auto;
+    }
+
+    .faq-item {
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: 15px;
+
+      margin-bottom: 12px;
+
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+
+      padding: 21px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      border: none;
+
+      background: white;
+
+      text-align: left;
+
+      font-weight: 700;
+
+      color: var(--dark);
+
+      cursor: pointer;
+    }
+
+    .faq-plus {
+      color: var(--green);
+
+      font-size: 24px;
+
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+
+      overflow: hidden;
+
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-answer p {
+      padding: 0 21px 21px;
+
+      color: var(--text);
+
+      font-size: 14px;
+    }
+
+    .faq-item.active .faq-plus {
+      transform: rotate(45deg);
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+
+    .contact {
+      padding: 90px 0;
+    }
+
+    .contact-card {
+      padding: 60px;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          120deg,
+          #f1fbf4,
+          #ffffff
+        );
+
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow);
+
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(2rem,4vw,3.3rem);
+
+      margin-bottom: 15px;
+    }
+
+    .contact-card p {
+      max-width: 650px;
+
+      margin: 0 auto 25px;
+
+      color: var(--text);
+    }
+
+    .email {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 14px 20px;
+
+      background: white;
+
+      border: 1px solid #cce5d4;
+
+      border-radius: 12px;
+
+      color: var(--green);
+
+      font-weight: 800;
+
+      margin-bottom: 25px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      background: #071910;
+
+      color: white;
+
+      padding: 40px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns: 1.5fr 1fr 1fr;
+
+      gap: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 12px;
+    }
+
+    .footer-brand img {
+      width: 45px;
+      height: 45px;
+
+      object-fit: contain;
+
+      border-radius: 50%;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+
+      font-size: 15px;
+    }
+
+    footer p,
+    footer a {
+      color: rgba(255,255,255,0.62);
+
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #8ff0b1;
+    }
+
+    .footer-email {
+      color: #8ff0b1 !important;
+    }
+
+    .copyright {
+      margin-top: 35px;
+
+      padding-top: 25px;
+
+      border-top: 1px solid rgba(255,255,255,0.10);
+
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       ANIMATION
+    ===================================================== */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(35px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
+
+    .back-top {
+      position: fixed;
+
+      right: 20px;
+      bottom: 20px;
+
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      color: white;
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: all 0.3s ease;
+
+      z-index: 900;
+    }
+
+    .back-top.show {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .features-grid,
+      .programme-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    @media (max-width: 780px) {
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 15px 5%;
+
+        background: white;
+
+        border-bottom: 1px solid var(--border);
+
+        box-shadow: 0 20px 30px rgba(0,0,0,0.07);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li a {
+        display: block;
+
+        padding: 12px 0;
+      }
+
+      .nav-contact {
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 680px;
+      }
+
+      .intro-grid,
+      .campus-grid,
+      .orientation-box {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-image img,
+      .campus-image img {
+        height: 350px;
+      }
+
+      .features-grid,
+      .programme-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-rows: 250px 200px 200px;
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 2;
+
+        grid-row: span 1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    @media (max-width: 500px) {
+
+      .brand-text {
+        font-size: 12px;
+      }
+
+      .brand img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hero {
+        padding-top: 110px;
+
+        min-height: 650px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows: repeat(3,250px);
+      }
+
+      .gallery-item:first-child {
+        grid-column: auto;
+      }
+
+      .contact-card {
+        padding: 35px 20px;
+      }
+
+    }
+
+  </style>
 </head>
 
-<body class="bg-green-50 text-gray-800">
 
-    <!-- En-tête -->
-    <header class="bg-green-950 px-6 py-5 text-white">
-        <div class="mx-auto flex max-w-6xl items-center justify-between">
-            <a href="index.html" class="text-xl font-bold">
-                MOP-USSEIN
-            </a>
+<body>
 
-            <a
-                href="index.html"
-                class="rounded-lg bg-yellow-400 px-4 py-2 font-bold text-green-950 hover:bg-yellow-300"
-            >
-                Retour à l'accueil
-            </a>
-        </div>
-    </header>
 
-    <!-- Grande présentation avec photo -->
-    <section
-        class="relative bg-green-900 px-6 py-24 text-center text-white"
-        style="
-            background-image:
-            linear-gradient(rgba(0, 70, 35, 0.75), rgba(0, 70, 35, 0.75)),
-            url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-        "
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+  <div class="container nav-container">
+
+    <a href="index.html" class="brand">
+
+      <img
+        src="assets/images/logo-mop.png"
+        alt="Logo MOP"
+      >
+
+      <div class="brand-text">
+
+        Licence MOP
+
+        <small>
+          USSEIN · Campus de Kaffrine
+        </small>
+
+      </div>
+
+    </a>
+
+
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Menu"
     >
-        <div class="relative mx-auto max-w-4xl">
-            <p class="mb-4 font-semibold uppercase tracking-widest text-yellow-300">
-                Licence professionnelle
-            </p>
+      ☰
+    </button>
 
-            <h1 class="mb-6 text-4xl font-extrabold md:text-6xl">
-                Management des Organisations Paysannes
-            </h1>
 
-            <p class="mx-auto max-w-3xl text-lg leading-8 text-green-100">
-                Une formation professionnelle destinée à préparer des
-                gestionnaires capables d'accompagner, d'organiser et de
-                développer les organisations paysannes.
-            </p>
+    <ul class="nav-links" id="navLinks">
+
+      <li>
+        <a href="index.html">
+          Accueil
+        </a>
+      </li>
+
+      <li>
+        <a href="formation.html" class="active">
+          Formation
+        </a>
+      </li>
+
+      <li>
+        <a href="parcours.html">
+          Parcours
+        </a>
+      </li>
+
+      <li>
+        <a href="debouches.html">
+          Débouchés
+        </a>
+      </li>
+
+      <li>
+        <a href="espace-etudiants.html">
+          Espace étudiants
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="mailto:clubdesmanagers7@gmail.com"
+          class="nav-contact"
+        >
+          Contact
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-content reveal">
+
+      <div class="hero-badge">
+        🎓 Licence professionnalisante · USSEIN
+      </div>
+
+      <h1>
+
+        Management des
+
+        <span>
+          Organisations Paysannes
+        </span>
+
+      </h1>
+
+      <p class="hero-description">
+
+        Une formation tournée vers le management,
+        les organisations paysannes, le développement
+        rural et les réalités économiques des territoires.
+
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          href="#formation"
+          class="btn btn-gold"
+        >
+          Découvrir la formation
+          →
+        </a>
+
+        <a
+          href="mailto:clubdesmanagers7@gmail.com"
+          class="btn btn-white"
+        >
+          Poser une question
+          ✉
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
+<section
+  class="section intro"
+  id="formation"
+>
+
+  <div class="container intro-grid">
+
+
+    <div class="intro-image reveal">
+
+      <img
+        src="https://www.ussein.sn/wp-content/uploads/2020/09/IMG_3646-scaled.jpg"
+        alt="Étudiants de l'USSEIN en salle de cours"
+      >
+
+      <div class="image-caption">
+
+        <strong>
+          Une formation ancrée dans les territoires
+        </strong>
+
+        <br>
+
+        USSEIN · Campus de Kaffrine
+
+      </div>
+
+    </div>
+
+
+    <div class="intro-content reveal">
+
+      <span class="section-label">
+        Présentation
+      </span>
+
+      <h2>
+        Une licence pensée pour le monde professionnel
+      </h2>
+
+      <p>
+
+        La Licence Management des Organisations Paysannes
+        s'inscrit dans la vocation professionnalisante de
+        l'USSEIN et dans son ancrage territorial.
+
+      </p>
+
+      <p>
+
+        Elle prépare les étudiants à comprendre les
+        organisations, à participer à leur gestion et à
+        accompagner les dynamiques de développement rural.
+
+      </p>
+
+
+      <ul class="check-list">
+
+        <li>
+          <span class="check">✓</span>
+          Management et organisation
+        </li>
+
+        <li>
+          <span class="check">✓</span>
+          Gestion et accompagnement des organisations
+        </li>
+
+        <li>
+          <span class="check">✓</span>
+          Développement rural et territorial
+        </li>
+
+        <li>
+          <span class="check">✓</span>
+          Approche professionnelle et pratique
+        </li>
+
+      </ul>
+
+
+      <a
+        href="debouches.html"
+        class="btn btn-primary"
+      >
+        Voir les débouchés
+        →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATISTIQUES
+===================================================== -->
+
+<section class="section stats">
+
+  <div class="container">
+
+    <div class="stats-grid">
+
+
+      <div class="stat reveal">
+
+        <div
+          class="stat-number"
+          data-target="3"
+        >
+          0
         </div>
-    </section>
 
-    <main>
+        <p>
+          Années de licence
+        </p>
 
-        <!-- Informations générales -->
-        <section class="px-6 py-16">
-            <div class="mx-auto max-w-6xl">
+      </div>
 
-                <h2 class="mb-10 text-center text-3xl font-bold text-green-950">
-                    Présentation de la formation
-                </h2>
 
-                <div class="grid gap-8 md:grid-cols-3">
+      <div class="stat reveal">
 
-                    <!-- Carte 1 -->
-                    <div class="overflow-hidden rounded-2xl bg-white shadow-lg">
-                        <img
-                            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
-                            alt="Étudiants en formation"
-                            class="h-52 w-full object-cover"
-                        >
+        <div
+          class="stat-number"
+          data-target="7"
+        >
+          0
+        </div>
 
-                        <div class="p-8">
-                            <div class="mb-4 text-4xl">🎓</div>
+        <p>
+          Licences proposées à Kaffrine
+        </p>
 
-                            <h3 class="mb-3 text-xl font-bold text-green-900">
-                                Niveau
-                            </h3>
+      </div>
 
-                            <p class="leading-7 text-gray-600">
-                                Formation de niveau Licence professionnelle,
-                                destinée aux étudiants souhaitant travailler
-                                dans le domaine du développement rural.
-                            </p>
-                        </div>
-                    </div>
 
-                    <!-- Carte 2 -->
-                    <div class="overflow-hidden rounded-2xl bg-white shadow-lg">
-                        <img
-                            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
-                            alt="Activité agricole"
-                            class="h-52 w-full object-cover"
-                        >
+      <div class="stat reveal">
 
-                        <div class="p-8">
-                            <div class="mb-4 text-4xl">📚</div>
+        <div
+          class="stat-number"
+          data-target="3"
+        >
+          0
+        </div>
 
-                            <h3 class="mb-3 text-xl font-bold text-green-900">
-                                Domaine
-                            </h3>
+        <p>
+          Campus de l'USSEIN
+        </p>
 
-                            <p class="leading-7 text-gray-600">
-                                Management, économie rurale, développement local,
-                                gestion des organisations et accompagnement
-                                des producteurs.
-                            </p>
-                        </div>
-                    </div>
+      </div>
 
-                    <!-- Carte 3 -->
-                    <div class="overflow-hidden rounded-2xl bg-white shadow-lg">
-                        <img
-                            src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=80"
-                            alt="Campus universitaire"
-                            class="h-52 w-full object-cover"
-                        >
 
-                        <div class="p-8">
-                            <div class="mb-4 text-4xl">📍</div>
+      <div class="stat reveal">
 
-                            <h3 class="mb-3 text-xl font-bold text-green-900">
-                                Lieu
-                            </h3>
+        <div
+          class="stat-number"
+          data-target="1"
+        >
+          0
+        </div>
 
-                            <p class="leading-7 text-gray-600">
-                                Université du Sine-Saloum El Hadji Ibrahima Niass,
-                                campus de Kaffrine.
-                            </p>
-                        </div>
-                    </div>
+        <p>
+          Projet professionnel à construire
+        </p>
 
-                </div>
-            </div>
-        </section>
+      </div>
 
-        <!-- Objectifs avec photo -->
-        <section class="bg-white px-6 py-16">
-            <div class="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+    </div>
 
-                <!-- Photo -->
-                <div class="overflow-hidden rounded-2xl shadow-xl">
-                    <img
-                        src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&w=1000&q=80"
-                        alt="Travail agricole et développement rural"
-                        class="h-full min-h-[350px] w-full object-cover"
-                    >
-                </div>
+  </div>
 
-                <!-- Texte -->
-                <div>
-                    <p class="mb-3 font-bold uppercase tracking-widest text-green-700">
-                        Notre objectif
-                    </p>
+</section>
 
-                    <h2 class="mb-6 text-3xl font-bold text-green-950">
-                        Former des professionnels compétents
-                    </h2>
 
-                    <p class="mb-5 leading-8 text-gray-600">
-                        La formation vise à donner aux étudiants les
-                        connaissances et les compétences nécessaires pour
-                        participer efficacement au développement des
-                        organisations paysannes.
-                    </p>
 
-                    <p class="mb-6 leading-8 text-gray-600">
-                        Les étudiants apprennent à analyser les besoins des
-                        producteurs, à gérer les projets et à accompagner
-                        les organisations dans leur développement.
-                    </p>
+<!-- =====================================================
+     POURQUOI CHOISIR MOP
+===================================================== -->
 
-                    <a
-                        href="#competences"
-                        class="inline-block rounded-xl bg-green-900 px-6 py-4 font-bold text-white hover:bg-green-800"
-                    >
-                        Découvrir les compétences
-                    </a>
-                </div>
+<section class="section features">
 
-            </div>
-        </section>
+  <div class="container">
 
-        <!-- Compétences -->
-        <section id="competences" class="bg-green-50 px-6 py-16">
-            <div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
 
-                <div>
-                    <p class="mb-3 font-bold uppercase tracking-widest text-green-700">
-                        Formation pratique
-                    </p>
+    <div class="section-header reveal">
 
-                    <h2 class="mb-6 text-3xl font-bold text-green-950">
-                        Des compétences adaptées au monde rural
-                    </h2>
+      <span class="section-label">
+        Pourquoi cette licence ?
+      </span>
 
-                    <p class="leading-8 text-gray-600">
-                        La Licence MOP prépare les étudiants à travailler
-                        avec les producteurs, les coopératives, les ONG,
-                        les associations et les projets de développement.
-                    </p>
-                </div>
+      <h2 class="section-title">
+        Apprendre, comprendre et agir
+      </h2>
 
-                <div class="rounded-2xl bg-green-900 p-8 text-white shadow-xl">
-                    <h3 class="mb-6 text-2xl font-bold">
-                        Compétences développées
-                    </h3>
+      <p class="section-description">
 
-                    <ul class="space-y-4">
-                        <li class="flex gap-3">
-                            <span class="text-yellow-300">✓</span>
-                            Gestion des organisations paysannes
-                        </li>
+        La formation permet de développer une vision
+        globale des organisations et des enjeux des
+        territoires ruraux.
 
-                        <li class="flex gap-3">
-                            <span class="text-yellow-300">✓</span>
-                            Management des équipes et des projets
-                        </li>
+      </p>
 
-                        <li class="flex gap-3">
-                            <span class="text-yellow-300">✓</span>
-                            Développement rural et local
-                        </li>
+    </div>
 
-                        <li class="flex gap-3">
-                            <span class="text-yellow-300">✓</span>
-                            Accompagnement des producteurs
-                        </li>
 
-                        <li class="flex gap-3">
-                            <span class="text-yellow-300">✓</span>
-                            Communication et leadership
-                        </li>
+    <div class="features-grid">
 
-                        <li class="flex gap-3">
-                            <span class="text-yellow-300">✓</span>
-                            Gestion administrative et financière
-                        </li>
-                    </ul>
-                </div>
 
-            </div>
-        </section>
+      <article class="feature-card reveal">
 
-        <!-- Débouchés -->
-        <section class="px-6 py-16">
-            <div class="mx-auto max-w-6xl">
+        <div class="feature-icon">
+          🌱
+        </div>
 
-                <h2 class="mb-10 text-center text-3xl font-bold text-green-950">
-                    Débouchés professionnels
-                </h2>
+        <h3>
+          Ancrage rural
+        </h3>
 
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <p>
 
-                    <div class="rounded-xl bg-white p-6 text-center shadow">
-                        <div class="mb-3 text-3xl">🌾</div>
-                        <h3 class="font-bold text-green-900">
-                            Organisations paysannes
-                        </h3>
-                    </div>
+          Comprendre les réalités économiques,
+          sociales et organisationnelles des
+          territoires ruraux.
 
-                    <div class="rounded-xl bg-white p-6 text-center shadow">
-                        <div class="mb-3 text-3xl">🤝</div>
-                        <h3 class="font-bold text-green-900">
-                            ONG et associations
-                        </h3>
-                    </div>
+        </p>
 
-                    <div class="rounded-xl bg-white p-6 text-center shadow">
-                        <div class="mb-3 text-3xl">🏢</div>
-                        <h3 class="font-bold text-green-900">
-                            Projets de développement
-                        </h3>
-                    </div>
+      </article>
 
-                    <div class="rounded-xl bg-white p-6 text-center shadow">
-                        <div class="mb-3 text-3xl">📊</div>
-                        <h3 class="font-bold text-green-900">
-                            Cabinets et entreprises
-                        </h3>
-                    </div>
 
-                </div>
-            </div>
-        </section>
+      <article class="feature-card reveal">
 
-        <!-- Appel à l'action -->
-        <section class="bg-yellow-400 px-6 py-16 text-center">
-            <h2 class="mb-5 text-3xl font-extrabold text-green-950">
-                Vous souhaitez découvrir la formation ?
-            </h2>
+        <div class="feature-icon">
+          📊
+        </div>
 
-            <p class="mx-auto mb-8 max-w-2xl text-green-950">
-                Découvrez le parcours, les compétences enseignées et les
-                possibilités professionnelles offertes par la Licence MOP.
+        <h3>
+          Management
+        </h3>
+
+        <p>
+
+          Développer des compétences en organisation,
+          gestion et coordination des activités.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card reveal">
+
+        <div class="feature-icon">
+          🤝
+        </div>
+
+        <h3>
+          Travail collectif
+        </h3>
+
+        <p>
+
+          Apprendre à travailler avec des producteurs,
+          associations, institutions et partenaires.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card reveal">
+
+        <div class="feature-icon">
+          🚀
+        </div>
+
+        <h3>
+          Entrepreneuriat
+        </h3>
+
+        <p>
+
+          Développer une culture de l'initiative,
+          de l'innovation et de la création de projets.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card reveal">
+
+        <div class="feature-icon">
+          📈
+        </div>
+
+        <h3>
+          Développement
+        </h3>
+
+        <p>
+
+          Participer aux dynamiques de développement
+          des organisations et des territoires.
+
+        </p>
+
+      </article>
+
+
+      <article class="feature-card reveal">
+
+        <div class="feature-icon">
+          💻
+        </div>
+
+        <h3>
+          Compétences numériques
+        </h3>
+
+        <p>
+
+          Utiliser les outils numériques pour la
+          communication, l'organisation et le suivi.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROGRAMME
+===================================================== -->
+
+<section class="section programme">
+
+  <div class="container">
+
+
+    <div class="section-header reveal">
+
+      <span class="section-label">
+        Parcours académique
+      </span>
+
+      <h2 class="section-title">
+        Un parcours en trois étapes
+      </h2>
+
+      <p class="section-description">
+
+        La licence s'organise autour d'une progression
+        permettant de construire progressivement les
+        compétences de l'étudiant.
+
+      </p>
+
+    </div>
+
+
+    <div class="programme-grid">
+
+
+      <!-- L1 -->
+
+      <article class="year-card reveal">
+
+        <div class="year-header">
+
+          <span>
+            Première année
+          </span>
+
+          <h3>
+            Licence 1
+          </h3>
+
+        </div>
+
+        <div class="year-content">
+
+          <ul class="course-list">
+
+            <li>
+              Fondamentaux du management
+            </li>
+
+            <li>
+              Introduction aux organisations
+            </li>
+
+            <li>
+              Économie et développement
+            </li>
+
+            <li>
+              Méthodologie universitaire
+            </li>
+
+            <li>
+              Communication professionnelle
+            </li>
+
+            <li>
+              Outils numériques
+            </li>
+
+          </ul>
+
+        </div>
+
+      </article>
+
+
+      <!-- L2 -->
+
+      <article class="year-card reveal">
+
+        <div class="year-header">
+
+          <span>
+            Deuxième année
+          </span>
+
+          <h3>
+            Licence 2
+          </h3>
+
+        </div>
+
+        <div class="year-content">
+
+          <ul class="course-list">
+
+            <li>
+              Management des organisations
+            </li>
+
+            <li>
+              Gestion de projets
+            </li>
+
+            <li>
+              Organisations paysannes
+            </li>
+
+            <li>
+              Développement rural
+            </li>
+
+            <li>
+              Communication des organisations
+            </li>
+
+            <li>
+              Analyse des territoires
+            </li>
+
+          </ul>
+
+        </div>
+
+      </article>
+
+
+      <!-- L3 -->
+
+      <article class="year-card reveal">
+
+        <div class="year-header">
+
+          <span>
+            Troisième année
+          </span>
+
+          <h3>
+            Licence 3
+          </h3>
+
+        </div>
+
+        <div class="year-content">
+
+          <ul class="course-list">
+
+            <li>
+              Professionnalisation
+            </li>
+
+            <li>
+              Management stratégique
+            </li>
+
+            <li>
+              Gestion des projets ruraux
+            </li>
+
+            <li>
+              Entrepreneuriat
+            </li>
+
+            <li>
+              Stage et expérience professionnelle
+            </li>
+
+            <li>
+              Projet de fin de formation
+            </li>
+
+          </ul>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CAMPUS KAFFRINE
+===================================================== -->
+
+<section class="section campus">
+
+  <div class="container campus-grid">
+
+
+    <div class="campus-image reveal">
+
+      <img
+        src="https://www.elevate-her.eu/sites/default/files/2024-05/USSEIN%201.jpg"
+        alt="Infrastructure de l'USSEIN"
+      >
+
+    </div>
+
+
+    <div class="campus-content reveal">
+
+      <span class="section-label">
+        Campus de Kaffrine
+      </span>
+
+      <h2>
+        Étudier au cœur du bassin arachidier
+      </h2>
+
+      <p>
+
+        Le campus de Kaffrine s'inscrit dans
+        l'environnement territorial de l'USSEIN,
+        au cœur du bassin arachidier.
+
+      </p>
+
+      <p>
+
+        Cette implantation rapproche la formation
+        universitaire des réalités agricoles,
+        économiques et sociales du territoire.
+
+      </p>
+
+
+      <div class="campus-info">
+
+
+        <div class="campus-info-item">
+
+          <div class="campus-info-icon">
+            📍
+          </div>
+
+          <div>
+
+            <strong>
+              Localisation
+            </strong>
+
+            <small>
+              Campus de Kaffrine · Sénégal
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="campus-info-item">
+
+          <div class="campus-info-icon">
+            🎓
+          </div>
+
+          <div>
+
+            <strong>
+              Formation
+            </strong>
+
+            <small>
+              Management des Organisations Paysannes
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="campus-info-item">
+
+          <div class="campus-info-icon">
+            🌾
+          </div>
+
+          <div>
+
+            <strong>
+              Environnement
+            </strong>
+
+            <small>
+              Agriculture · Territoires · Développement
+            </small>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <a
+        href="debouches.html"
+        class="btn btn-primary"
+      >
+        Découvrir les métiers
+        →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALERIE
+===================================================== -->
+
+<section class="section gallery">
+
+  <div class="container">
+
+
+    <div class="section-header reveal">
+
+      <span class="section-label">
+        Vie universitaire
+      </span>
+
+      <h2 class="section-title">
+        L'environnement USSEIN
+      </h2>
+
+      <p class="section-description">
+
+        Un environnement universitaire pensé pour
+        favoriser l'apprentissage, les échanges et
+        la professionnalisation.
+
+      </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://www.elevate-her.eu/sites/default/files/2024-05/USSEIN%201.jpg"
+          alt="Bâtiment USSEIN"
+        >
+
+        <div class="gallery-overlay">
+          Infrastructures universitaires
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://www.ussein.sn/wp-content/uploads/2020/09/IMG_3646-scaled.jpg"
+          alt="Étudiants en cours à l'USSEIN"
+        >
+
+        <div class="gallery-overlay">
+          Apprentissage
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://pbs.twimg.com/media/HAVtXG7W8AAl0c0.jpg"
+          alt="Étudiants en salle de cours"
+        >
+
+        <div class="gallery-overlay">
+          Vie académique
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://www.elevate-her.eu/sites/default/files/2024-05/USSEIN%201.jpg"
+          alt="Campus USSEIN"
+        >
+
+        <div class="gallery-overlay">
+          Campus USSEIN
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ORIENTATION NOUVEAUX BACHELIERS
+===================================================== -->
+
+<section class="orientation">
+
+  <div class="container orientation-box">
+
+
+    <div class="reveal">
+
+      <h2>
+        Vous êtes nouveau bachelier ?
+      </h2>
+
+      <p>
+
+        Vous vous intéressez au management,
+        à l'agriculture, au développement rural,
+        à l'entrepreneuriat ou aux organisations ?
+
+        La Licence MOP peut correspondre à votre
+        projet d'études et à votre ambition professionnelle.
+
+      </p>
+
+      <a
+        href="mailto:clubdesmanagers7@gmail.com?subject=Orientation%20Licence%20MOP"
+        class="btn btn-gold"
+      >
+        Demander des informations
+        ✉
+      </a>
+
+    </div>
+
+
+    <div class="orientation-list reveal">
+
+      <h3>
+        Cette formation peut vous intéresser si vous aimez :
+      </h3>
+
+      <ul>
+
+        <li>
+          Le management et la gestion
+        </li>
+
+        <li>
+          L'agriculture et le monde rural
+        </li>
+
+        <li>
+          Le travail en équipe
+        </li>
+
+        <li>
+          Les projets de développement
+        </li>
+
+        <li>
+          L'entrepreneuriat
+        </li>
+
+        <li>
+          Le contact avec les communautés
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="section faq">
+
+  <div class="container">
+
+
+    <div class="section-header reveal">
+
+      <span class="section-label">
+        FAQ
+      </span>
+
+      <h2 class="section-title">
+        Questions fréquentes
+      </h2>
+
+    </div>
+
+
+    <div class="faq-container">
+
+
+      <div class="faq-item reveal">
+
+        <button class="faq-question">
+
+          <span>
+            Où se trouve le campus de Kaffrine ?
+          </span>
+
+          <span class="faq-plus">
+            +
+          </span>
+
+        </button>
+
+        <div class="faq-answer">
+
+          <p>
+
+            Le guide étudiant de l'USSEIN indique
+            le campus de Kaffrine à Kahi, sur la route
+            de Boulel, avec des enseignements également
+            dispensés dans d'autres espaces pédagogiques
+            du territoire.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="faq-item reveal">
+
+        <button class="faq-question">
+
+          <span>
+            La Licence MOP est-elle professionnalisante ?
+          </span>
+
+          <span class="faq-plus">
+            +
+          </span>
+
+        </button>
+
+        <div class="faq-answer">
+
+          <p>
+
+            La Licence Management des Organisations
+            Paysannes figure parmi les licences
+            professionnalisantes proposées par l'USSEIN
+            au campus de Kaffrine.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="faq-item reveal">
+
+        <button class="faq-question">
+
+          <span>
+            Quels domaines peut-on découvrir ?
+          </span>
+
+          <span class="faq-plus">
+            +
+          </span>
+
+        </button>
+
+        <div class="faq-answer">
+
+          <p>
+
+            La formation s'inscrit notamment dans les
+            domaines du management, des organisations,
+            du développement rural, de la gestion de
+            projets et de l'accompagnement des acteurs
+            des territoires.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="faq-item reveal">
+
+        <button class="faq-question">
+
+          <span>
+            Comment contacter le Club des Managers ?
+          </span>
+
+          <span class="faq-plus">
+            +
+          </span>
+
+        </button>
+
+        <div class="faq-answer">
+
+          <p>
+
+            Vous pouvez écrire directement au club à
+            l'adresse :
+
+            <strong>
+              clubdesmanagers7@gmail.com
+            </strong>
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="contact">
+
+  <div class="container">
+
+    <div class="contact-card reveal">
+
+      <span class="section-label">
+        Club des Managers
+      </span>
+
+      <h2>
+        Une question sur la Licence MOP ?
+      </h2>
+
+      <p>
+
+        Étudiant, nouveau bachelier, parent ou candidat :
+        vous pouvez contacter le Club des Managers pour
+        obtenir des informations et échanger sur la vie
+        étudiante.
+
+      </p>
+
+
+      <a
+        href="mailto:clubdesmanagers7@gmail.com"
+        class="email"
+      >
+        ✉
+        clubdesmanagers7@gmail.com
+      </a>
+
+
+      <br>
+
+
+      <a
+        href="mailto:clubdesmanagers7@gmail.com?subject=Informations%20sur%20la%20Licence%20MOP"
+        class="btn btn-primary"
+      >
+        Écrire au club
+        →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <div class="container">
+
+
+    <div class="footer-grid">
+
+
+      <div>
+
+        <div class="footer-brand">
+
+          <img
+            src="assets/images/logo-mop.png"
+            alt="Logo MOP"
+          >
+
+          <div>
+
+            <h3>
+              Licence MOP
+            </h3>
+
+            <p>
+              Management des Organisations Paysannes
             </p>
 
-            <a
-                href="index.html"
-                class="inline-block rounded-xl bg-green-950 px-8 py-4 font-bold text-white hover:bg-green-800"
-            >
-                Retour à l'accueil
-            </a>
-        </section>
+            <p>
+              USSEIN · Campus de Kaffrine
+            </p>
 
-    </main>
+          </div>
 
-    <!-- Pied de page -->
-    <footer class="bg-green-950 px-6 py-8 text-center text-green-100">
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Navigation
+        </h3>
+
         <p>
-            © 2026 Licence Management des Organisations Paysannes -
-            USSEIN Kaffrine
+          <a href="index.html">
+            Accueil
+          </a>
         </p>
-    </footer>
+
+        <p>
+          <a href="formation.html">
+            Formation
+          </a>
+        </p>
+
+        <p>
+          <a href="parcours.html">
+            Parcours
+          </a>
+        </p>
+
+        <p>
+          <a href="debouches.html">
+            Débouchés
+          </a>
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Contact
+        </h3>
+
+        <p>
+          Club des Managers
+        </p>
+
+        <p>
+          <a
+            class="footer-email"
+            href="mailto:clubdesmanagers7@gmail.com"
+          >
+            clubdesmanagers7@gmail.com
+          </a>
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+      <p>
+        © <span id="year"></span>
+        Licence Management des Organisations Paysannes · USSEIN Kaffrine
+      </p>
+
+    </div>
+
+
+  </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BOUTON RETOUR HAUT
+===================================================== -->
+
+<button
+  class="back-top"
+  id="backTop"
+  aria-label="Retour en haut"
+>
+  ↑
+</button>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+  /* =====================================================
+     MENU MOBILE
+  ===================================================== */
+
+  const menuButton =
+    document.getElementById("menuButton");
+
+  const navLinks =
+    document.getElementById("navLinks");
+
+
+  menuButton.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+    menuButton.textContent =
+      navLinks.classList.contains("active")
+      ? "✕"
+      : "☰";
+
+  });
+
+
+  document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+        menuButton.textContent = "☰";
+
+      });
+
+    });
+
+
+
+  /* =====================================================
+     ANIMATION AU SCROLL
+  ===================================================== */
+
+  const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+
+  revealElements.forEach(element => {
+
+    observer.observe(element);
+
+  });
+
+
+
+  /* =====================================================
+     COMPTEURS
+  ===================================================== */
+
+  const counters =
+    document.querySelectorAll(".stat-number");
+
+  let counterStarted = false;
+
+
+  function startCounters() {
+
+    if (counterStarted) return;
+
+    const stats =
+      document.querySelector(".stats");
+
+    const position =
+      stats.getBoundingClientRect().top;
+
+
+    if (position < window.innerHeight - 100) {
+
+      counterStarted = true;
+
+
+      counters.forEach(counter => {
+
+        const target =
+          Number(counter.dataset.target);
+
+        let current = 0;
+
+        const increment =
+          Math.max(1, Math.ceil(target / 40));
+
+
+        const timer =
+          setInterval(() => {
+
+            current += increment;
+
+
+            if (current >= target) {
+
+              current = target;
+
+              clearInterval(timer);
+
+            }
+
+
+            counter.textContent = current;
+
+          }, 35);
+
+      });
+
+    }
+
+  }
+
+
+  window.addEventListener(
+    "scroll",
+    startCounters
+  );
+
+
+  startCounters();
+
+
+
+  /* =====================================================
+     FAQ
+  ===================================================== */
+
+  const questions =
+    document.querySelectorAll(".faq-question");
+
+
+  questions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+      const item =
+        question.parentElement;
+
+      const answer =
+        item.querySelector(".faq-answer");
+
+
+      document
+        .querySelectorAll(".faq-item")
+        .forEach(other => {
+
+          if (other !== item) {
+
+            other.classList.remove("active");
+
+            other
+              .querySelector(".faq-answer")
+              .style.maxHeight = null;
+
+          }
+
+        });
+
+
+      item.classList.toggle("active");
+
+
+      if (item.classList.contains("active")) {
+
+        answer.style.maxHeight =
+          answer.scrollHeight + "px";
+
+      } else {
+
+        answer.style.maxHeight = null;
+
+      }
+
+    });
+
+  });
+
+
+
+  /* =====================================================
+     RETOUR EN HAUT
+  ===================================================== */
+
+  const backTop =
+    document.getElementById("backTop");
+
+
+  window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500) {
+
+      backTop.classList.add("show");
+
+    } else {
+
+      backTop.classList.remove("show");
+
+    }
+
+  });
+
+
+  backTop.addEventListener("click", () => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  });
+
+
+
+  /* =====================================================
+     ANNÉE AUTOMATIQUE
+  ===================================================== */
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
 
 </body>
 </html>
