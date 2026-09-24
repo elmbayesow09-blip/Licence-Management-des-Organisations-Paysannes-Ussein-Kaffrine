@@ -1,3682 +1,636 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Parcours MOP | Management des Organisations Paysannes - USSEIN Kaffrine</title>
-
-    <meta name="description"
-          content="Découvrez le parcours complet de la Licence Management des Organisations Paysannes à l'USSEIN Campus de Kaffrine : six semestres, unités d'enseignement, matières et compétences.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
-          rel="stylesheet">
-
-    <style>
-
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
-
-        :root {
-            --green-dark: #073b2a;
-            --green: #0b6b48;
-            --green-light: #16a36d;
-            --green-soft: #eaf7f1;
-
-            --gold: #d5a928;
-            --gold-light: #f5df8a;
-
-            --white: #ffffff;
-            --black: #102019;
-
-            --gray-50: #f8faf9;
-            --gray-100: #eef3f0;
-            --gray-200: #dce5e0;
-            --gray-500: #68756f;
-            --gray-700: #34443d;
-
-            --shadow-sm: 0 5px 20px rgba(7, 59, 42, .08);
-            --shadow-md: 0 15px 40px rgba(7, 59, 42, .13);
-            --shadow-lg: 0 25px 70px rgba(7, 59, 42, .20);
-
-            --radius-sm: 10px;
-            --radius-md: 18px;
-            --radius-lg: 28px;
-
-            --transition: all .3s ease;
-        }
-
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "DM Sans", sans-serif;
-            color: var(--black);
-            background: var(--gray-50);
-            line-height: 1.7;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-
-            background: rgba(255,255,255,.96);
-            backdrop-filter: blur(16px);
-
-            border-bottom: 1px solid rgba(7,59,42,.08);
-
-            transition: var(--transition);
-        }
-
-        .nav-container {
-            max-width: 1250px;
-            margin: auto;
-            padding: 12px 25px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand img {
-            width: 54px;
-            height: 54px;
-            object-fit: contain;
-        }
-
-        .brand-text strong {
-            display: block;
-            color: var(--green-dark);
-            font-size: 16px;
-            line-height: 1.1;
-        }
-
-        .brand-text span {
-            color: var(--gray-500);
-            font-size: 11px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            padding: 10px 14px;
-            border-radius: 10px;
-
-            color: var(--gray-700);
-            font-weight: 600;
-            font-size: 14px;
-
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--green);
-            background: var(--green-soft);
-        }
-
-        .nav-contact {
-            background: var(--green) !important;
-            color: white !important;
-            padding: 11px 17px !important;
-        }
-
-        .nav-contact:hover {
-            background: var(--green-dark) !important;
-            transform: translateY(-2px);
-        }
-
-        .menu-btn {
-            display: none;
-
-            border: 0;
-            background: transparent;
-
-            font-size: 28px;
-            color: var(--green-dark);
-
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
-           HERO
-        ===================================================== */
-
-        .hero {
-            min-height: 690px;
-            margin-top: 78px;
-
-            position: relative;
-
-            display: flex;
-            align-items: center;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    rgba(3,42,29,.96),
-                    rgba(6,92,59,.82)
-                ),
-                url("assets/images/campus-kaffrine.jpg")
-                center/cover no-repeat;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(213,169,40,.28),
-                    transparent 30%
-                );
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-
-            max-width: 1250px;
-            width: 100%;
-
-            margin: auto;
-            padding: 90px 25px;
-
-            color: white;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            padding: 9px 15px;
-            border-radius: 100px;
-
-            background: rgba(255,255,255,.12);
-            border: 1px solid rgba(255,255,255,.25);
-
-            font-size: 13px;
-            font-weight: 700;
-
-            margin-bottom: 25px;
-
-            backdrop-filter: blur(8px);
-        }
-
-        .hero h1 {
-            max-width: 900px;
-
-            font-family: "Playfair Display", serif;
-            font-size: clamp(40px, 6vw, 76px);
-            line-height: 1.05;
-
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: var(--gold-light);
-        }
-
-        .hero-description {
-            max-width: 760px;
-
-            font-size: 19px;
-            color: rgba(255,255,255,.88);
-
-            margin-bottom: 35px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 13px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-
-            padding: 14px 21px;
-
-            border-radius: 12px;
-
-            font-weight: 700;
-            font-size: 14px;
-
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: #17200b;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(213,169,40,.28);
-        }
-
-        .btn-light {
-            color: white;
-            border: 1px solid rgba(255,255,255,.35);
-            background: rgba(255,255,255,.09);
-        }
-
-        .btn-light:hover {
-            background: white;
-            color: var(--green-dark);
-        }
-
-
-        /* =====================================================
-           SECTION
-        ===================================================== */
-
-        .section {
-            max-width: 1250px;
-            margin: auto;
-            padding: 90px 25px;
-        }
-
-        .section-header {
-            max-width: 750px;
-            margin-bottom: 45px;
-        }
-
-        .eyebrow {
-            color: var(--green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 12px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-family: "Playfair Display", serif;
-            color: var(--green-dark);
-
-            font-size: clamp(32px, 4vw, 50px);
-            line-height: 1.15;
-
-            margin-bottom: 15px;
-        }
-
-        .section-description {
-            color: var(--gray-500);
-            font-size: 16px;
-        }
-
-
-        /* =====================================================
-           INTRO
-        ===================================================== */
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .intro-text p {
-            color: var(--gray-700);
-            margin-bottom: 18px;
-        }
-
-        .highlight-box {
-            padding: 30px;
-
-            background: white;
-            border: 1px solid var(--gray-200);
-
-            border-radius: var(--radius-lg);
-
-            box-shadow: var(--shadow-md);
-        }
-
-        .highlight-box h3 {
-            color: var(--green-dark);
-            margin-bottom: 20px;
-            font-family: "Playfair Display", serif;
-            font-size: 24px;
-        }
-
-        .highlight-list {
-            list-style: none;
-        }
-
-        .highlight-list li {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 15px;
-
-            color: var(--gray-700);
-        }
-
-        .check {
-            flex: 0 0 25px;
-            height: 25px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 50%;
-            background: var(--green-soft);
-            color: var(--green);
-
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-
-        /* =====================================================
-           STATS
-        ===================================================== */
-
-        .stats {
-            background: var(--green-dark);
-            color: white;
-        }
-
-        .stats-grid {
-            max-width: 1100px;
-            margin: auto;
-            padding: 50px 25px;
-
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .stat-number {
-            color: var(--gold-light);
-            font-family: "Playfair Display", serif;
-            font-size: 42px;
-            font-weight: 800;
-        }
-
-        .stat-label {
-            color: rgba(255,255,255,.75);
-            font-size: 13px;
-        }
-
-
-        /* =====================================================
-           SEARCH
-        ===================================================== */
-
-        .search-area {
-            margin-bottom: 40px;
-
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 260px;
-
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-
-            padding: 17px 20px 17px 48px;
-
-            border: 1px solid var(--gray-200);
-            border-radius: 14px;
-
-            outline: none;
-
-            background: white;
-
-            font-size: 15px;
-
-            box-shadow: var(--shadow-sm);
-        }
-
-        .search-box input:focus {
-            border-color: var(--green);
-            box-shadow: 0 0 0 4px rgba(11,107,72,.08);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-
-            color: var(--green);
-        }
-
-
-        /* =====================================================
-           YEAR TABS
-        ===================================================== */
-
-        .year-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-
-            margin-bottom: 35px;
-        }
-
-        .year-btn {
-            padding: 12px 20px;
-
-            border: 1px solid var(--gray-200);
-            border-radius: 100px;
-
-            background: white;
-
-            color: var(--gray-700);
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: var(--transition);
-        }
-
-        .year-btn:hover,
-        .year-btn.active {
-            background: var(--green);
-            color: white;
-            border-color: var(--green);
-        }
-
-
-        /* =====================================================
-           SEMESTER
-        ===================================================== */
-
-        .semester {
-            margin-bottom: 65px;
-            scroll-margin-top: 100px;
-        }
-
-        .semester-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-
-            margin-bottom: 25px;
-        }
-
-        .semester-title {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .semester-number {
-            width: 52px;
-            height: 52px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 15px;
-
-            background: var(--green);
-            color: white;
-
-            font-weight: 800;
-            font-size: 18px;
-
-            box-shadow: 0 10px 25px rgba(11,107,72,.18);
-        }
-
-        .semester-title h3 {
-            color: var(--green-dark);
-            font-family: "Playfair Display", serif;
-            font-size: 29px;
-        }
-
-        .semester-title p {
-            color: var(--gray-500);
-            font-size: 13px;
-        }
-
-        .semester-line {
-            height: 1px;
-            background: var(--gray-200);
-            flex: 1;
-        }
-
-
-        /* =====================================================
-           UE CARDS
-        ===================================================== */
-
-        .ue-grid {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 20px;
-        }
-
-        .ue-card {
-            background: white;
-
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-md);
-
-            overflow: hidden;
-
-            box-shadow: var(--shadow-sm);
-
-            transition: var(--transition);
-        }
-
-        .ue-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: rgba(11,107,72,.22);
-        }
-
-        .ue-header {
-            padding: 22px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f7fbf9,
-                    #ffffff
-                );
-
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .ue-code {
-            display: inline-block;
-
-            padding: 5px 9px;
-
-            border-radius: 7px;
-
-            background: var(--green-soft);
-            color: var(--green);
-
-            font-size: 11px;
-            font-weight: 800;
-
-            margin-bottom: 9px;
-        }
-
-        .ue-title {
-            color: var(--green-dark);
-
-            font-size: 18px;
-            line-height: 1.3;
-
-            font-weight: 800;
-        }
-
-        .ue-type {
-            margin-top: 8px;
-
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-
-            color: var(--gray-500);
-        }
-
-        .subjects {
-            padding: 5px 22px 18px;
-        }
-
-        .subject {
-            padding: 17px 0;
-
-            border-bottom: 1px solid var(--gray-100);
-
-            cursor: pointer;
-
-            transition: var(--transition);
-        }
-
-        .subject:last-child {
-            border-bottom: 0;
-        }
-
-        .subject:hover {
-            padding-left: 5px;
-        }
-
-        .subject-top {
-            display: flex;
-            align-items: flex-start;
-            gap: 11px;
-        }
-
-        .subject-number {
-            flex: 0 0 27px;
-            height: 27px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 8px;
-
-            background: var(--gray-100);
-            color: var(--green);
-
-            font-size: 11px;
-            font-weight: 800;
-        }
-
-        .subject-name {
-            color: var(--gray-700);
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 1.45;
-        }
-
-        .subject-more {
-            margin-left: 38px;
-            margin-top: 7px;
-
-            color: var(--green);
-
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-
-        /* =====================================================
-           MODAL
-        ===================================================== */
-
-        .modal {
-            position: fixed;
-            inset: 0;
-
-            z-index: 2000;
-
-            display: none;
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
-
-            background: rgba(3,30,21,.72);
-            backdrop-filter: blur(7px);
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-content {
-            width: min(650px,100%);
-
-            max-height: 88vh;
-            overflow-y: auto;
-
-            background: white;
-
-            border-radius: 25px;
-
-            box-shadow: var(--shadow-lg);
-
-            animation: modalIn .3s ease;
-        }
-
-        @keyframes modalIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px) scale(.98);
-            }
-
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        .modal-top {
-            padding: 28px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--green-dark),
-                    var(--green)
-                );
-
-            color: white;
-
-            position: relative;
-        }
-
-        .modal-code {
-            color: var(--gold-light);
-
-            font-size: 12px;
-            font-weight: 800;
-
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .modal-title {
-            font-family: "Playfair Display", serif;
-            font-size: 28px;
-            margin-top: 7px;
-            padding-right: 35px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-
-            width: 38px;
-            height: 38px;
-
-            border: 0;
-            border-radius: 50%;
-
-            background: rgba(255,255,255,.13);
-            color: white;
-
-            font-size: 22px;
-
-            cursor: pointer;
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .modal-body h4 {
-            color: var(--green-dark);
-            margin-bottom: 8px;
-            margin-top: 20px;
-        }
-
-        .modal-body h4:first-child {
-            margin-top: 0;
-        }
-
-        .modal-body p {
-            color: var(--gray-700);
-        }
-
-
-        /* =====================================================
-           CAMPUS
-        ===================================================== */
-
-        .campus-section {
-            position: relative;
-
-            background:
-                linear-gradient(
-                    rgba(3,43,29,.88),
-                    rgba(3,43,29,.92)
-                ),
-                url("assets/images/campus-kaffrine.jpg")
-                center/cover fixed;
-        }
-
-        .campus-section .section {
-            color: white;
-        }
-
-        .campus-section .section-title {
-            color: white;
-        }
-
-        .campus-section .section-description {
-            color: rgba(255,255,255,.75);
-        }
-
-        .campus-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .campus-card {
-            padding: 32px;
-
-            border-radius: var(--radius-lg);
-
-            background: rgba(255,255,255,.09);
-            border: 1px solid rgba(255,255,255,.16);
-
-            backdrop-filter: blur(10px);
-        }
-
-        .campus-icon {
-            width: 52px;
-            height: 52px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 15px;
-
-            background: rgba(213,169,40,.16);
-            color: var(--gold-light);
-
-            font-size: 25px;
-
-            margin-bottom: 20px;
-        }
-
-        .campus-card h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 25px;
-            margin-bottom: 12px;
-        }
-
-        .campus-card p {
-            color: rgba(255,255,255,.75);
-        }
-
-
-        /* =====================================================
-           COMPETENCES
-        ===================================================== */
-
-        .competences {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 20px;
-        }
-
-        .competence-card {
-            padding: 28px;
-
-            background: white;
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-md);
-
-            box-shadow: var(--shadow-sm);
-
-            transition: var(--transition);
-        }
-
-        .competence-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .competence-icon {
-            font-size: 30px;
-            margin-bottom: 14px;
-        }
-
-        .competence-card h3 {
-            color: var(--green-dark);
-            margin-bottom: 8px;
-        }
-
-        .competence-card p {
-            color: var(--gray-500);
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           CTA
-        ===================================================== */
-
-        .cta {
-            padding: 80px 25px;
-        }
-
-        .cta-box {
-            max-width: 1150px;
-            margin: auto;
-
-            padding: 55px;
-
-            border-radius: 30px;
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    var(--green-dark),
-                    var(--green)
-                );
-
-            position: relative;
-            overflow: hidden;
-
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cta-box::after {
-            content: "MOP";
-
-            position: absolute;
-
-            right: -20px;
-            bottom: -60px;
-
-            font-family: "Playfair Display", serif;
-            font-size: 190px;
-
-            font-weight: 800;
-
-            color: rgba(255,255,255,.035);
-        }
-
-        .cta-box h2 {
-            position: relative;
-            z-index: 2;
-
-            max-width: 700px;
-
-            font-family: "Playfair Display", serif;
-            font-size: 40px;
-
-            margin-bottom: 12px;
-        }
-
-        .cta-box p {
-            position: relative;
-            z-index: 2;
-
-            max-width: 650px;
-
-            color: rgba(255,255,255,.75);
-            margin-bottom: 25px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            background: #03251b;
-            color: white;
-        }
-
-        .footer-inner {
-            max-width: 1250px;
-            margin: auto;
-
-            padding: 55px 25px 25px;
-
-            display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 45px;
-        }
-
-        .footer-brand {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .footer-brand img {
-            width: 58px;
-        }
-
-        footer h3 {
-            margin-bottom: 14px;
-            font-size: 15px;
-        }
-
-        footer p,
-        footer li,
-        footer a {
-            color: rgba(255,255,255,.65);
-            font-size: 13px;
-        }
-
-        footer ul {
-            list-style: none;
-        }
-
-        footer li {
-            margin-bottom: 8px;
-        }
-
-        footer a:hover {
-            color: var(--gold-light);
-        }
-
-        .copyright {
-            max-width: 1250px;
-            margin: auto;
-
-            padding: 20px 25px;
-
-            border-top: 1px solid rgba(255,255,255,.08);
-
-            color: rgba(255,255,255,.45);
-
-            font-size: 12px;
-        }
-
-
-        /* =====================================================
-           BACK TO TOP
-        ===================================================== */
-
-        .back-top {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-
-            width: 45px;
-            height: 45px;
-
-            border: 0;
-            border-radius: 50%;
-
-            background: var(--green);
-            color: white;
-
-            cursor: pointer;
-
-            box-shadow: var(--shadow-md);
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition: var(--transition);
-
-            z-index: 800;
-        }
-
-        .back-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
-
-        @media(max-width: 950px) {
-
-            .nav-links {
-                display: none;
-
-                position: absolute;
-
-                left: 15px;
-                right: 15px;
-                top: 75px;
-
-                flex-direction: column;
-                align-items: stretch;
-
-                background: white;
-
-                padding: 15px;
-
-                border-radius: 15px;
-
-                box-shadow: var(--shadow-lg);
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .nav-links a {
-                display: block;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .intro-grid,
-            .campus-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ue-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .competences {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-
-        @media(max-width: 600px) {
-
-            .nav-container {
-                padding: 9px 15px;
-            }
-
-            .brand img {
-                width: 44px;
-                height: 44px;
-            }
-
-            .brand-text strong {
-                font-size: 13px;
-            }
-
-            .brand-text span {
-                font-size: 9px;
-            }
-
-            .hero {
-                min-height: 650px;
-                margin-top: 65px;
-            }
-
-            .hero-content {
-                padding: 70px 18px;
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .section {
-                padding: 65px 18px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-                padding: 35px 15px;
-            }
-
-            .stat-number {
-                font-size: 32px;
-            }
-
-            .semester-header {
-                align-items: flex-start;
-            }
-
-            .semester-line {
-                display: none;
-            }
-
-            .competences {
-                grid-template-columns: 1fr;
-            }
-
-            .cta {
-                padding: 50px 18px;
-            }
-
-            .cta-box {
-                padding: 35px 25px;
-            }
-
-            .cta-box h2 {
-                font-size: 31px;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 45px 18px 20px;
-            }
-
-            .year-tabs {
-                overflow-x: auto;
-                flex-wrap: nowrap;
-                padding-bottom: 5px;
-            }
-
-            .year-btn {
-                flex: 0 0 auto;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Parcours Licence Management des Organisations Paysannes - USSEIN Kaffrine">
+<title>Parcours MOP — USSEIN Kaffrine</title>
+
+<style>
+:root{
+  --green:#063f2a;
+  --green-2:#0b6544;
+  --green-3:#13815a;
+  --gold:#c9a24a;
+  --cream:#f7f4ec;
+  --white:#fff;
+  --ink:#17362a;
+  --muted:#6d7b74;
+  --line:rgba(6,63,42,.12);
+  --shadow:0 25px 70px rgba(9,39,28,.16);
+  --radius:24px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  overflow-x:hidden;
+}
+button{font:inherit}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:78px;padding:0 6vw;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(3,34,23,.72);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  transition:.45s ease;
+}
+.nav.scrolled{background:rgba(3,34,23,.95);height:70px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-weight:800;letter-spacing:.3px}
+.brand img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff}
+.navlinks{display:flex;gap:26px}
+.navlinks a{color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;transition:.3s}
+.navlinks a:hover,.navlinks a.active{color:#e1bf67}
+
+/* ---------- HERO / BACKGROUND SLIDESHOW ---------- */
+.hero{
+  min-height:100vh;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:120px 7vw 90px;
+  overflow:hidden;
+  color:#fff;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-4;
+  background-size:cover;background-position:center;
+  transform:scale(1.04);
+  transition:opacity 1.2s ease, transform 7s ease;
+  opacity:1;
+}
+.hero-bg.fade{opacity:.18;transform:scale(1.09)}
+.hero-overlay{
+  position:absolute;inset:0;z-index:-3;
+  background:
+    linear-gradient(120deg,rgba(2,35,24,.94) 0%,rgba(2,35,24,.70) 45%,rgba(2,35,24,.42) 100%),
+    linear-gradient(0deg,rgba(2,35,24,.45),transparent 45%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-2;opacity:.15;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:linear-gradient(to bottom,transparent,black 25%,black 75%,transparent);
+}
+.hero-content{max-width:920px;text-align:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:9px 15px;border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.08);border-radius:999px;
+  font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  animation:rise .8s .05s both;
+}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:#e1bf67;box-shadow:0 0 0 5px rgba(225,191,103,.12)}
+.hero h1{
+  margin:25px auto 18px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(48px,8vw,92px);
+  line-height:.96;letter-spacing:-2.5px;
+  animation:rise .8s .15s both;
+}
+.hero h1 span{color:#e1bf67}
+.hero p{
+  max-width:720px;margin:auto;
+  color:rgba(255,255,255,.86);
+  font-size:18px;line-height:1.8;
+  animation:rise .8s .25s both;
+}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px;animation:rise .8s .35s both}
+.btn{
+  border:0;border-radius:999px;padding:14px 22px;cursor:pointer;
+  text-decoration:none;font-weight:800;transition:.35s ease;
+}
+.btn-gold{background:#d4ad58;color:#17351f;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.btn-gold:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(0,0,0,.25)}
+.btn-ghost{background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.24)}
+.btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-4px)}
+.photo-label{
+  position:absolute;right:6vw;bottom:28px;z-index:2;
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.65)
+}
+
+/* ---------- INTRO ---------- */
+.section{padding:105px 7vw}
+.section-head{max-width:780px;margin:0 auto 48px;text-align:center}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2.5px;color:var(--green-3);font-weight:900}
+.section-head h2{
+  margin-top:10px;font:700 clamp(34px,5vw,54px)/1.05 Georgia,"Times New Roman",serif;
+  color:var(--green);
+}
+.section-head p{margin-top:15px;color:var(--muted);line-height:1.8}
+
+/* ---------- LICENSE CARDS ---------- */
+.license-grid{
+  max-width:1180px;margin:auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+}
+.license-card{
+  position:relative;overflow:hidden;
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:rgba(255,255,255,.82);
+  padding:34px;cursor:pointer;text-align:left;
+  box-shadow:0 10px 35px rgba(7,55,37,.07);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .45s;
+}
+.license-card::before{
+  content:"";position:absolute;inset:auto -20% -55% 20%;height:220px;
+  background:radial-gradient(circle,#d4ad58 0,transparent 65%);
+  opacity:.10;transition:.5s;
+}
+.license-card:hover{transform:translateY(-10px);box-shadow:var(--shadow);border-color:rgba(11,101,68,.3)}
+.license-card:hover::before{opacity:.18;transform:scale(1.2)}
+.license-top{display:flex;justify-content:space-between;align-items:center}
+.level{
+  font-size:52px;font-weight:950;color:var(--green);
+  letter-spacing:-3px;
+}
+.badge{padding:7px 11px;border-radius:999px;background:#eef6f1;color:var(--green-2);font-size:11px;font-weight:900}
+.license-card h3{margin-top:14px;font:700 26px Georgia,"Times New Roman",serif;color:var(--green)}
+.license-card p{margin-top:10px;color:var(--muted);line-height:1.7;font-size:14px}
+.card-arrow{
+  display:inline-flex;align-items:center;gap:8px;margin-top:25px;
+  color:var(--green-2);font-weight:900;font-size:13px;
+}
+.card-arrow span{transition:.3s}.license-card:hover .card-arrow span{transform:translateX(6px)}
+
+/* ---------- INFO STRIP ---------- */
+.info-strip{
+  background:var(--green);color:#fff;
+  padding:28px 7vw;
+}
+.info-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
+.info-item strong{display:block;font-size:25px;color:#e1bf67}
+.info-item span{font-size:12px;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:1.2px}
+
+/* ---------- MODAL ---------- */
+.modal{
+  position:fixed;inset:0;z-index:2000;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;background:rgba(2,22,15,.78);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.modal.open{opacity:1;visibility:visible;pointer-events:auto}
+.modal-box{
+  width:min(1120px,100%);max-height:90vh;overflow:hidden;
+  background:#fff;border-radius:28px;box-shadow:0 40px 110px rgba(0,0,0,.35);
+  transform:translateY(30px) scale(.97);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.modal.open .modal-box{transform:none}
+.modal-head{
+  padding:25px 30px;
+  background:linear-gradient(135deg,var(--green),var(--green-2));
+  color:#fff;display:flex;align-items:center;justify-content:space-between;
+}
+.modal-head small{display:block;color:#e1bf67;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:6px}
+.modal-head h2{font:700 30px Georgia,"Times New Roman",serif}
+.close{
+  width:44px;height:44px;border:1px solid rgba(255,255,255,.2);
+  border-radius:50%;background:rgba(255,255,255,.08);color:#fff;cursor:pointer;
+  font-size:25px;transition:.35s;
+}
+.close:hover{background:#a93f3f;transform:rotate(90deg)}
+.sem-tabs{
+  display:flex;gap:8px;padding:18px 26px;
+  border-bottom:1px solid #e9eee9;background:#fbfcfb;
+}
+.sem-tab{
+  border:1px solid #dce6df;background:#fff;color:var(--green);
+  padding:11px 17px;border-radius:999px;font-weight:900;cursor:pointer;transition:.3s;
+}
+.sem-tab.active{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 8px 20px rgba(6,63,42,.18)}
+.modal-content{padding:28px;overflow:auto;max-height:calc(90vh - 150px)}
+.sem-panel{display:none}
+.sem-panel.active{display:block;animation:panelIn .45s ease}
+@keyframes panelIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.ue{
+  border:1px solid #e1e9e4;border-radius:18px;margin-bottom:14px;
+  overflow:hidden;background:#fff;box-shadow:0 7px 25px rgba(7,55,37,.055);
+  opacity:0;transform:translateY(18px);
+}
+.sem-panel.active .ue{animation:ueIn .55s forwards}
+@keyframes ueIn{to{opacity:1;transform:none}}
+.ue-head{padding:19px 20px;display:flex;align-items:flex-start;gap:14px}
+.ue-code{flex:0 0 auto;background:var(--green);color:#fff;padding:7px 10px;border-radius:8px;font-size:11px;font-weight:950}
+.ue-title{font-weight:850;color:var(--green);line-height:1.4}
+.ue-tag{margin-left:auto;color:#7b6740;background:#faf3df;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;white-space:nowrap}
+.subjects{padding:0 20px 18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.subject{
+  border:1px solid #e8eee9;border-radius:13px;padding:14px;
+  background:#fbfdfb;transition:.3s;
+}
+.subject:hover{transform:translateY(-3px);border-color:#b8d3c5;box-shadow:0 10px 24px rgba(7,55,37,.08)}
+.subject strong{font-size:13px;color:#23483a}
+.subject p{margin-top:6px;color:#718078;font-size:12px;line-height:1.6}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------- FOOTER ---------- */
+footer{background:#032d1e;color:#fff;padding:55px 7vw;text-align:center}
+footer h3{font:700 24px Georgia,"Times New Roman",serif}
+footer p{margin-top:10px;color:rgba(255,255,255,.65);font-size:13px}
+footer a{color:#e1bf67;text-decoration:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:850px){
+  .navlinks{display:none}
+  .license-grid{grid-template-columns:1fr}
+  .info-inner{grid-template-columns:1fr}
+  .subjects{grid-template-columns:1fr}
+  .modal{padding:8px}
+  .modal-box{max-height:95vh;border-radius:20px}
+  .modal-content{max-height:calc(95vh - 160px);padding:18px}
+  .sem-tabs{overflow:auto}
+  .sem-tab{white-space:nowrap}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+</style>
 </head>
-
 
 <body>
 
+<nav class="nav" id="nav">
+  <a class="brand" href="index.html">
+    <img src="assets/images/logo-mop.jpg" alt="Logo MOP">
+    <span>MOP — USSEIN</span>
+  </a>
+  <div class="navlinks">
+    <a href="index.html">Accueil</a>
+    <a href="formation.html">Formation</a>
+    <a class="active" href="parcours.html">Parcours</a>
+    <a href="debouches.html">Débouchés</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
 
-<header class="navbar">
-
-    <div class="nav-container">
-
-        <a href="index.html" class="brand">
-
-            <img
-                src="assets/images/logo-mop.png"
-                alt="Logo MOP-USSEIN"
-            >
-
-            <div class="brand-text">
-                <strong>MOP • USSEIN</strong>
-                <span>Management des Organisations Paysannes</span>
-            </div>
-
-        </a>
-
-
-        <button class="menu-btn" id="menuBtn" aria-label="Menu">
-            ☰
-        </button>
-
-
-        <ul class="nav-links" id="navLinks">
-
-            <li>
-                <a href="index.html">
-                    Accueil
-                </a>
-            </li>
-
-            <li>
-                <a href="formation.html">
-                    Formation
-                </a>
-            </li>
-
-            <li>
-                <a href="parcours.html" class="active">
-                    Parcours
-                </a>
-            </li>
-
-            <li>
-                <a href="debouches.html">
-                    Débouchés
-                </a>
-            </li>
-
-            <li>
-                <a href="espace-etudiants.html">
-                    Étudiants
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="mailto:clubdesmanagers7@gmail.com"
-                    class="nav-contact"
-                >
-                    Contact
-                </a>
-            </li>
-
-        </ul>
-
+  <div class="hero-content">
+    <div class="kicker">USSEIN • Campus de Kaffrine</div>
+    <h1>Le parcours <span>MOP</span></h1>
+    <p>
+      Explorez les trois niveaux de la Licence Management des Organisations Paysannes.
+      Cliquez simplement sur L1, L2 ou L3 : les semestres s’ouvrent sans parcourir une longue page.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#licences">Découvrir les licences</a>
+      <a class="btn btn-ghost" href="mailto:clubdesmanagers7@gmail.com">Nous contacter</a>
     </div>
-
-</header>
-
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-badge">
-            🎓 Licence professionnelle • USSEIN
-        </div>
-
-
-        <h1>
-            Le parcours
-            <span>MOP</span>
-            en 6 semestres
-        </h1>
-
-
-        <p class="hero-description">
-
-            Découvrez progressivement les connaissances, méthodes et
-            compétences qui structurent la Licence
-            <strong>Management des Organisations Paysannes</strong>
-            au Campus de Kaffrine.
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a href="#programme" class="btn btn-primary">
-                📚 Voir les matières
-            </a>
-
-            <a href="#campus" class="btn btn-light">
-                🏫 Découvrir le Campus
-            </a>
-
-        </div>
-
-    </div>
-
+  </div>
+  <div class="photo-label">Campus de Kaffrine • arrière-plan photographique</div>
 </section>
 
+<section class="section" id="licences">
+  <div class="section-head reveal">
+    <div class="eyebrow">Parcours académique</div>
+    <h2>Choisissez votre niveau</h2>
+    <p>
+      Un accès simple et direct : un clic sur une licence, puis un clic sur le semestre.
+    </p>
+  </div>
 
+  <div class="license-grid">
+    <button class="license-card reveal" onclick="openLicence('L1')">
+      <div class="license-top"><div class="level">L1</div><div class="badge">2 semestres</div></div>
+      <h3>Licence 1</h3>
+      <p>Bases du développement rural, sociologie, communication, recherche et organisations paysannes.</p>
+      <span class="card-arrow">Voir le parcours <span>→</span></span>
+    </button>
 
-<!-- =========================================================
-     INTRODUCTION
-========================================================= -->
+    <button class="license-card reveal" onclick="openLicence('L2')">
+      <div class="license-top"><div class="level">L2</div><div class="badge">2 semestres</div></div>
+      <h3>Licence 2</h3>
+      <p>Management, gestion administrative, politiques rurales, projets, développement local et accompagnement.</p>
+      <span class="card-arrow">Voir le parcours <span>→</span></span>
+    </button>
 
-<section class="section">
-
-    <div class="intro-grid">
-
-        <div class="intro-text">
-
-            <div class="eyebrow">
-                Parcours académique
-            </div>
-
-            <h2 class="section-title">
-                Une progression sur trois années
-            </h2>
-
-            <p>
-                La Licence Management des Organisations Paysannes
-                est organisée autour de six semestres.
-                Les enseignements abordent progressivement le
-                développement rural, la sociologie, la gestion,
-                la recherche, la communication, l'entrepreneuriat,
-                le développement local et le management des
-                organisations paysannes.
-            </p>
-
-            <p>
-                Les matières présentées sur cette page correspondent
-                à la maquette MOP que vous nous avez fournie.
-                Elles sont organisées par semestre afin de permettre
-                aux étudiants, enseignants et visiteurs de consulter
-                facilement le parcours.
-            </p>
-
-        </div>
-
-
-        <div class="highlight-box">
-
-            <h3>
-                Ce que vous trouverez ici
-            </h3>
-
-            <ul class="highlight-list">
-
-                <li>
-                    <span class="check">✓</span>
-                    <span>
-                        Les six semestres de la Licence MOP
-                    </span>
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    <span>
-                        Les unités d'enseignement et leurs matières
-                    </span>
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    <span>
-                        Une explication pédagogique de chaque matière
-                    </span>
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    <span>
-                        Une recherche rapide dans le programme
-                    </span>
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    <span>
-                        Une présentation adaptée aux étudiants et professeurs
-                    </span>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
+    <button class="license-card reveal" onclick="openLicence('L3')">
+      <div class="license-top"><div class="level">L3</div><div class="badge">2 semestres</div></div>
+      <h3>Licence 3</h3>
+      <p>Gouvernance, gestion de projet, communication, audit, partenariat et rapport de fin de cycle.</p>
+      <span class="card-arrow">Voir le parcours <span>→</span></span>
+    </button>
+  </div>
 </section>
 
-
-
-<!-- =========================================================
-     STATS
-========================================================= -->
-
-<section class="stats">
-
-    <div class="stats-grid">
-
-        <div class="stat">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Années de formation</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-number">6</div>
-            <div class="stat-label">Semestres</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-number">MOP</div>
-            <div class="stat-label">Management des Organisations Paysannes</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-number">KFR</div>
-            <div class="stat-label">Campus de Kaffrine</div>
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     PROGRAMME
-========================================================= -->
-
-<section class="section" id="programme">
-
-    <div class="section-header">
-
-        <div class="eyebrow">
-            Maquette pédagogique
-        </div>
-
-        <h2 class="section-title">
-            Les six semestres
-        </h2>
-
-        <p class="section-description">
-
-            Sélectionnez une année ou recherchez directement une
-            matière. Cliquez sur une matière pour découvrir son
-            objectif pédagogique.
-
-        </p>
-
-    </div>
-
-
-
-    <!-- RECHERCHE -->
-
-    <div class="search-area">
-
-        <div class="search-box">
-
-            <span class="search-icon">🔎</span>
-
-            <input
-                type="search"
-                id="searchInput"
-                placeholder="Rechercher une matière, une UE, un code..."
-            >
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ANNEES -->
-
-    <div class="year-tabs">
-
-        <button class="year-btn active" data-year="all">
-            Les 3 années
-        </button>
-
-        <button class="year-btn" data-year="1">
-            Licence 1
-        </button>
-
-        <button class="year-btn" data-year="2">
-            Licence 2
-        </button>
-
-        <button class="year-btn" data-year="3">
-            Licence 3
-        </button>
-
-    </div>
-
-
-
-    <!-- CONTENEUR DES SEMESTRES -->
-
-    <div id="programContainer"></div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CAMPUS
-========================================================= -->
-
-<section class="campus-section" id="campus">
-
-    <div class="section">
-
-        <div class="section-header">
-
-            <div class="eyebrow" style="color:#f5df8a;">
-                USSEIN • Kaffrine
-            </div>
-
-            <h2 class="section-title">
-                Étudier au Campus de Kaffrine
-            </h2>
-
-            <p class="section-description">
-
-                Un environnement universitaire inscrit dans les
-                dynamiques de développement agricole, rural et
-                territorial du Sénégal.
-
-            </p>
-
-        </div>
-
-
-        <div class="campus-grid">
-
-            <div class="campus-card">
-
-                <div class="campus-icon">
-                    🏫
-                </div>
-
-                <h3>
-                    Un campus au cœur du territoire
-                </h3>
-
-                <p>
-                    Le Guide de l'étudiant de l'USSEIN indique que
-                    le campus de Kaffrine se situe à Kahi, sur la
-                    route de Boulel, au niveau du CRFPE. Des cours
-                    sont également dispensés dans d'autres espaces
-                    pédagogiques de Kaffrine.
-                </p>
-
-            </div>
-
-
-            <div class="campus-card">
-
-                <div class="campus-icon">
-                    🌱
-                </div>
-
-                <h3>
-                    Une formation liée au monde rural
-                </h3>
-
-                <p>
-                    Le parcours MOP s'inscrit dans un environnement
-                    où les questions d'organisations paysannes,
-                    de développement rural, de gestion, de projets,
-                    de filières et de développement local occupent
-                    une place importante.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     COMPETENCES
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-header">
-
-        <div class="eyebrow">
-            Progression professionnelle
-        </div>
-
-        <h2 class="section-title">
-            Les grands axes du parcours
-        </h2>
-
-        <p class="section-description">
-            Les matières de la maquette permettent d'aborder
-            plusieurs dimensions complémentaires du management
-            des organisations paysannes.
-        </p>
-
-    </div>
-
-
-    <div class="competences">
-
-        <div class="competence-card">
-
-            <div class="competence-icon">
-                🌾
-            </div>
-
-            <h3>
-                Développement rural
-            </h3>
-
-            <p>
-                Comprendre les dynamiques rurales, les organisations
-                paysannes, l'économie rurale et les enjeux de
-                développement.
-            </p>
-
-        </div>
-
-
-        <div class="competence-card">
-
-            <div class="competence-icon">
-                👥
-            </div>
-
-            <h3>
-                Management
-            </h3>
-
-            <p>
-                Étudier les organisations, le management, les
-                ressources humaines, le leadership et la gouvernance.
-            </p>
-
-        </div>
-
-
-        <div class="competence-card">
-
-            <div class="competence-icon">
-                📊
-            </div>
-
-            <h3>
-                Gestion
-            </h3>
-
-            <p>
-                Aborder la comptabilité, le financement, la gestion
-                de projets, l'audit et les mécanismes de gestion.
-            </p>
-
-        </div>
-
-
-        <div class="competence-card">
-
-            <div class="competence-icon">
-                🔬
-            </div>
-
-            <h3>
-                Recherche
-            </h3>
-
-            <p>
-                Apprendre à construire une démarche de recherche,
-                collecter des données, analyser et présenter les
-                résultats.
-            </p>
-
-        </div>
-
-
-        <div class="competence-card">
-
-            <div class="competence-icon">
-                🤝
-            </div>
-
-            <h3>
-                Partenariat
-            </h3>
-
-            <p>
-                Étudier les techniques de négociation, de concertation,
-                de construction de partenariat et d'accompagnement
-                des organisations.
-            </p>
-
-        </div>
-
-
-        <div class="competence-card">
-
-            <div class="competence-icon">
-                🚀
-            </div>
-
-            <h3>
-                Entrepreneuriat
-            </h3>
-
-            <p>
-                Développer des connaissances en entrepreneuriat,
-                marketing social, leadership et compétences de vie.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CTA
-========================================================= -->
-
-<section class="cta">
-
-    <div class="cta-box">
-
-        <h2>
-            Une question sur le parcours MOP ?
-        </h2>
-
-        <p>
-            Le Club des Managers reste disponible pour orienter
-            les étudiants et partager les informations relatives
-            à la Licence Management des Organisations Paysannes.
-        </p>
-
-        <a
-            href="mailto:clubdesmanagers7@gmail.com?subject=Question%20sur%20le%20parcours%20MOP"
-            class="btn btn-primary"
-        >
-            ✉️ Contacter le Club des Managers
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <div class="footer-inner">
-
-        <div>
-
-            <div class="footer-brand">
-
-                <img
-                    src="assets/images/logo-mop.jpg"
-                    alt="Logo MOP"
-                >
-
-                <div>
-                    <strong>MOP-USSEIN</strong>
-                    <p>
-                        Management des Organisations Paysannes
-                    </p>
-                </div>
-
-            </div>
-
-            <p>
-                Espace d'information et de présentation du parcours
-                de la Licence Management des Organisations Paysannes
-                au Campus de Kaffrine.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Navigation
-            </h3>
-
-            <ul>
-
-                <li>
-                    <a href="index.html">
-                        Accueil
-                    </a>
-                </li>
-
-                <li>
-                    <a href="formation.html">
-                        Formation
-                    </a>
-                </li>
-
-                <li>
-                    <a href="parcours.html">
-                        Parcours
-                    </a>
-                </li>
-
-                <li>
-                    <a href="debouches.html">
-                        Débouchés
-                    </a>
-                </li>
-
-                <li>
-                    <a href="espace-etudiants.html">
-                        Espace étudiants
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Contact
-            </h3>
-
-            <ul>
-
-                <li>
-                    📧
-                    <a href="mailto:clubdesmanagers7@gmail.com">
-                        clubdesmanagers7@gmail.com
-                    </a>
-                </li>
-
-                <li>
-                    🏫 USSEIN • Campus Kaffrine
-                </li>
-
-                <li>
-                    🎓 Licence MOP
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © <span id="year"></span>
-        MOP-USSEIN • Management des Organisations Paysannes.
-        Tous droits réservés.
-
-    </div>
-
-</footer>
-
-
-
-<!-- =========================================================
-     MODAL MATIERE
-========================================================= -->
-
-<div class="modal" id="subjectModal">
-
-    <div class="modal-content">
-
-        <div class="modal-top">
-
-            <div class="modal-code" id="modalCode">
-                MOP
-            </div>
-
-            <h2 class="modal-title" id="modalTitle">
-                Matière
-            </h2>
-
-            <button
-                class="modal-close"
-                id="modalClose"
-                aria-label="Fermer"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="modal-body">
-
-            <h4>
-                📖 À quoi sert cette matière ?
-            </h4>
-
-            <p id="modalDescription">
-            </p>
-
-
-            <h4>
-                🎯 Ce qu'elle permet de comprendre
-            </h4>
-
-            <p id="modalObjective">
-            </p>
-
-
-            <h4>
-                💼 Lien avec le parcours MOP
-            </h4>
-
-            <p id="modalLink">
-            </p>
-
-        </div>
-
-    </div>
-
+<div class="info-strip">
+  <div class="info-inner">
+    <div class="info-item"><strong>3</strong><span>Années de licence</span></div>
+    <div class="info-item"><strong>6</strong><span>Semestres</span></div>
+    <div class="info-item"><strong>MOP</strong><span>Management des Organisations Paysannes</span></div>
+  </div>
 </div>
 
+<footer>
+  <h3>Licence Management des Organisations Paysannes</h3>
+  <p>USSEIN — Campus de Kaffrine</p>
+  <p>Contact : <a href="mailto:clubdesmanagers7@gmail.com">clubdesmanagers7@gmail.com</a></p>
+</footer>
 
-
-<!-- =========================================================
-     BACK TO TOP
-========================================================= -->
-
-<button
-    class="back-top"
-    id="backTop"
-    aria-label="Retour en haut"
->
-    ↑
-</button>
-
-
+<div class="modal" id="modal" onclick="outsideClose(event)">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <small id="modalLevel">Licence 1</small>
+        <h2>Management des Organisations Paysannes</h2>
+      </div>
+      <button class="close" onclick="closeModal()" aria-label="Fermer">×</button>
+    </div>
+    <div class="sem-tabs">
+      <button class="sem-tab active" onclick="showSemester(0)">Semestre 1</button>
+      <button class="sem-tab" onclick="showSemester(1)">Semestre 2</button>
+    </div>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
 
 <script>
-
-/* =========================================================
-   DONNEES DU PARCOURS
-========================================================= */
-
-const semesters = [
-
-/* =========================================================
-   LICENCE 1 - SEMESTRE 1
-========================================================= */
-
-{
-    year: 1,
-    semester: 1,
-    title: "Fondations du développement rural",
-    subjects: [
-
-        {
-            ue: "DOP 1150",
-            ueTitle: "Développement rural et organisations paysannes",
-            code: "DOP 1150",
-            name: "Principes du développement",
-            description:
-                "Cette matière introduit les grandes notions liées au développement et permet de comprendre les différentes dimensions du développement des territoires et des communautés.",
-            objective:
-                "Elle aide l'étudiant à identifier les concepts fondamentaux du développement et à mieux situer les interventions destinées aux populations rurales.",
-            link:
-                "Elle constitue une base pour comprendre le rôle des organisations paysannes dans les dynamiques de développement."
-        },
-
-        {
-            ue: "DOP 1150",
-            ueTitle: "Développement rural et organisations paysannes",
-            code: "DOP 1150",
-            name: "Histoire et typologie des organisations paysannes",
-            description:
-                "Cette matière porte sur l'évolution des organisations paysannes et sur les différentes formes qu'elles peuvent prendre.",
-            objective:
-                "Elle permet de distinguer les principales catégories d'organisations et de comprendre leur évolution dans le monde rural.",
-            link:
-                "Elle donne les premières bases nécessaires au futur manager d'organisations paysannes."
-        },
-
-
-        {
-            ue: "BSA 1151",
-            ueTitle: "Bases en Sociologie et anthropologie",
-            code: "BSA 1151",
-            name: "Sociologie : Genèse et questionnements",
-            description:
-                "Introduction aux concepts et questionnements fondamentaux de la sociologie.",
-            objective:
-                "Comprendre comment les relations sociales, les groupes et les institutions peuvent être étudiés.",
-            link:
-                "Ces connaissances permettent d'analyser le fonctionnement social des organisations paysannes."
-        },
-
-        {
-            ue: "BSA 1151",
-            ueTitle: "Bases en Sociologie et anthropologie",
-            code: "BSA 1151",
-            name: "Anthropologie : Genèse et questionnements",
-            description:
-                "Introduction aux principaux objets et questionnements de l'anthropologie.",
-            objective:
-                "Mieux comprendre les cultures, pratiques sociales et modes de vie des communautés.",
-            link:
-                "L'approche anthropologique est utile pour intervenir dans des territoires ruraux en tenant compte des réalités locales."
-        },
-
-
-        {
-            ue: "CAR 1152",
-            ueTitle: "Conseil agricole et rural",
-            code: "CAR 1152",
-            name: "Conseil agricole",
-            description:
-                "Cette matière aborde les principes du conseil destiné aux acteurs agricoles et ruraux.",
-            objective:
-                "Comprendre comment accompagner les producteurs et organisations dans leurs décisions.",
-            link:
-                "Le management des organisations paysannes nécessite de savoir accompagner les acteurs et leurs projets."
-        },
-
-        {
-            ue: "CAR 1152",
-            ueTitle: "Conseil agricole et rural",
-            code: "CAR 1152",
-            name: "Vulgarisation agricole",
-            description:
-                "Étude des méthodes permettant de transmettre des connaissances et innovations agricoles aux acteurs du terrain.",
-            objective:
-                "Comprendre les mécanismes de diffusion des connaissances et techniques auprès des producteurs.",
-            link:
-                "Cette matière renforce la capacité à communiquer avec les acteurs agricoles."
-        },
-
-
-        {
-            ue: "BCD 1153",
-            ueTitle: "Bases de Communication pour le développement",
-            code: "BCD 1153",
-            name: "Communication, média et société",
-            description:
-                "Étude des relations entre communication, médias et société.",
-            objective:
-                "Comprendre le rôle des médias et des différents moyens de communication dans la société.",
-            link:
-                "Les organisations paysannes ont besoin d'une communication adaptée avec leurs membres, partenaires et communautés."
-        },
-
-        {
-            ue: "BCD 1153",
-            ueTitle: "Bases de Communication pour le développement",
-            code: "BCD 1153",
-            name: "Communication pour le développement",
-            description:
-                "Introduction à l'utilisation de la communication comme outil d'accompagnement du développement.",
-            objective:
-                "Comprendre comment la communication peut favoriser la participation et le changement social.",
-            link:
-                "Elle est directement liée à la sensibilisation, la mobilisation et l'accompagnement des organisations."
-        },
-
-
-        {
-            ue: "MTR 1154",
-            ueTitle: "Méthodes et techniques de recherche en sciences sociales",
-            code: "MTR 1154",
-            name: "Étapes de la recherche en sciences sociales",
-            description:
-                "Présentation des principales étapes nécessaires pour construire une recherche en sciences sociales.",
-            objective:
-                "Apprendre à formuler un sujet, une problématique et une démarche de recherche.",
-            link:
-                "Le manager doit être capable d'analyser une situation avant de proposer une intervention."
-        },
-
-        {
-            ue: "MTR 1154",
-            ueTitle: "Méthodes et techniques de recherche en sciences sociales",
-            code: "MTR 1154",
-            name: "Techniques de collecte de données",
-            description:
-                "Étude des différentes méthodes permettant de recueillir des informations sur le terrain.",
-            objective:
-                "Comprendre comment obtenir des données fiables auprès des acteurs.",
-            link:
-                "La collecte de données est essentielle pour diagnostiquer une organisation paysanne."
-        },
-
-
-        {
-            ue: "OCL 1155",
-            ueTitle: "Outils de communication et langues",
-            code: "OCL 1155",
-            name: "Expression orale et écrite en anglais 1",
-            description:
-                "Développement des compétences fondamentales en communication anglaise.",
-            objective:
-                "Renforcer la capacité à comprendre et produire des messages simples en anglais.",
-            link:
-                "L'anglais peut faciliter l'accès à des ressources, partenaires et informations internationales."
-        },
-
-        {
-            ue: "OCL 1155",
-            ueTitle: "Outils de communication et langues",
-            code: "OCL 1155",
-            name: "Bureautique 1",
-            description:
-                "Initiation aux outils informatiques utiles dans le travail académique et professionnel.",
-            objective:
-                "Développer les compétences de base en traitement de texte, tableaux et documents numériques.",
-            link:
-                "Les outils numériques sont indispensables au suivi administratif des organisations."
-        },
-
-        {
-            ue: "OCL 1155",
-            ueTitle: "Outils de communication et langues",
-            code: "OCL 1155",
-            name: "Techniques d'expression en français",
-            description:
-                "Renforcement des compétences d'expression écrite et orale en français.",
-            objective:
-                "Apprendre à présenter clairement une idée, un rapport ou une intervention.",
-            link:
-                "Une bonne expression est indispensable pour communiquer avec les membres, partenaires et institutions."
-        }
-
-    ]
-},
-
-
-/* =========================================================
-   LICENCE 1 - SEMESTRE 2
-========================================================= */
-
-{
-    year: 1,
-    semester: 2,
-    title: "Organisations, recherche et gestion",
-    subjects: [
-
-        {
-            ue: "COP 1250",
-            ueTitle: "Connaissances des organisations paysannes",
-            code: "COP 1250",
-            name: "Théories des organisations",
-            description:
-                "Étude des principales approches permettant de comprendre comment fonctionnent les organisations.",
-            objective:
-                "Identifier les différentes manières d'analyser la structure et le fonctionnement d'une organisation.",
-            link:
-                "Cette matière constitue une base théorique pour analyser les organisations paysannes."
-        },
-
-        {
-            ue: "COP 1250",
-            ueTitle: "Connaissances des organisations paysannes",
-            code: "COP 1250",
-            name: "Méthodes de diagnostic des organisations paysannes",
-            description:
-                "Introduction aux méthodes utilisées pour analyser une organisation paysanne.",
-            objective:
-                "Identifier les forces, difficultés, besoins et possibilités d'évolution d'une organisation.",
-            link:
-                "Le diagnostic constitue une étape fondamentale de l'accompagnement des organisations."
-        },
-
-
-        {
-            ue: "SER 1251",
-            ueTitle: "Sociologie et Économie rurale",
-            code: "SER 1251",
-            name: "Sociologie rurale",
-            description:
-                "Étude des relations sociales et des dynamiques propres aux espaces ruraux.",
-            objective:
-                "Comprendre les structures sociales, acteurs et transformations du monde rural.",
-            link:
-                "Elle permet d'adapter l'action du manager aux réalités sociales des territoires."
-        },
-
-        {
-            ue: "SER 1251",
-            ueTitle: "Sociologie et Économie rurale",
-            code: "SER 1251",
-            name: "Économie rurale",
-            description:
-                "Introduction aux mécanismes économiques présents dans les territoires ruraux.",
-            objective:
-                "Comprendre les activités, revenus, marchés et contraintes économiques du monde rural.",
-            link:
-                "Elle aide à analyser l'environnement économique des organisations paysannes."
-        },
-
-
-        {
-            ue: "TRP 1252",
-            ueTitle: "Techniques de recherche et participative",
-            code: "TRP 1252",
-            name: "Techniques d'échantillonnage Quanti/Quali",
-            description:
-                "Présentation des principes de sélection des personnes ou unités à étudier dans une recherche quantitative ou qualitative.",
-            objective:
-                "Comprendre comment constituer un échantillon adapté à une étude.",
-            link:
-                "Ces méthodes sont utiles pour réaliser des enquêtes auprès des producteurs et organisations."
-        },
-
-        {
-            ue: "TRP 1252",
-            ueTitle: "Techniques de recherche et participative",
-            code: "TRP 1252",
-            name: "Méthode active de recherche participative",
-            description:
-                "Approche de recherche qui implique les acteurs concernés dans la production et l'analyse des informations.",
-            objective:
-                "Favoriser la participation des populations dans la compréhension des problèmes et la recherche de solutions.",
-            link:
-                "Elle correspond particulièrement aux démarches d'accompagnement des organisations paysannes."
-        },
-
-
-        {
-            ue: "PSO 1253",
-            ueTitle: "Psycho-sociologie des organisations",
-            code: "PSO 1253",
-            name: "Psychologie générale",
-            description:
-                "Introduction aux grands concepts de la psychologie.",
-            objective:
-                "Mieux comprendre certains comportements et interactions humaines.",
-            link:
-                "La compréhension des personnes est importante dans le management des organisations."
-        },
-
-        {
-            ue: "PSO 1253",
-            ueTitle: "Psycho-sociologie des organisations",
-            code: "PSO 1253",
-            name: "Typologie et profil du manager",
-            description:
-                "Réflexion sur les différents profils et fonctions du manager.",
-            objective:
-                "Identifier les attitudes et responsabilités liées au rôle de manager.",
-            link:
-                "Cette matière prépare progressivement l'étudiant à ses responsabilités professionnelles."
-        },
-
-
-        {
-            ue: "CFO 1254",
-            ueTitle: "Comptabilité et financement des organisations",
-            code: "CFO 1254",
-            name: "Comptabilité générale",
-            description:
-                "Introduction aux principes fondamentaux de la comptabilité.",
-            objective:
-                "Comprendre les opérations comptables et la lecture de documents financiers.",
-            link:
-                "La maîtrise des bases comptables est nécessaire pour suivre la gestion d'une organisation."
-        },
-
-        {
-            ue: "CFO 1254",
-            ueTitle: "Comptabilité et financement des organisations",
-            code: "CFO 1254",
-            name: "Sources de financement de l'agriculture",
-            description:
-                "Présentation des principales possibilités de financement des activités agricoles.",
-            objective:
-                "Identifier les différents mécanismes pouvant financer les activités rurales et agricoles.",
-            link:
-                "Les organisations paysannes doivent pouvoir identifier et mobiliser des ressources financières."
-        },
-
-
-        {
-            ue: "EGL 1255",
-            ueTitle: "Entrepreneuriat, Genre et Leadership",
-            code: "EGL 1255",
-            name: "Entrepreneuriat 1",
-            description:
-                "Introduction aux concepts fondamentaux de l'entrepreneuriat.",
-            objective:
-                "Comprendre les étapes et notions de base liées à la création et au développement d'une activité.",
-            link:
-                "L'entrepreneuriat complète les compétences de gestion et d'initiative du futur manager."
-        },
-
-        {
-            ue: "EGL 1255",
-            ueTitle: "Entrepreneuriat, Genre et Leadership",
-            code: "EGL 1255",
-            name: "Langues nationales 1",
-            description:
-                "Développement des capacités de communication dans les langues nationales.",
-            objective:
-                "Faciliter la communication avec les communautés et acteurs locaux.",
-            link:
-                "La proximité avec les acteurs ruraux nécessite une communication adaptée aux contextes linguistiques."
-        },
-
-        {
-            ue: "EGL 1255",
-            ueTitle: "Entrepreneuriat, Genre et Leadership",
-            code: "EGL 1255",
-            name: "Leadership",
-            description:
-                "Introduction aux principes et pratiques du leadership.",
-            objective:
-                "Comprendre comment mobiliser, coordonner et accompagner un groupe.",
-            link:
-                "Le leadership est important pour animer et faire fonctionner une organisation collective."
-        }
-
-    ]
-},
-
-
-/* =========================================================
-   LICENCE 2 - SEMESTRE 3
-========================================================= */
-
-{
-    year: 2,
-    semester: 3,
-    title: "Management, politiques et organisations",
-    subjects: [
-
-        {
-            ue: "SOP 2350",
-            ueTitle: "Structuration des Organisations Paysannes",
-            code: "SOP 2350",
-            name: "Typologie du Management",
-            description:
-                "Étude des différentes approches et formes de management.",
-            objective:
-                "Comprendre les différents modes de gestion et d'organisation du travail.",
-            link:
-                "Elle permet de choisir des approches adaptées au fonctionnement des organisations paysannes."
-        },
-
-        {
-            ue: "SOP 2350",
-            ueTitle: "Structuration des Organisations Paysannes",
-            code: "SOP 2350",
-            name: "Sociologie des organisations",
-            description:
-                "Analyse des relations, règles, acteurs et structures qui composent une organisation.",
-            objective:
-                "Comprendre les comportements collectifs et les relations entre les différents acteurs.",
-            link:
-                "Elle aide à analyser les dynamiques internes des organisations paysannes."
-        },
-
-
-        {
-            ue: "GAO 2351",
-            ueTitle: "Gestion administrative des organisations",
-            code: "GAO 2351",
-            name: "Gestion des ressources humaines",
-            description:
-                "Étude des principes de gestion des personnes au sein d'une organisation.",
-            objective:
-                "Comprendre le recrutement, l'organisation du travail, la motivation et le suivi des collaborateurs.",
-            link:
-                "Les organisations paysannes ont besoin d'une gestion structurée de leurs ressources humaines."
-        },
-
-        {
-            ue: "GAO 2351",
-            ueTitle: "Gestion administrative des organisations",
-            code: "GAO 2351",
-            name: "Droit social",
-            description:
-                "Introduction aux règles juridiques liées aux relations de travail.",
-            objective:
-                "Comprendre les principales obligations et droits liés au travail.",
-            link:
-                "Ces connaissances permettent de mieux gérer les relations professionnelles."
-        },
-
-        {
-            ue: "GAO 2351",
-            ueTitle: "Gestion administrative des organisations",
-            code: "GAO 2351",
-            name: "Principes de l'audit organisationnel",
-            description:
-                "Introduction à l'analyse systématique du fonctionnement d'une organisation.",
-            objective:
-                "Identifier les écarts, dysfonctionnements et possibilités d'amélioration.",
-            link:
-                "L'audit organisationnel aide à améliorer la performance et la gouvernance des organisations."
-        },
-
-
-        {
-            ue: "PAR 2352",
-            ueTitle: "Politiques agricoles et rurales",
-            code: "PAR 2352",
-            name: "Politiques agricoles continentales et sous régionales",
-            description:
-                "Étude des grandes orientations et politiques concernant l'agriculture à différents niveaux.",
-            objective:
-                "Comprendre l'environnement institutionnel dans lequel évoluent les acteurs agricoles.",
-            link:
-                "Les organisations paysannes sont directement concernées par les politiques agricoles."
-        },
-
-        {
-            ue: "PAR 2352",
-            ueTitle: "Politiques agricoles et rurales",
-            code: "PAR 2352",
-            name: "Négociations sur les politiques agricoles et rurales",
-            description:
-                "Étude des mécanismes de dialogue et de négociation autour des politiques agricoles.",
-            objective:
-                "Comprendre comment les acteurs peuvent participer aux processus de concertation.",
-            link:
-                "La représentation des intérêts des producteurs nécessite des capacités de négociation."
-        },
-
-
-        {
-            ue: "ERC 2353",
-            ueTitle: "Économie rurale et Comptabilité",
-            code: "ERC 2353",
-            name: "Gestion comptable",
-            description:
-                "Approfondissement de la gestion comptable appliquée aux organisations.",
-            objective:
-                "Développer la capacité à suivre et organiser les opérations comptables.",
-            link:
-                "Cette compétence est utile au suivi financier des organisations paysannes."
-        },
-
-        {
-            ue: "ERC 2353",
-            ueTitle: "Économie rurale et Comptabilité",
-            code: "ERC 2353",
-            name: "Économie Rurale niveau 2",
-            description:
-                "Approfondissement de l'analyse économique des activités rurales.",
-            objective:
-                "Analyser plus finement les mécanismes économiques des territoires ruraux.",
-            link:
-                "Elle complète les compétences du manager dans l'analyse économique des organisations."
-        },
-
-
-        {
-            ue: "SGD 2354",
-            ueTitle: "Sociologie du genre et du développement",
-            code: "SGD 2354",
-            name: "Sociologie du Genre",
-            description:
-                "Étude des relations sociales liées au genre.",
-            objective:
-                "Comprendre les rôles sociaux et les rapports entre groupes dans différents contextes.",
-            link:
-                "La prise en compte du genre est importante dans les projets et organisations rurales."
-        },
-
-        {
-            ue: "SGD 2354",
-            ueTitle: "Sociologie du genre et du développement",
-            code: "SGD 2354",
-            name: "Sociologie du développement",
-            description:
-                "Analyse sociologique des transformations associées au développement.",
-            objective:
-                "Comprendre comment les changements économiques et sociaux affectent les populations.",
-            link:
-                "Elle permet d'analyser les effets sociaux des actions de développement."
-        },
-
-
-        {
-            ue: "OCL 2355",
-            ueTitle: "Outils de communication et langues",
-            code: "OCL 2355",
-            name: "Expression orale et écrite en anglais 2",
-            description:
-                "Poursuite de l'apprentissage de l'anglais.",
-            objective:
-                "Renforcer les capacités de communication en anglais.",
-            link:
-                "Elle facilite l'accès aux ressources et échanges professionnels."
-        },
-
-        {
-            ue: "OCL 2355",
-            ueTitle: "Outils de communication et langues",
-            code: "OCL 2355",
-            name: "Bureautique 2",
-            description:
-                "Approfondissement des outils bureautiques.",
-            objective:
-                "Améliorer la maîtrise des outils numériques utilisés dans les études et le travail.",
-            link:
-                "Les compétences numériques accompagnent la gestion administrative et documentaire."
-        },
-
-        {
-            ue: "OCL 2355",
-            ueTitle: "Outils de communication et langues",
-            code: "OCL 2355",
-            name: "Langues nationales 2",
-            description:
-                "Poursuite du développement des compétences dans les langues nationales.",
-            objective:
-                "Améliorer la communication avec les différents acteurs des territoires.",
-            link:
-                "Elle renforce la capacité d'intervention au niveau local."
-        }
-
-    ]
-},
-
-
-/* =========================================================
-   LICENCE 2 - SEMESTRE 4
-========================================================= */
-
-{
-    year: 2,
-    semester: 4,
-    title: "Projet, territoire et développement",
-    subjects: [
-
-        {
-            ue: "COP 2450",
-            ueTitle: "Capacitation des organisations paysannes",
-            code: "COP 2450",
-            name: "Théories du Management",
-            description:
-                "Approfondissement des principales théories et approches du management.",
-            objective:
-                "Comprendre les principes permettant d'organiser, coordonner et piloter une structure.",
-            link:
-                "Ces connaissances renforcent la capacité de gestion des organisations paysannes."
-        },
-
-        {
-            ue: "COP 2450",
-            ueTitle: "Capacitation des organisations paysannes",
-            code: "COP 2450",
-            name: "Planification stratégique",
-            description:
-                "Introduction à la planification à moyen et long terme d'une organisation.",
-            objective:
-                "Apprendre à définir des objectifs, priorités et actions cohérentes.",
-            link:
-                "La planification stratégique permet aux organisations paysannes de structurer leur développement."
-        },
-
-
-        {
-            ue: "TAO 2451",
-            ueTitle: "Techniques d'accompagnement des OP",
-            code: "TAO 2451",
-            name: "Techniques d'élaboration de projet",
-            description:
-                "Présentation des méthodes de construction d'un projet.",
-            objective:
-                "Savoir passer d'un besoin identifié à un projet structuré.",
-            link:
-                "Le manager peut être amené à accompagner les organisations dans la formulation de projets."
-        },
-
-        {
-            ue: "TAO 2451",
-            ueTitle: "Techniques d'accompagnement des OP",
-            code: "TAO 2451",
-            name: "Technique de construction de partenariat 1",
-            description:
-                "Introduction aux méthodes de construction de partenariats.",
-            objective:
-                "Comprendre comment identifier, mobiliser et maintenir des partenaires.",
-            link:
-                "Les partenariats sont importants pour l'accès aux ressources, compétences et opportunités."
-        },
-
-
-        {
-            ue: "DCV 2452",
-            ueTitle: "Développement local et chaînes de valeurs",
-            code: "DCV 2452",
-            name: "Développement Local",
-            description:
-                "Étude des dynamiques de développement à l'échelle locale.",
-            objective:
-                "Comprendre les acteurs, ressources et mécanismes du développement territorial.",
-            link:
-                "Les organisations paysannes sont des acteurs importants du développement local."
-        },
-
-        {
-            ue: "DCV 2452",
-            ueTitle: "Développement local et chaînes de valeurs",
-            code: "DCV 2452",
-            name: "Typologies des filières et chaînes de valeurs",
-            description:
-                "Analyse des différents acteurs et étapes intervenant dans une filière ou chaîne de valeur.",
-            objective:
-                "Comprendre comment les produits circulent de la production jusqu'aux marchés.",
-            link:
-                "Cette connaissance permet d'identifier les opportunités d'amélioration pour les organisations paysannes."
-        },
-
-
-        {
-            ue: "GFA 2453",
-            ueTitle: "Gestion foncière et aménagement du territoire",
-            code: "GFA 2453",
-            name: "Gestion Foncière",
-            description:
-                "Introduction aux enjeux liés à la gestion des terres.",
-            objective:
-                "Comprendre les problématiques liées à l'accès, l'utilisation et la gestion du foncier.",
-            link:
-                "Le foncier est un enjeu important pour les activités agricoles et rurales."
-        },
-
-        {
-            ue: "GFA 2453",
-            ueTitle: "Gestion foncière et aménagement du territoire",
-            code: "GFA 2453",
-            name: "Aménagement des territoires",
-            description:
-                "Étude des principes d'organisation et de développement des territoires.",
-            objective:
-                "Comprendre comment les activités et ressources peuvent être organisées dans l'espace.",
-            link:
-                "Le manager intervient dans des territoires où les questions d'aménagement sont importantes."
-        },
-
-
-        {
-            ue: "TRA 2454",
-            ueTitle: "Technique de recherche et d'animation",
-            code: "TRA 2454",
-            name: "Technique de recherche documentaire",
-            description:
-                "Méthodes permettant de rechercher, sélectionner et exploiter des documents.",
-            objective:
-                "Développer l'autonomie dans la recherche d'informations fiables.",
-            link:
-                "La recherche documentaire est indispensable pour préparer des projets, études et rapports."
-        },
-
-        {
-            ue: "TRA 2454",
-            ueTitle: "Technique de recherche et d'animation",
-            code: "TRA 2454",
-            name: "Techniques d'andragogie",
-            description:
-                "Introduction aux méthodes de formation et d'apprentissage destinées aux adultes.",
-            objective:
-                "Comprendre comment concevoir et animer une activité de formation pour adultes.",
-            link:
-                "Le manager peut être amené à former ou accompagner les membres d'organisations."
-        },
-
-
-        {
-            ue: "EGL 2455",
-            ueTitle: "Entrepreneuriat, Genre et Leadership",
-            code: "EGL 2455",
-            name: "Entrepreneuriat 2",
-            description:
-                "Approfondissement des connaissances en entrepreneuriat.",
-            objective:
-                "Développer davantage les capacités liées à la création et au développement d'activités.",
-            link:
-                "Cette matière complète les compétences de gestion et d'initiative."
-        },
-
-        {
-            ue: "EGL 2455",
-            ueTitle: "Entrepreneuriat, Genre et Leadership",
-            code: "EGL 2455",
-            name: "Compétences de vie",
-            description:
-                "Développement de compétences personnelles et relationnelles utiles à la vie académique et professionnelle.",
-            objective:
-                "Renforcer l'autonomie, la communication, la collaboration et l'adaptation.",
-            link:
-                "Ces compétences accompagnent les responsabilités professionnelles du futur manager."
-        }
-
-    ]
-},
-
-
-/* =========================================================
-   LICENCE 3 - SEMESTRE 5
-========================================================= */
-
-{
-    year: 3,
-    semester: 5,
-    title: "Gouvernance, projet et professionnalisation",
-    subjects: [
-
-        {
-            ue: "FOP 3550",
-            ueTitle: "Fonctionnement des organisations paysannes",
-            code: "FOP 3550",
-            name: "Gouvernance des organisations",
-            description:
-                "Étude des mécanismes de décision, de responsabilité et de fonctionnement collectif dans une organisation.",
-            objective:
-                "Comprendre les principes permettant d'améliorer la gouvernance.",
-            link:
-                "La bonne gouvernance est centrale dans la gestion durable des organisations paysannes."
-        },
-
-        {
-            ue: "FOP 3550",
-            ueTitle: "Fonctionnement des organisations paysannes",
-            code: "FOP 3550",
-            name: "Techniques de diagnostic de O.P",
-            description:
-                "Approfondissement des méthodes de diagnostic des organisations paysannes.",
-            objective:
-                "Savoir examiner le fonctionnement d'une organisation et identifier ses besoins.",
-            link:
-                "Le diagnostic permet de préparer des actions d'accompagnement adaptées."
-        },
-
-
-        {
-            ue: "PSO 3551",
-            ueTitle: "Psycho-sociologie des organisations",
-            code: "PSO 3551",
-            name: "Psychologie de groupe",
-            description:
-                "Étude des comportements et interactions au sein des groupes.",
-            objective:
-                "Comprendre les mécanismes de fonctionnement des groupes.",
-            link:
-                "La gestion des organisations implique régulièrement l'animation de groupes."
-        },
-
-        {
-            ue: "PSO 3551",
-            ueTitle: "Psycho-sociologie des organisations",
-            code: "PSO 3551",
-            name: "Techniques de négociation et de concertation",
-            description:
-                "Apprentissage des principes et techniques permettant de conduire des négociations et concertations.",
-            objective:
-                "Savoir préparer un échange, rechercher des compromis et faciliter le dialogue.",
-            link:
-                "Ces compétences sont utiles dans les relations entre producteurs, partenaires et institutions."
-        },
-
-        {
-            ue: "PSO 3551",
-            ueTitle: "Psycho-sociologie des organisations",
-            code: "PSO 3551",
-            name: "Sociologie des organisations",
-            description:
-                "Approfondissement de l'analyse sociologique des organisations.",
-            objective:
-                "Analyser les relations, pouvoirs, rôles et dynamiques collectives.",
-            link:
-                "Elle permet de mieux comprendre les situations organisationnelles complexes."
-        },
-
-
-        {
-            ue: "GPM 3552",
-            ueTitle: "Gestion de projet et Marketing",
-            code: "GPM 3552",
-            name: "Gestion de projet",
-            description:
-                "Étude des méthodes permettant de planifier, exécuter et suivre un projet.",
-            objective:
-                "Comprendre les étapes, ressources, responsabilités et outils du pilotage de projet.",
-            link:
-                "Le pilotage de projets est une compétence importante pour accompagner les organisations."
-        },
-
-        {
-            ue: "GPM 3552",
-            ueTitle: "Gestion de projet et Marketing",
-            code: "GPM 3552",
-            name: "Marketing social",
-            description:
-                "Approche du marketing appliquée à des objectifs sociaux et collectifs.",
-            objective:
-                "Comprendre comment concevoir une communication et une mobilisation adaptées à un objectif social.",
-            link:
-                "Cette approche peut accompagner des actions de sensibilisation ou de développement."
-        },
-
-
-        {
-            ue: "TRP 3553",
-            ueTitle: "Techniques de rédaction professionnelle",
-            code: "TRP 3553",
-            name: "Techniques de rédaction d'un rapport",
-            description:
-                "Apprentissage de la construction et de la rédaction d'un rapport professionnel.",
-            objective:
-                "Savoir organiser, présenter et synthétiser des informations.",
-            link:
-                "Les rapports sont indispensables dans le suivi des projets et activités."
-        },
-
-        {
-            ue: "TRP 3553",
-            ueTitle: "Techniques de rédaction professionnelle",
-            code: "TRP 3553",
-            name: "Techniques de rédaction administrative",
-            description:
-                "Étude des règles de rédaction des documents administratifs.",
-            objective:
-                "Produire des documents administratifs clairs et structurés.",
-            link:
-                "Cette compétence est utile dans la gestion quotidienne d'une organisation."
-        },
-
-
-        {
-            ue: "SER 3554",
-            ueTitle: "Sociologie et Économie Rurale",
-            code: "SER 3554",
-            name: "Sociologie économique",
-            description:
-                "Analyse des liens entre phénomènes économiques et relations sociales.",
-            objective:
-                "Comprendre comment les comportements économiques sont influencés par la société.",
-            link:
-                "Elle aide à mieux comprendre les comportements économiques des acteurs ruraux."
-        },
-
-        {
-            ue: "SER 3554",
-            ueTitle: "Sociologie et Économie Rurale",
-            code: "SER 3554",
-            name: "Sociologie des réseaux",
-            description:
-                "Étude des relations et réseaux entre les acteurs.",
-            objective:
-                "Comprendre comment les réseaux influencent les échanges, ressources et collaborations.",
-            link:
-                "Les réseaux sont essentiels dans le développement de partenariats et d'organisations."
-        },
-
-        {
-            ue: "SER 3554",
-            ueTitle: "Sociologie et Économie Rurale",
-            code: "SER 3554",
-            name: "Économie rurale 3",
-            description:
-                "Approfondissement de l'analyse économique du milieu rural.",
-            objective:
-                "Développer une lecture plus avancée des mécanismes économiques ruraux.",
-            link:
-                "Elle renforce la capacité d'analyse économique du futur professionnel."
-        },
-
-
-        {
-            ue: "ACP 3555",
-            ueTitle: "Audit et construction de partenariat",
-            code: "ACP 3555",
-            name: "Audit financier des organisations",
-            description:
-                "Introduction aux méthodes d'analyse et de contrôle des informations financières.",
-            objective:
-                "Comprendre comment examiner la situation financière d'une organisation.",
-            link:
-                "Le contrôle financier contribue à la transparence et à la bonne gestion."
-        },
-
-        {
-            ue: "ACP 3555",
-            ueTitle: "Audit et construction de partenariat",
-            code: "ACP 3555",
-            name: "Technique de construction de partenariat 2",
-            description:
-                "Approfondissement des méthodes de construction et de gestion des partenariats.",
-            objective:
-                "Développer des stratégies de collaboration entre organisations et partenaires.",
-            link:
-                "Les partenariats permettent notamment de mobiliser des ressources et compétences."
-        }
-
-    ]
-},
-
-
-/* =========================================================
-   LICENCE 3 - SEMESTRE 6
-========================================================= */
-
-{
-    year: 3,
-    semester: 6,
-    title: "Communication, accompagnement et fin de cycle",
-    subjects: [
-
-        {
-            ue: "CSD 3650",
-            ueTitle: "Communication sociale et développement",
-            code: "CSD 3650",
-            name: "Principes et approches de la communication sociale",
-            description:
-                "Étude des principes et approches permettant d'utiliser la communication dans les dynamiques sociales.",
-            objective:
-                "Comprendre comment construire une communication adaptée à différents publics.",
-            link:
-                "La communication sociale accompagne la mobilisation et le développement des communautés."
-        },
-
-        {
-            ue: "CSD 3650",
-            ueTitle: "Communication sociale et développement",
-            code: "CSD 3650",
-            name: "Techniques de communication sociale",
-            description:
-                "Approfondissement des techniques permettant de conduire des actions de communication sociale.",
-            objective:
-                "Savoir adapter les messages, supports et méthodes aux publics ciblés.",
-            link:
-                "Elle complète les compétences de communication nécessaires au manager."
-        },
-
-
-        {
-            ue: "ROP 3651",
-            ueTitle: "Renforcement des organisations paysannes",
-            code: "ROP 3651",
-            name: "Entrepreneuriat 3",
-            description:
-                "Approfondissement des connaissances entrepreneuriales.",
-            objective:
-                "Développer davantage la capacité à analyser et construire des initiatives entrepreneuriales.",
-            link:
-                "Elle renforce la capacité d'initiative et d'accompagnement des organisations."
-        },
-
-        {
-            ue: "ROP 3651",
-            ueTitle: "Renforcement des organisations paysannes",
-            code: "ROP 3651",
-            name: "Suivi-évaluation de projet",
-            description:
-                "Étude des méthodes permettant de suivre les activités et d'évaluer les résultats d'un projet.",
-            objective:
-                "Comprendre comment mesurer l'avancement, les résultats et les effets d'un projet.",
-            link:
-                "Le suivi-évaluation est indispensable pour améliorer les interventions auprès des organisations."
-        },
-
-        {
-            ue: "ROP 3651",
-            ueTitle: "Renforcement des organisations paysannes",
-            code: "ROP 3651",
-            name: "Techniques d'andragogie 2",
-            description:
-                "Approfondissement des techniques de formation des adultes.",
-            objective:
-                "Renforcer les capacités d'animation et de transmission de connaissances.",
-            link:
-                "Ces compétences sont utiles pour former et renforcer les capacités des membres d'organisations."
-        },
-
-
-        {
-            ue: "CSA 3652",
-            ueTitle: "Connaissance des services d'appui aux ruraux",
-            code: "CSA 3652",
-            name: "Assurances agricoles",
-            description:
-                "Introduction aux mécanismes d'assurance appliqués aux activités agricoles.",
-            objective:
-                "Comprendre le rôle de l'assurance dans la gestion des risques agricoles.",
-            link:
-                "La gestion des risques est importante pour les producteurs et organisations paysannes."
-        },
-
-        {
-            ue: "CSA 3652",
-            ueTitle: "Connaissance des services d'appui aux ruraux",
-            code: "CSA 3652",
-            name: "Analyse des filières et chaînes de valeurs",
-            description:
-                "Analyse approfondie des acteurs, activités et relations dans les filières.",
-            objective:
-                "Identifier les possibilités de création de valeur et les contraintes dans une chaîne.",
-            link:
-                "Elle permet au manager d'identifier des pistes d'amélioration pour les organisations."
-        },
-
-        {
-            ue: "CSA 3652",
-            ueTitle: "Connaissance des services d'appui aux ruraux",
-            code: "CSA 3652",
-            name: "Structures d'approvisionnement en intrants et équipements agricoles",
-            description:
-                "Étude des structures et mécanismes permettant l'accès aux intrants et équipements agricoles.",
-            objective:
-                "Comprendre comment les producteurs accèdent aux ressources nécessaires à leurs activités.",
-            link:
-                "Les organisations paysannes peuvent jouer un rôle important dans l'accès collectif aux intrants et équipements."
-        },
-
-
-        {
-            ue: "RFC 3653",
-            ueTitle: "Rapport fin de cycle",
-            code: "RFC 3653",
-            name: "Rapport de fin de cycle",
-            description:
-                "Travail de synthèse permettant à l'étudiant de mobiliser les connaissances acquises pendant son parcours.",
-            objective:
-                "Organiser une démarche de travail, analyser un sujet et présenter les résultats dans un document structuré.",
-            link:
-                "Le rapport de fin de cycle constitue une étape importante de synthèse et de professionnalisation."
-        }
-
-    ]
-}
-
+/* ==========================================================
+   PHOTOS DE FOND
+   Remplacez simplement les 4 fichiers si vous changez les photos.
+========================================================== */
+const campusPhotos = [
+  "assets/images/campus-kaffrine-1.jpg",
+  "assets/images/campus-kaffrine-2.jpg",
+  "assets/images/campus-kaffrine-3.jpg",
+  "assets/images/campus-kaffrine-4.jpg"
 ];
 
-
-
-/* =========================================================
-   ELEMENTS
-========================================================= */
-
-const container = document.getElementById("programContainer");
-const searchInput = document.getElementById("searchInput");
-const yearButtons = document.querySelectorAll(".year-btn");
-
-const modal = document.getElementById("subjectModal");
-const modalCode = document.getElementById("modalCode");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
-const modalObjective = document.getElementById("modalObjective");
-const modalLink = document.getElementById("modalLink");
-const modalClose = document.getElementById("modalClose");
-
-let selectedYear = "all";
-
-
-/* =========================================================
-   AFFICHER LES SEMESTRES
-========================================================= */
-
-function renderProgram() {
-
-    const search =
-        searchInput.value
-        .toLowerCase()
-        .trim();
-
-    container.innerHTML = "";
-
-    semesters.forEach(sem => {
-
-        if (
-            selectedYear !== "all" &&
-            String(sem.year) !== selectedYear
-        ) {
-            return;
-        }
-
-
-        const matchingSubjects =
-            sem.subjects.filter(subject => {
-
-                const text = (
-                    subject.ue +
-                    " " +
-                    subject.ueTitle +
-                    " " +
-                    subject.code +
-                    " " +
-                    subject.name
-                ).toLowerCase();
-
-                return text.includes(search);
-            });
-
-
-        if (
-            search &&
-            matchingSubjects.length === 0
-        ) {
-            return;
-        }
-
-
-        /* -------------------------------------------------
-           SEMESTRE
-        ------------------------------------------------- */
-
-        const semesterElement =
-            document.createElement("div");
-
-        semesterElement.className = "semester";
-
-        semesterElement.id =
-            "semestre-" + sem.semester;
-
-
-        semesterElement.innerHTML = `
-
-            <div class="semester-header">
-
-                <div class="semester-title">
-
-                    <div class="semester-number">
-                        S${sem.semester}
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Semestre ${sem.semester}
-                        </h3>
-
-                        <p>
-                            ${sem.title}
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="semester-line"></div>
-
-            </div>
-
-
-            <div class="ue-grid"></div>
-
-        `;
-
-
-        const ueGrid =
-            semesterElement.querySelector(".ue-grid");
-
-
-        /* -------------------------------------------------
-           REGROUPEMENT PAR UE
-        ------------------------------------------------- */
-
-        const grouped = {};
-
-
-        matchingSubjects.forEach(subject => {
-
-            if (!grouped[subject.ue]) {
-                grouped[subject.ue] = {
-                    title: subject.ueTitle,
-                    subjects: []
-                };
-            }
-
-            grouped[subject.ue]
-                .subjects
-                .push(subject);
-
-        });
-
-
-        Object.entries(grouped)
-            .forEach(([ueCode, ue]) => {
-
-                const card =
-                    document.createElement("article");
-
-                card.className = "ue-card";
-
-
-                card.innerHTML = `
-
-                    <div class="ue-header">
-
-                        <span class="ue-code">
-                            ${ueCode}
-                        </span>
-
-                        <div class="ue-title">
-                            ${ue.title}
-                        </div>
-
-                        <div class="ue-type">
-                            Unité d'enseignement • Obligatoire
-                        </div>
-
-                    </div>
-
-
-                    <div class="subjects"></div>
-
-                `;
-
-
-                const subjectsContainer =
-                    card.querySelector(".subjects");
-
-
-                ue.subjects.forEach(
-                    (subject, index) => {
-
-                        const item =
-                            document.createElement("div");
-
-                        item.className = "subject";
-
-                        item.innerHTML = `
-
-                            <div class="subject-top">
-
-                                <span class="subject-number">
-                                    ${index + 1}
-                                </span>
-
-                                <span class="subject-name">
-                                    ${subject.name}
-                                </span>
-
-                            </div>
-
-                            <div class="subject-more">
-                                Voir l'explication →
-                            </div>
-
-                        `;
-
-
-                        item.addEventListener(
-                            "click",
-                            () => openModal(subject)
-                        );
-
-
-                        subjectsContainer.appendChild(item);
-
-                    }
-                );
-
-
-                ueGrid.appendChild(card);
-
-            });
-
-
-        container.appendChild(
-            semesterElement
-        );
-
-    });
-
-
-    if (!container.children.length) {
-
-        container.innerHTML = `
-
-            <div style="
-                padding:50px;
-                text-align:center;
-                background:white;
-                border-radius:20px;
-                border:1px solid #dce5e0;
-            ">
-
-                <div style="font-size:40px;">
-                    🔎
-                </div>
-
-                <h3 style="
-                    margin:10px 0;
-                    color:#073b2a;
-                ">
-                    Aucune matière trouvée
-                </h3>
-
-                <p style="
-                    color:#68756f;
-                ">
-                    Essayez un autre mot-clé.
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
+let photoIndex = 0;
+const heroBg = document.getElementById("heroBg");
+
+function changeCampusPhoto(){
+  heroBg.classList.add("fade");
+  setTimeout(() => {
+    photoIndex = (photoIndex + 1) % campusPhotos.length;
+    heroBg.style.backgroundImage = `url("${campusPhotos[photoIndex]}")`;
+    heroBg.classList.remove("fade");
+  }, 600);
 }
+heroBg.style.backgroundImage = `url("${campusPhotos[0]}")`;
+setInterval(changeCampusPhoto, 5500);
 
-
-
-/* =========================================================
-   MODAL
-========================================================= */
-
-function openModal(subject) {
-
-    modalCode.textContent =
-        subject.code;
-
-    modalTitle.textContent =
-        subject.name;
-
-    modalDescription.textContent =
-        subject.description;
-
-    modalObjective.textContent =
-        subject.objective;
-
-    modalLink.textContent =
-        subject.link;
-
-    modal.classList.add("show");
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closeModal() {
-
-    modal.classList.remove("show");
-
-    document.body.style.overflow = "";
-
-}
-
-
-modalClose.addEventListener(
-    "click",
-    closeModal
-);
-
-
-modal.addEventListener(
-    "click",
-    event => {
-
-        if (
-            event.target === modal
-        ) {
-            closeModal();
-        }
-
-    }
-);
-
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Escape"
-        ) {
-            closeModal();
-        }
-
-    }
-);
-
-
-
-/* =========================================================
-   FILTRE ANNEE
-========================================================= */
-
-yearButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            yearButtons.forEach(
-                btn =>
-                    btn.classList.remove("active")
-            );
-
-            button.classList.add("active");
-
-            selectedYear =
-                button.dataset.year;
-
-            renderProgram();
-
-        }
-    );
-
+/* NAV */
+window.addEventListener("scroll", () => {
+  document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 30);
 });
 
-
-
-/* =========================================================
-   RECHERCHE
-========================================================= */
-
-searchInput.addEventListener(
-    "input",
-    renderProgram
-);
-
-
-
-/* =========================================================
-   MENU MOBILE
-========================================================= */
-
-const menuBtn =
-    document.getElementById("menuBtn");
-
-const navLinks =
-    document.getElementById("navLinks");
-
-
-menuBtn.addEventListener(
-    "click",
-    () => {
-
-        navLinks.classList.toggle("show");
-
+/* REVEAL AU DÉFILEMENT */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
     }
-);
+  });
+},{threshold:.12});
 
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-navLinks
-    .querySelectorAll("a")
-    .forEach(link => {
+/* ==========================================================
+   DONNÉES DU PARCOURS
+========================================================== */
+const data = {
+L1:{
+  s:[
+    [
+      ["DOP 1150","Développement rural et organisations paysannes",[
+        ["Principes du développement","Découverte des concepts et approches du développement rural."],
+        ["Histoire et typologie des organisations paysannes","Comprendre l’évolution, les formes et les rôles des organisations paysannes."]
+      ]],
+      ["BSA 1151","Bases en Sociologie et anthropologie",[
+        ["Sociologie : Genèse et questionnements","Introduction aux structures sociales, aux groupes et aux relations entre les acteurs."],
+        ["Anthropologie : Genèse et questionnements","Découverte des cultures, pratiques et représentations des communautés."]
+      ]],
+      ["CAR 1152","Conseil agricole et rural",[
+        ["Conseil agricole","Comprendre l’accompagnement des producteurs dans leurs décisions."],
+        ["Vulgarisation agricole","Apprendre à transmettre des connaissances et techniques agricoles."]
+      ]],
+      ["BCD 1153","Bases de Communication pour le développement",[
+        ["Communication, média et société","Comprendre les relations entre communication, médias et société."],
+        ["Communication pour le développement","Utiliser la communication pour favoriser la participation et le développement local."]
+      ]],
+      ["MTR 1154","Méthodes et techniques de recherche en sciences sociales",[
+        ["Étapes de la recherche en sciences sociales","Construire une recherche : problématique, objectifs, méthode et analyse."],
+        ["Techniques de collecte de données","Découvrir questionnaires, entretiens, observations et autres méthodes de collecte."]
+      ]],
+      ["OCL 1155","Outils de communication et langues",[
+        ["Expression orale et écrite en anglais 1","Acquérir les bases de l’anglais dans un contexte académique et professionnel."],
+        ["Bureautique 1","Découvrir les principaux outils informatiques de traitement de texte, tableaux et présentations."],
+        ["Techniques d'expression en français","Améliorer la communication orale et écrite dans un contexte professionnel."]
+      ]]
+    ],
+    [
+      ["COP 1250","Connaissances des organisations paysannes",[
+        ["Théories des organisations","Comprendre les structures, fonctions et modes de coordination des organisations."],
+        ["Méthodes de diagnostic d'organisations paysannes","Identifier les forces, difficultés et besoins d’une organisation paysanne."]
+      ]],
+      ["SER 1251","Sociologie et Economie rurale",[
+        ["Sociologie Rurale","Étudier les structures sociales et les transformations des espaces ruraux."],
+        ["Economie Rurale","Comprendre la production, les marchés et les activités économiques rurales."]
+      ]],
+      ["TRP 1252","Techniques de recherche et participative",[
+        ["Techniques d'échantillonnage Quanti/Quali","Découvrir comment sélectionner des personnes ou groupes pour une étude."],
+        ["Méthode active de recherche participative","Associer les acteurs locaux à l’analyse des problèmes et à la recherche de solutions."]
+      ]],
+      ["PSO 1253","Psycho-sociologie des organisations",[
+        ["Psychologie générale","Comprendre comportements, motivations et relations entre les personnes."],
+        ["Typologie et profil du manager","Découvrir les rôles, compétences et styles de management."]
+      ]],
+      ["CFO 1254","Comptabilité et financement des organisations",[
+        ["Comptabilité générale","Apprendre les principes de base de l’enregistrement et de la lecture des opérations comptables."],
+        ["Sources de financement de l'agriculture","Découvrir les différentes sources et mécanismes de financement agricole."]
+      ]],
+      ["EGL 1255","Entreprenariat, Genre et Leadership",[
+        ["Entrepreneuriat 1","Découvrir l’initiative entrepreneuriale et l’identification des opportunités."],
+        ["Langues nationales 1","Développer la communication dans les contextes utilisant les langues nationales."],
+        ["Leadership","Développer les capacités de décision, de travail en équipe et de mobilisation."]
+      ]]
+    ]
+  ]
+},
 
-        link.addEventListener(
-            "click",
-            () => {
+L2:{
+  s:[
+    [
+      ["SOP 2350","Structuration des Organisations Paysannes",[
+        ["Typologie du Management","Découvrir différents modèles et fonctions du management."],
+        ["Sociologie des organisations","Comprendre les relations, rôles, pouvoirs et cultures au sein des organisations."]
+      ]],
+      ["GAO 2351","Gestion administrative des organisations",[
+        ["Gestion des ressources humaines","Comprendre recrutement, motivation, formation et suivi des collaborateurs."],
+        ["Droit Social","Découvrir les droits, obligations et relations dans le monde du travail."],
+        ["Principes de l'audit organisationnel","Évaluer le fonctionnement d’une organisation et identifier des pistes d’amélioration."]
+      ]],
+      ["PAR 2352","Politiques agricoles et rurales",[
+        ["Politiques agricoles continentales et sous régionales","Comprendre les principaux cadres et instruments des politiques agricoles."],
+        ["Négociations sur les politiques agricoles et rurales","Développer les capacités de dialogue et de négociation entre acteurs."]
+      ]],
+      ["ERC 2353","Economie rurale et Comptabilité",[
+        ["Gestion comptable","Apprendre à suivre les opérations et informations financières d’une organisation."],
+        ["Economie Rurale niveau 2","Approfondir l’analyse des activités et marchés ruraux."]
+      ]],
+      ["SGD 2354","Sociologie du genre et du développement",[
+        ["Sociologie du Genre","Étudier les rôles sociaux liés au genre et les rapports entre les acteurs."],
+        ["Sociologie du développement","Comprendre les transformations sociales liées aux processus de développement."]
+      ]],
+      ["OCL 2355","Outils de communication et langues",[
+        ["Expression orale et écrite en anglais 2","Approfondir l’anglais pour les études et le contexte professionnel."],
+        ["Bureautique 2","Approfondir l’utilisation des outils bureautiques et de gestion de données."],
+        ["Langues nationales 2","Renforcer les compétences de communication dans les langues nationales."]
+      ]]
+    ],
+    [
+      ["COP 2450","Capacitation des organisations paysannes",[
+        ["Théories du Management","Comprendre les principes d’organisation, de direction et de contrôle."],
+        ["Planification Stratégique","Construire des objectifs, actions, indicateurs et plans stratégiques."]
+      ]],
+      ["TAO 2451","Techniques d'accompagnement des OP",[
+        ["Techniques d'élaboration de projet","Formuler objectifs, activités, budget et résultats d’un projet."],
+        ["Technique de construction de partenariat 1","Identifier les acteurs et construire des relations de collaboration."]
+      ]],
+      ["DCV 2452","Développement local et chaînes de valeurs",[
+        ["Développement Local","Comprendre les acteurs, ressources et projets permettant le développement d’un territoire."],
+        ["Typologies des filières et chaînes de valeurs","Identifier les acteurs, flux et relations dans une chaîne de valeur."]
+      ]],
+      ["GFA 2453","Gestion foncière et aménagement du territoire",[
+        ["Gestion Foncière","Comprendre les questions liées à l’utilisation et à la gestion des terres."],
+        ["Aménagement des territoires","Réfléchir à l’organisation durable des espaces et des ressources."]
+      ]],
+      ["TRA 2454","Technique de recherche et d'animation",[
+        ["Technique de recherche documentaire","Rechercher, sélectionner et organiser des informations fiables."],
+        ["Techniques d'andragogie","Découvrir les principes de formation et d’accompagnement des adultes."]
+      ]],
+      ["EGL 2455","Entreprenariat, Genre et Leadership",[
+        ["Entreprenariat 2","Approfondir la construction et la structuration d’une initiative entrepreneuriale."],
+        ["Compétences de vie","Développer communication, travail en équipe, adaptation et résolution de problèmes."]
+      ]]
+    ]
+  ]
+},
 
-                navLinks.classList.remove("show");
+L3:{
+  s:[
+    [
+      ["FOP 3550","Fonctionnement des organisations paysannes",[
+        ["Gouvernance des organisations","Comprendre participation, transparence et responsabilité."],
+        ["Techniques de diagnostic de O.P","Utiliser des outils pour analyser le fonctionnement et les besoins d’une organisation."]
+      ]],
+      ["PSO 3551","Psycho-sociologie des organisations",[
+        ["Psychologie de groupe","Comprendre les comportements et dynamiques au sein des groupes."],
+        ["Techniques de négociation et de concertation","Développer écoute, dialogue et recherche d’accords."],
+        ["Sociologie des organisations","Analyser les relations et comportements au sein des organisations."]
+      ]],
+      ["GPM 3552","Gestion de projet et Marketing",[
+        ["Gestion de projet","Planifier activités, ressources, risques et résultats d’un projet."],
+        ["Marketing social","Utiliser les outils du marketing pour accompagner des objectifs sociaux."]
+      ]],
+      ["TRP 3553","Techniques de rédaction professionnelle",[
+        ["Techniques de rédaction d'un rapport","Structurer un rapport professionnel avec méthodologie, résultats et recommandations."],
+        ["Technique de rédaction administrative","Rédiger des documents administratifs de manière claire et professionnelle."]
+      ]],
+      ["SER 3554","Sociologie et Economie Rurale",[
+        ["Sociologie économique","Étudier les dimensions sociales des activités économiques."],
+        ["Sociologie des réseaux","Comprendre les relations et réseaux entre les différents acteurs."],
+        ["Economie rurale 3","Approfondir l’analyse économique des activités et territoires ruraux."]
+      ]],
+      ["ACP 3555","Audit et construction de partenariat",[
+        ["Audit financier des organisations","Examiner les informations financières, contrôles et pratiques comptables."],
+        ["Technique de construction de partenariat","Construire des relations durables entre organisations et partenaires."]
+      ]]
+    ],
+    [
+      ["CSD 3650","Communication sociale et de développement",[
+        ["Principes et approches de la communication","Comprendre modèles, stratégies et publics de la communication."],
+        ["Techniques de communication sociale","Utiliser des techniques adaptées à la communication avec groupes et communautés."]
+      ]],
+      ["ROP 3651","Renforcement des organisations paysannes",[
+        ["Entrepreneuriat 3","Consolider les compétences entrepreneuriales et la gestion des opportunités."],
+        ["Suivi-évaluation de projet","Mesurer activités, résultats et changements produits par un projet."],
+        ["Techniques d'andragogie 2","Approfondir la conception et l’animation de formations destinées aux adultes."]
+      ]],
+      ["CSA 3652","Connaissance des services d'appui aux ruraux",[
+        ["Assurances agricoles","Comprendre les mécanismes de couverture et de gestion des risques agricoles."],
+        ["Analyse des filières et chaînes de valeurs","Analyser acteurs, marchés, contraintes et opportunités d’une filière."],
+        ["Structures d'approvisionnement en intrants et équipements agricoles","Comprendre l’organisation de l’accès aux intrants, équipements et fournisseurs."]
+      ]],
+      ["RFC 3653","Rapport fin de cycle",[
+        ["Rapport de fin de cycle","Mettre en pratique les acquis de la formation dans un travail académique et professionnel."]
+      ]]
+    ]
+  ]
+};
 
-            }
-        );
+let current = "L1";
 
-    });
+function openLicence(level){
+  current = level;
+  document.getElementById("modalLevel").textContent = "Licence " + level.replace("L","");
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow = "hidden";
+  showSemester(0);
+}
 
+function closeModal(){
+  document.getElementById("modal").classList.remove("open");
+  document.body.style.overflow = "";
+}
 
+function outsideClose(e){
+  if(e.target.id === "modal") closeModal();
+}
 
-/* =========================================================
-   RETOUR EN HAUT
-========================================================= */
+function showSemester(index){
+  document.querySelectorAll(".sem-tab").forEach((b,i)=>b.classList.toggle("active",i===index));
+  const list = data[current].s[index];
 
-const backTop =
-    document.getElementById("backTop");
+  document.getElementById("modalContent").innerHTML = `
+    <div class="sem-panel active">
+      ${list.map((ue,i)=>`
+        <article class="ue" style="animation-delay:${i*90}ms">
+          <div class="ue-head">
+            <span class="ue-code">${ue[0]}</span>
+            <div class="ue-title">${ue[1]}</div>
+            <span class="ue-tag">OBLIGATOIRE</span>
+          </div>
+          <div class="subjects">
+            ${ue[2].map(s=>`
+              <div class="subject">
+                <strong>${s[0]}</strong>
+                <p>${s[1]}</p>
+              </div>
+            `).join("")}
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
 
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if (
-            window.scrollY > 500
-        ) {
-
-            backTop.classList.add("show");
-
-        } else {
-
-            backTop.classList.remove("show");
-
-        }
-
-    }
-);
-
-
-backTop.addEventListener(
-    "click",
-    () => {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-
-/* =========================================================
-   ANNEE FOOTER
-========================================================= */
-
-document.getElementById("year")
-    .textContent =
-    new Date().getFullYear();
-
-
-
-/* =========================================================
-   INITIALISATION
-========================================================= */
-
-renderProgram();
-
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") closeModal();
+});
 </script>
-
 </body>
 </html>
