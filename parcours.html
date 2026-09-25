@@ -1,636 +1,108 @@
-<!DOCTYPE html>
-<html lang="fr"> 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Parcours Licence Management des Organisations Paysannes - USSEIN Kaffrine">
-<title>Parcours MOP — USSEIN Kaffrine</title>
-
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#073f2c">
+<title>Parcours académique | Licence MOP — USSEIN</title>
 <style>
-:root{
-  --green:#063f2a;
-  --green-2:#0b6544;
-  --green-3:#13815a;
-  --gold:#c9a24a;
-  --cream:#f7f4ec;
-  --white:#fff;
-  --ink:#17362a;
-  --muted:#6d7b74;
-  --line:rgba(6,63,42,.12);
-  --shadow:0 25px 70px rgba(9,39,28,.16);
-  --radius:24px;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  color:var(--ink);
-  background:var(--cream);
-  overflow-x:hidden;
-}
-button{font:inherit}
-
-/* ---------- NAV ---------- */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  height:78px;padding:0 6vw;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(3,34,23,.72);
-  border-bottom:1px solid rgba(255,255,255,.12);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  transition:.45s ease;
-}
-.nav.scrolled{background:rgba(3,34,23,.95);height:70px}
-.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-weight:800;letter-spacing:.3px}
-.brand img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff}
-.navlinks{display:flex;gap:26px}
-.navlinks a{color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;transition:.3s}
-.navlinks a:hover,.navlinks a.active{color:#e1bf67}
-
-/* ---------- HERO / BACKGROUND SLIDESHOW ---------- */
-.hero{
-  min-height:100vh;
-  position:relative;
-  isolation:isolate;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:120px 7vw 90px;
-  overflow:hidden;
-  color:#fff;
-}
-.hero-bg{
-  position:absolute;inset:0;z-index:-4;
-  background-size:cover;background-position:center;
-  transform:scale(1.04);
-  transition:opacity 1.2s ease, transform 7s ease;
-  opacity:1;
-}
-.hero-bg.fade{opacity:.18;transform:scale(1.09)}
-.hero-overlay{
-  position:absolute;inset:0;z-index:-3;
-  background:
-    linear-gradient(120deg,rgba(2,35,24,.94) 0%,rgba(2,35,24,.70) 45%,rgba(2,35,24,.42) 100%),
-    linear-gradient(0deg,rgba(2,35,24,.45),transparent 45%);
-}
-.hero-grid{
-  position:absolute;inset:0;z-index:-2;opacity:.15;
-  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
-  background-size:55px 55px;
-  mask-image:linear-gradient(to bottom,transparent,black 25%,black 75%,transparent);
-}
-.hero-content{max-width:920px;text-align:center}
-.kicker{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:9px 15px;border:1px solid rgba(255,255,255,.24);
-  background:rgba(255,255,255,.08);border-radius:999px;
-  font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
-  animation:rise .8s .05s both;
-}
-.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:#e1bf67;box-shadow:0 0 0 5px rgba(225,191,103,.12)}
-.hero h1{
-  margin:25px auto 18px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(48px,8vw,92px);
-  line-height:.96;letter-spacing:-2.5px;
-  animation:rise .8s .15s both;
-}
-.hero h1 span{color:#e1bf67}
-.hero p{
-  max-width:720px;margin:auto;
-  color:rgba(255,255,255,.86);
-  font-size:18px;line-height:1.8;
-  animation:rise .8s .25s both;
-}
-.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px;animation:rise .8s .35s both}
-.btn{
-  border:0;border-radius:999px;padding:14px 22px;cursor:pointer;
-  text-decoration:none;font-weight:800;transition:.35s ease;
-}
-.btn-gold{background:#d4ad58;color:#17351f;box-shadow:0 12px 30px rgba(0,0,0,.18)}
-.btn-gold:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(0,0,0,.25)}
-.btn-ghost{background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.24)}
-.btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-4px)}
-.photo-label{
-  position:absolute;right:6vw;bottom:28px;z-index:2;
-  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
-  color:rgba(255,255,255,.65)
-}
-
-/* ---------- INTRO ---------- */
-.section{padding:105px 7vw}
-.section-head{max-width:780px;margin:0 auto 48px;text-align:center}
-.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2.5px;color:var(--green-3);font-weight:900}
-.section-head h2{
-  margin-top:10px;font:700 clamp(34px,5vw,54px)/1.05 Georgia,"Times New Roman",serif;
-  color:var(--green);
-}
-.section-head p{margin-top:15px;color:var(--muted);line-height:1.8}
-
-/* ---------- LICENSE CARDS ---------- */
-.license-grid{
-  max-width:1180px;margin:auto;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
-}
-.license-card{
-  position:relative;overflow:hidden;
-  border:1px solid var(--line);border-radius:var(--radius);
-  background:rgba(255,255,255,.82);
-  padding:34px;cursor:pointer;text-align:left;
-  box-shadow:0 10px 35px rgba(7,55,37,.07);
-  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .45s;
-}
-.license-card::before{
-  content:"";position:absolute;inset:auto -20% -55% 20%;height:220px;
-  background:radial-gradient(circle,#d4ad58 0,transparent 65%);
-  opacity:.10;transition:.5s;
-}
-.license-card:hover{transform:translateY(-10px);box-shadow:var(--shadow);border-color:rgba(11,101,68,.3)}
-.license-card:hover::before{opacity:.18;transform:scale(1.2)}
-.license-top{display:flex;justify-content:space-between;align-items:center}
-.level{
-  font-size:52px;font-weight:950;color:var(--green);
-  letter-spacing:-3px;
-}
-.badge{padding:7px 11px;border-radius:999px;background:#eef6f1;color:var(--green-2);font-size:11px;font-weight:900}
-.license-card h3{margin-top:14px;font:700 26px Georgia,"Times New Roman",serif;color:var(--green)}
-.license-card p{margin-top:10px;color:var(--muted);line-height:1.7;font-size:14px}
-.card-arrow{
-  display:inline-flex;align-items:center;gap:8px;margin-top:25px;
-  color:var(--green-2);font-weight:900;font-size:13px;
-}
-.card-arrow span{transition:.3s}.license-card:hover .card-arrow span{transform:translateX(6px)}
-
-/* ---------- INFO STRIP ---------- */
-.info-strip{
-  background:var(--green);color:#fff;
-  padding:28px 7vw;
-}
-.info-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
-.info-item strong{display:block;font-size:25px;color:#e1bf67}
-.info-item span{font-size:12px;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:1.2px}
-
-/* ---------- MODAL ---------- */
-.modal{
-  position:fixed;inset:0;z-index:2000;
-  display:flex;align-items:center;justify-content:center;
-  padding:20px;background:rgba(2,22,15,.78);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  opacity:0;visibility:hidden;pointer-events:none;
-  transition:opacity .45s ease,visibility .45s ease;
-}
-.modal.open{opacity:1;visibility:visible;pointer-events:auto}
-.modal-box{
-  width:min(1120px,100%);max-height:90vh;overflow:hidden;
-  background:#fff;border-radius:28px;box-shadow:0 40px 110px rgba(0,0,0,.35);
-  transform:translateY(30px) scale(.97);
-  transition:transform .5s cubic-bezier(.2,.8,.2,1);
-}
-.modal.open .modal-box{transform:none}
-.modal-head{
-  padding:25px 30px;
-  background:linear-gradient(135deg,var(--green),var(--green-2));
-  color:#fff;display:flex;align-items:center;justify-content:space-between;
-}
-.modal-head small{display:block;color:#e1bf67;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:6px}
-.modal-head h2{font:700 30px Georgia,"Times New Roman",serif}
-.close{
-  width:44px;height:44px;border:1px solid rgba(255,255,255,.2);
-  border-radius:50%;background:rgba(255,255,255,.08);color:#fff;cursor:pointer;
-  font-size:25px;transition:.35s;
-}
-.close:hover{background:#a93f3f;transform:rotate(90deg)}
-.sem-tabs{
-  display:flex;gap:8px;padding:18px 26px;
-  border-bottom:1px solid #e9eee9;background:#fbfcfb;
-}
-.sem-tab{
-  border:1px solid #dce6df;background:#fff;color:var(--green);
-  padding:11px 17px;border-radius:999px;font-weight:900;cursor:pointer;transition:.3s;
-}
-.sem-tab.active{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 8px 20px rgba(6,63,42,.18)}
-.modal-content{padding:28px;overflow:auto;max-height:calc(90vh - 150px)}
-.sem-panel{display:none}
-.sem-panel.active{display:block;animation:panelIn .45s ease}
-@keyframes panelIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
-.ue{
-  border:1px solid #e1e9e4;border-radius:18px;margin-bottom:14px;
-  overflow:hidden;background:#fff;box-shadow:0 7px 25px rgba(7,55,37,.055);
-  opacity:0;transform:translateY(18px);
-}
-.sem-panel.active .ue{animation:ueIn .55s forwards}
-@keyframes ueIn{to{opacity:1;transform:none}}
-.ue-head{padding:19px 20px;display:flex;align-items:flex-start;gap:14px}
-.ue-code{flex:0 0 auto;background:var(--green);color:#fff;padding:7px 10px;border-radius:8px;font-size:11px;font-weight:950}
-.ue-title{font-weight:850;color:var(--green);line-height:1.4}
-.ue-tag{margin-left:auto;color:#7b6740;background:#faf3df;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;white-space:nowrap}
-.subjects{padding:0 20px 18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.subject{
-  border:1px solid #e8eee9;border-radius:13px;padding:14px;
-  background:#fbfdfb;transition:.3s;
-}
-.subject:hover{transform:translateY(-3px);border-color:#b8d3c5;box-shadow:0 10px 24px rgba(7,55,37,.08)}
-.subject strong{font-size:13px;color:#23483a}
-.subject p{margin-top:6px;color:#718078;font-size:12px;line-height:1.6}
-
-/* ---------- REVEAL ---------- */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-.reveal.visible{opacity:1;transform:none}
-
-/* ---------- FOOTER ---------- */
-footer{background:#032d1e;color:#fff;padding:55px 7vw;text-align:center}
-footer h3{font:700 24px Georgia,"Times New Roman",serif}
-footer p{margin-top:10px;color:rgba(255,255,255,.65);font-size:13px}
-footer a{color:#e1bf67;text-decoration:none}
-
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:850px){
-  .navlinks{display:none}
-  .license-grid{grid-template-columns:1fr}
-  .info-inner{grid-template-columns:1fr}
-  .subjects{grid-template-columns:1fr}
-  .modal{padding:8px}
-  .modal-box{max-height:95vh;border-radius:20px}
-  .modal-content{max-height:calc(95vh - 160px);padding:18px}
-  .sem-tabs{overflow:auto}
-  .sem-tab{white-space:nowrap}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
-}
-@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-</style>
-</head>
-
+:root{--g:#073f2c;--g2:#0b5a3c;--gold:#e4c778;--cream:#fbfaf6;--ink:#203329;--muted:#6b786f;--line:#e3e8df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}button,a{font:inherit}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{position:fixed;z-index:10;top:12px;left:0;right:0}.nav{width:min(1180px,calc(100% - 24px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 14px;background:#ffffffeb;backdrop-filter:blur(15px);border:1px solid #ffffff88;border-radius:17px;box-shadow:0 8px 28px #052e2010}
+.brand{display:flex;align-items:center;gap:10px}.mark{width:43px;height:43px;display:grid;place-items:center;background:var(--g);color:var(--gold);border-radius:13px;font:700 24px Georgia}.brand b{display:block;color:var(--g);font-size:13px;letter-spacing:.08em}.brand small{display:block;color:#718076;font-size:10px}.links{display:flex;gap:4px;align-items:center}.links a{padding:10px 14px;border-radius:11px;color:#385342;font-size:13px;font-weight:650;transition:.28s}.links a:hover{background:#edf3ed;transform:translateY(-1px)}.links a.active{background:var(--g);color:white}.links a.active:after{content:"↗";color:var(--gold);padding-left:7px}.toggle{display:none;border:0;border-radius:11px;background:var(--g);color:white;width:42px;height:42px;font-size:22px}
+.hero{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:center;color:white;background:radial-gradient(ellipse at 80% 24%,#d8b45a30,transparent 32%),radial-gradient(ellipse at 12% 90%,#55a4773b,transparent 36%),linear-gradient(130deg,#042c1e,#075238 62%,#0b5a3c)}
+.hero:before{content:"";position:absolute;inset:-25%;background:repeating-linear-gradient(120deg,transparent 0 68px,#ffffff07 69px 70px);animation:drift 32s linear infinite}.ring{position:absolute;width:620px;height:620px;right:-170px;top:10%;border:1px solid #e4c77835;border-radius:50%;box-shadow:0 0 0 45px #e4c77808,0 0 0 100px #e4c77806;animation:float 16s ease-in-out infinite alternate}.orb{position:absolute;width:210px;height:210px;border-radius:50%;background:#e4c77812;left:8%;top:20%;animation:float 10s ease-in-out infinite}
+.hero-content{position:relative;z-index:1;padding:145px 0 110px}.eyebrow{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.eyebrow:before{content:"";display:inline-block;width:28px;height:1px;background:var(--gold);vertical-align:middle;margin-right:10px}.hero h1{font:500 clamp(48px,7.5vw,90px)/1.03 Georgia,serif;letter-spacing:-.04em;margin:24px 0}.hero h1 em{font-style:normal;color:var(--gold)}.lead{max-width:650px;color:#ffffffc9;font-size:clamp(16px,2vw,19px)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:12px;font-weight:750;font-size:14px;transition:transform .3s,background .3s,box-shadow .3s}.btn:hover{transform:translateY(-3px)}.gold{background:var(--gold);color:#183b29;box-shadow:0 10px 25px #0002}.gold:hover{background:#f5df9c}.outline{border:1px solid #ffffff60;color:white;background:#ffffff08}.outline:hover{background:#ffffff19}.hero-foot{position:absolute;bottom:25px;left:0;right:0;display:flex;justify-content:space-between;color:#ffffff99;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+section.content{padding:90px 0}.heading{text-align:center;max-width:740px;margin:0 auto 42px}.kicker{color:#9a782e;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.heading h2{font:500 clamp(34px,5vw,53px)/1.12 Georgia,serif;color:var(--g);margin:12px 0}.heading p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.licence{position:relative;text-align:left;cursor:pointer;overflow:hidden;min-height:345px;padding:28px;border:1px solid #073f2c16;border-radius:23px;background:white;box-shadow:0 12px 38px #073f2c08;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,border-color .35s}.licence:before{content:"";position:absolute;width:210px;height:210px;border:1px solid #d8b45a50;border-radius:50%;right:-100px;top:-100px;transition:transform .5s}.licence:hover{transform:translateY(-8px);box-shadow:0 25px 65px #062e201c;border-color:#d8b45a}.licence:hover:before{transform:scale(1.2)}.top{display:flex;justify-content:space-between;align-items:center}.tag{background:#edf3ed;color:var(--g);border-radius:99px;padding:6px 11px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.num{font:40px Georgia;color:#d7c99f}.licence h3{font:500 34px Georgia;color:var(--g);margin:30px 0 8px}.licence p{font-size:14px;color:var(--muted);margin:0}.card-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:27px;font-size:12px;color:#7c887e}.arrow{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--g);color:var(--gold);font-size:22px;transition:.3s}.licence:hover .arrow{transform:rotate(45deg);background:var(--g2)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:42px;border:1px solid #073f2c1c;background:#073f2c1c;border-radius:18px;overflow:hidden}.stat{background:#f1f2e9;text-align:center;padding:20px}.stat b{display:block;font:28px Georgia;color:var(--g)}.stat span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#758176}.note{margin-top:48px;padding:30px;background:#edf2e9;border-radius:20px;display:flex;gap:18px;align-items:center}.note-icon{flex:0 0 50px;height:50px;border-radius:15px;background:var(--g);color:var(--gold);display:grid;place-items:center;font-size:23px}.note h3{margin:0 0 5px;color:var(--g);font-size:16px}.note p{margin:0;color:var(--muted);font-size:13px}
+footer{background:#052e20;color:#ffffffad;padding:28px 0;font-size:12px}.foot{display:flex;justify-content:space-between;gap:20px}.foot b{color:white;letter-spacing:.08em}
+.modal{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:18px;background:#03190fb8;backdrop-filter:blur(9px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}.modal.open{opacity:1;visibility:visible}.panel{width:min(900px,100%);max-height:90vh;overflow:auto;background:var(--cream);border-radius:24px;box-shadow:0 30px 100px #0005;transform:translateY(20px) scale(.98);transition:transform .35s}.modal.open .panel{transform:none}.modal-head{position:sticky;top:0;z-index:2;background:#fbfaf6f5;backdrop-filter:blur(12px);padding:25px 28px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}.modal-kicker{color:#9a782e;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.modal-title{font:500 clamp(29px,4vw,40px)/1.15 Georgia;color:var(--g);margin:6px 0}.subtitle{font-size:13px;color:var(--muted);margin:0}.close{width:42px;height:42px;flex:0 0 42px;border:1px solid var(--line);background:white;border-radius:50%;font-size:25px;color:var(--g);cursor:pointer;transition:transform .25s}.close:hover{transform:rotate(90deg)}.modal-body{padding:22px 28px 30px}.tabs{display:flex;gap:8px;background:#e9eee7;padding:6px;border-radius:14px;margin-bottom:22px}.tab{flex:1;border:0;background:transparent;border-radius:10px;padding:12px;font-weight:750;font-size:13px;color:#56685b;cursor:pointer;transition:.25s}.tab[aria-selected=true]{background:var(--g);color:white;box-shadow:0 5px 14px #073f2c20}.semester-caption{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.semester-caption h3{font:500 24px Georgia;color:var(--g);margin:0}.semester-caption span{font-size:11px;background:#f4ecd4;color:#8b7950;border-radius:99px;padding:6px 10px;font-weight:750}.ue-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.ue{background:white;border:1px solid #073f2c14;border-radius:15px;padding:19px;animation:appear .35s both;animation-delay:calc(var(--i)*45ms)}.code{color:#9a782e;font-size:10px;font-weight:850;letter-spacing:.12em}.ue h4{color:var(--g);font-size:14px;line-height:1.45;margin:8px 0 12px}.ue ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}.ue li{font-size:12px;color:var(--muted);padding-left:14px;position:relative}.ue li:before{content:"";position:absolute;left:0;top:.65em;width:5px;height:5px;background:var(--gold);border-radius:50%}.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
+@keyframes drift{to{transform:translate(4%,3%)}}@keyframes float{to{transform:translateY(20px) rotate(12deg)}}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(max-width:800px){.cards{gap:12px}.licence{padding:22px}.licence h3{font-size:29px}.links a{padding:9px 10px;font-size:12px}}
+@media(max-width:650px){header{top:8px}.nav{width:calc(100% - 16px);padding:8px 10px}.mark{width:39px;height:39px}.brand b{font-size:12px}.brand small{font-size:9px}.toggle{display:block}.links{display:none;position:absolute;top:calc(100% + 8px);left:8px;right:8px;padding:9px;background:#fffffff7;border:1px solid var(--line);border-radius:15px;box-shadow:0 20px 45px #073f2c20;flex-direction:column;align-items:stretch}.links.open{display:flex}.links a{font-size:14px;padding:12px}.hero-content{padding:130px 0 100px}.hero h1{font-size:clamp(47px,13vw,66px)}.hero-foot{font-size:8px;bottom:15px}.content{padding:65px 0!important}.cards{grid-template-columns:1fr}.licence{min-height:265px}.stats{margin-top:25px}.stat{padding:16px 4px}.stat b{font-size:23px}.stat span{font-size:8px}.note{padding:21px;align-items:flex-start}.foot{flex-direction:column}.modal{padding:8px}.panel{max-height:94vh;border-radius:19px}.modal-head{padding:20px 17px 15px}.modal-body{padding:17px}.ue-list{grid-template-columns:1fr}.semester-caption{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style></head>
 <body>
-
-<nav class="nav" id="nav">
-  <a class="brand" href="index.html">
-    <img src="assets/images/logo-mop.jpg" alt="Logo MOP">
-    <span>MOP — USSEIN</span>
-  </a>
-  <div class="navlinks">
-    <a href="index.html">Accueil</a>
-    <a href="formation.html">Formation</a>
-    <a class="active" href="parcours.html">Parcours</a>
-    <a href="débouchés.html">Débouchés</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
-<section class="hero" id="top">
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-grid"></div>
-
-  <div class="hero-content">
-    <div class="kicker">USSEIN • Campus de Kaffrine</div>
-    <h1>Le parcours <span>MOP</span></h1>
-    <p>
-      Explorez les trois niveaux de la Licence Management des Organisations Paysannes.
-      Cliquez simplement sur L1, L2 ou L3 : les semestres s’ouvrent sans parcourir une longue page.
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-gold" href="#licences">Découvrir les licences</a>
-      <a class="btn btn-ghost" href="mailto:clubdesmanagers7@gmail.com">Nous contacter</a>
-    </div>
-  </div>
-  <div class="photo-label">Campus de Kaffrine • arrière-plan photographique</div>
-</section>
-
-<section class="section" id="licences">
-  <div class="section-head reveal">
-    <div class="eyebrow">Parcours académique</div>
-    <h2>Choisissez votre niveau</h2>
-    <p>
-      Un accès simple et direct : un clic sur une licence, puis un clic sur le semestre.
-    </p>
-  </div>
-
-  <div class="license-grid">
-    <button class="license-card reveal" onclick="openLicence('L1')">
-      <div class="license-top"><div class="level">L1</div><div class="badge">2 semestres</div></div>
-      <h3>Licence 1</h3>
-      <p>Bases du développement rural, sociologie, communication, recherche et organisations paysannes.</p>
-      <span class="card-arrow">Voir le parcours <span>→</span></span>
-    </button>
-
-    <button class="license-card reveal" onclick="openLicence('L2')">
-      <div class="license-top"><div class="level">L2</div><div class="badge">2 semestres</div></div>
-      <h3>Licence 2</h3>
-      <p>Management, gestion administrative, politiques rurales, projets, développement local et accompagnement.</p>
-      <span class="card-arrow">Voir le parcours <span>→</span></span>
-    </button>
-
-    <button class="license-card reveal" onclick="openLicence('L3')">
-      <div class="license-top"><div class="level">L3</div><div class="badge">2 semestres</div></div>
-      <h3>Licence 3</h3>
-      <p>Gouvernance, gestion de projet, communication, audit, partenariat et rapport de fin de cycle.</p>
-      <span class="card-arrow">Voir le parcours <span>→</span></span>
-    </button>
-  </div>
-</section>
-
-<div class="info-strip">
-  <div class="info-inner">
-    <div class="info-item"><strong>3</strong><span>Années de licence</span></div>
-    <div class="info-item"><strong>6</strong><span>Semestres</span></div>
-    <div class="info-item"><strong>MOP</strong><span>Management des Organisations Paysannes</span></div>
-  </div>
+<header><nav class="nav" aria-label="Navigation principale">
+<a class="brand" href="index.html"><span class="mark">M</span><span><b>MOP · USSEIN</b><small>Management des Organisations Paysannes</small></span></a>
+<button class="toggle" id="toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+<div class="links" id="links"><a href="index.html">Accueil</a><a href="formation.html">Formation</a><a class="active" href="parcours.html" aria-current="page">Parcours</a><a href="débouchés.html">Débouchés</a><a href="contact.html">Contact</a></div>
+</nav></header>
+<main>
+<section class="hero"><div class="ring"></div><div class="orb"></div><div class="wrap hero-content">
+<div class="eyebrow">Licence · Management des Organisations Paysannes</div>
+<h1>Votre parcours.<br><em>Votre avenir.</em></h1>
+<p class="lead">Trois années pour comprendre les organisations paysannes, accompagner le développement rural et construire des compétences solides en gestion, communication et leadership.</p>
+<div class="actions"><a class="btn gold" href="#licences">Explorer les licences <span>→</span></a><a class="btn outline" href="formation.html">Découvrir la formation</a></div>
+</div><div class="wrap hero-foot"><span>USSEIN · Kaffrine</span><span>— Faites défiler pour découvrir</span></div></section>
+<section class="content" id="licences"><div class="wrap">
+<div class="heading reveal"><div class="kicker">Un parcours en trois étapes</div><h2>Choisissez votre année d’étude</h2><p>Chaque année comprend deux semestres. Sélectionnez une licence pour consulter les unités d’enseignement et les thèmes abordés.</p></div>
+<div class="cards">
+<button class="licence reveal" onclick="openLicence('L1')"><div class="top"><span class="tag">Première année</span><span class="num">01</span></div><h3>Licence 1</h3><p>Fondations en développement rural, sciences sociales, communication et découverte des organisations paysannes.</p><div class="card-bottom"><span>Semestre 1 · Semestre 2</span><span class="arrow">→</span></div></button>
+<button class="licence reveal" onclick="openLicence('L2')"><div class="top"><span class="tag">Deuxième année</span><span class="num">02</span></div><h3>Licence 2</h3><p>Structuration et accompagnement des organisations paysannes, gestion, politiques rurales et développement local.</p><div class="card-bottom"><span>Semestre 3 · Semestre 4</span><span class="arrow">→</span></div></button>
+<button class="licence reveal" onclick="openLicence('L3')"><div class="top"><span class="tag">Troisième année</span><span class="num">03</span></div><h3>Licence 3</h3><p>Professionnalisation : gouvernance, gestion de projet, audit, communication et rapport de fin de cycle.</p><div class="card-bottom"><span>Semestre 5 · Semestre 6</span><span class="arrow">→</span></div></button>
 </div>
-
-<footer>
-  <h3>Licence Management des Organisations Paysannes</h3>
-  <p>USSEIN — Campus de Kaffrine</p>
-  <p>Contact : <a href="mailto:clubdesmanagers7@gmail.com">clubdesmanagers7@gmail.com</a></p>
-</footer>
-
-<div class="modal" id="modal" onclick="outsideClose(event)">
-  <div class="modal-box">
-    <div class="modal-head">
-      <div>
-        <small id="modalLevel">Licence 1</small>
-        <h2>Management des Organisations Paysannes</h2>
-      </div>
-      <button class="close" onclick="closeModal()" aria-label="Fermer">×</button>
-    </div>
-    <div class="sem-tabs">
-      <button class="sem-tab active" onclick="showSemester(0)">Semestre 1</button>
-      <button class="sem-tab" onclick="showSemester(1)">Semestre 2</button>
-    </div>
-    <div class="modal-content" id="modalContent"></div>
-  </div>
-</div>
-
+<div class="stats reveal"><div class="stat"><b>3 ans</b><span>Cycle de licence</span></div><div class="stat"><b>6</b><span>Semestres</span></div><div class="stat"><b>MOP</b><span>Management rural</span></div></div>
+<aside class="note reveal"><div class="note-icon">✦</div><div><h3>Un parcours tourné vers le terrain</h3><p>Les enseignements associent sciences sociales, outils de gestion et méthodes d’accompagnement des organisations paysannes. Les intitulés affichés sont ceux de la maquette de cours fournie pour cette page.</p></div></aside>
+</div></section></main>
+<footer><div class="wrap foot"><div><b>MOP · USSEIN</b><br>Licence Management des Organisations Paysannes</div><div>© <span id="year"></span> · Université du Sine Saloum El-Hâdj Ibrahima NIASS</div></div></footer>
+<div class="modal" id="modal" aria-hidden="true"><section class="panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+<header class="modal-head"><div><div class="modal-kicker" id="modalKicker">Programme de licence</div><h2 class="modal-title" id="modalTitle">Licence 1</h2><p class="subtitle" id="subtitle"></p></div><button class="close" id="close" aria-label="Fermer">×</button></header>
+<div class="modal-body"><div class="tabs" role="tablist" aria-label="Choisir un semestre"><button class="tab" role="tab" id="tab0" aria-selected="true" data-s="0">Semestre 1</button><button class="tab" role="tab" id="tab1" aria-selected="false" data-s="1">Semestre 2</button></div>
+<div class="semester-caption"><h3 id="semTitle">Semestre 1</h3><span id="count"></span></div><div class="ue-list" id="ueList" aria-live="polite"></div></div></section></div>
 <script>
-/* ==========================================================
-   PHOTOS DE FOND
-   Remplacez simplement les 4 fichiers si vous changez les photos.
-========================================================== */
-const campusPhotos = [
-  "assets/images/campus-kaffrine-1.jpg",
-  "assets/images/campus-kaffrine-2.jpg",
-  "assets/images/campus-kaffrine-3.jpg",
-  "assets/images/campus-kaffrine-4.jpg"
-];
-
-let photoIndex = 0;
-const heroBg = document.getElementById("heroBg");
-
-function changeCampusPhoto(){
-  heroBg.classList.add("fade");
-  setTimeout(() => {
-    photoIndex = (photoIndex + 1) % campusPhotos.length;
-    heroBg.style.backgroundImage = `url("${campusPhotos[photoIndex]}")`;
-    heroBg.classList.remove("fade");
-  }, 600);
-}
-heroBg.style.backgroundImage = `url("${campusPhotos[0]}")`;
-setInterval(changeCampusPhoto, 5500);
-
-/* NAV */
-window.addEventListener("scroll", () => {
-  document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 30);
-});
-
-/* REVEAL AU DÉFILEMENT */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:.12});
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-/* ==========================================================
-   DONNÉES DU PARCOURS
-========================================================== */
-const data = {
-L1:{
-  s:[
-    [
-      ["DOP 1150","Développement rural et organisations paysannes",[
-        ["Principes du développement","Découverte des concepts et approches du développement rural."],
-        ["Histoire et typologie des organisations paysannes","Comprendre l’évolution, les formes et les rôles des organisations paysannes."]
-      ]],
-      ["BSA 1151","Bases en Sociologie et anthropologie",[
-        ["Sociologie : Genèse et questionnements","Introduction aux structures sociales, aux groupes et aux relations entre les acteurs."],
-        ["Anthropologie : Genèse et questionnements","Découverte des cultures, pratiques et représentations des communautés."]
-      ]],
-      ["CAR 1152","Conseil agricole et rural",[
-        ["Conseil agricole","Comprendre l’accompagnement des producteurs dans leurs décisions."],
-        ["Vulgarisation agricole","Apprendre à transmettre des connaissances et techniques agricoles."]
-      ]],
-      ["BCD 1153","Bases de Communication pour le développement",[
-        ["Communication, média et société","Comprendre les relations entre communication, médias et société."],
-        ["Communication pour le développement","Utiliser la communication pour favoriser la participation et le développement local."]
-      ]],
-      ["MTR 1154","Méthodes et techniques de recherche en sciences sociales",[
-        ["Étapes de la recherche en sciences sociales","Construire une recherche : problématique, objectifs, méthode et analyse."],
-        ["Techniques de collecte de données","Découvrir questionnaires, entretiens, observations et autres méthodes de collecte."]
-      ]],
-      ["OCL 1155","Outils de communication et langues",[
-        ["Expression orale et écrite en anglais 1","Acquérir les bases de l’anglais dans un contexte académique et professionnel."],
-        ["Bureautique 1","Découvrir les principaux outils informatiques de traitement de texte, tableaux et présentations."],
-        ["Techniques d'expression en français","Améliorer la communication orale et écrite dans un contexte professionnel."]
-      ]]
-    ],
-    [
-      ["COP 1250","Connaissances des organisations paysannes",[
-        ["Théories des organisations","Comprendre les structures, fonctions et modes de coordination des organisations."],
-        ["Méthodes de diagnostic d'organisations paysannes","Identifier les forces, difficultés et besoins d’une organisation paysanne."]
-      ]],
-      ["SER 1251","Sociologie et Economie rurale",[
-        ["Sociologie Rurale","Étudier les structures sociales et les transformations des espaces ruraux."],
-        ["Economie Rurale","Comprendre la production, les marchés et les activités économiques rurales."]
-      ]],
-      ["TRP 1252","Techniques de recherche et participative",[
-        ["Techniques d'échantillonnage Quanti/Quali","Découvrir comment sélectionner des personnes ou groupes pour une étude."],
-        ["Méthode active de recherche participative","Associer les acteurs locaux à l’analyse des problèmes et à la recherche de solutions."]
-      ]],
-      ["PSO 1253","Psycho-sociologie des organisations",[
-        ["Psychologie générale","Comprendre comportements, motivations et relations entre les personnes."],
-        ["Typologie et profil du manager","Découvrir les rôles, compétences et styles de management."]
-      ]],
-      ["CFO 1254","Comptabilité et financement des organisations",[
-        ["Comptabilité générale","Apprendre les principes de base de l’enregistrement et de la lecture des opérations comptables."],
-        ["Sources de financement de l'agriculture","Découvrir les différentes sources et mécanismes de financement agricole."]
-      ]],
-      ["EGL 1255","Entreprenariat, Genre et Leadership",[
-        ["Entrepreneuriat 1","Découvrir l’initiative entrepreneuriale et l’identification des opportunités."],
-        ["Langues nationales 1","Développer la communication dans les contextes utilisant les langues nationales."],
-        ["Leadership","Développer les capacités de décision, de travail en équipe et de mobilisation."]
-      ]]
-    ]
-  ]
-},
-
-L2:{
-  s:[
-    [
-      ["SOP 2350","Structuration des Organisations Paysannes",[
-        ["Typologie du Management","Découvrir différents modèles et fonctions du management."],
-        ["Sociologie des organisations","Comprendre les relations, rôles, pouvoirs et cultures au sein des organisations."]
-      ]],
-      ["GAO 2351","Gestion administrative des organisations",[
-        ["Gestion des ressources humaines","Comprendre recrutement, motivation, formation et suivi des collaborateurs."],
-        ["Droit Social","Découvrir les droits, obligations et relations dans le monde du travail."],
-        ["Principes de l'audit organisationnel","Évaluer le fonctionnement d’une organisation et identifier des pistes d’amélioration."]
-      ]],
-      ["PAR 2352","Politiques agricoles et rurales",[
-        ["Politiques agricoles continentales et sous régionales","Comprendre les principaux cadres et instruments des politiques agricoles."],
-        ["Négociations sur les politiques agricoles et rurales","Développer les capacités de dialogue et de négociation entre acteurs."]
-      ]],
-      ["ERC 2353","Economie rurale et Comptabilité",[
-        ["Gestion comptable","Apprendre à suivre les opérations et informations financières d’une organisation."],
-        ["Economie Rurale niveau 2","Approfondir l’analyse des activités et marchés ruraux."]
-      ]],
-      ["SGD 2354","Sociologie du genre et du développement",[
-        ["Sociologie du Genre","Étudier les rôles sociaux liés au genre et les rapports entre les acteurs."],
-        ["Sociologie du développement","Comprendre les transformations sociales liées aux processus de développement."]
-      ]],
-      ["OCL 2355","Outils de communication et langues",[
-        ["Expression orale et écrite en anglais 2","Approfondir l’anglais pour les études et le contexte professionnel."],
-        ["Bureautique 2","Approfondir l’utilisation des outils bureautiques et de gestion de données."],
-        ["Langues nationales 2","Renforcer les compétences de communication dans les langues nationales."]
-      ]]
-    ],
-    [
-      ["COP 2450","Capacitation des organisations paysannes",[
-        ["Théories du Management","Comprendre les principes d’organisation, de direction et de contrôle."],
-        ["Planification Stratégique","Construire des objectifs, actions, indicateurs et plans stratégiques."]
-      ]],
-      ["TAO 2451","Techniques d'accompagnement des OP",[
-        ["Techniques d'élaboration de projet","Formuler objectifs, activités, budget et résultats d’un projet."],
-        ["Technique de construction de partenariat 1","Identifier les acteurs et construire des relations de collaboration."]
-      ]],
-      ["DCV 2452","Développement local et chaînes de valeurs",[
-        ["Développement Local","Comprendre les acteurs, ressources et projets permettant le développement d’un territoire."],
-        ["Typologies des filières et chaînes de valeurs","Identifier les acteurs, flux et relations dans une chaîne de valeur."]
-      ]],
-      ["GFA 2453","Gestion foncière et aménagement du territoire",[
-        ["Gestion Foncière","Comprendre les questions liées à l’utilisation et à la gestion des terres."],
-        ["Aménagement des territoires","Réfléchir à l’organisation durable des espaces et des ressources."]
-      ]],
-      ["TRA 2454","Technique de recherche et d'animation",[
-        ["Technique de recherche documentaire","Rechercher, sélectionner et organiser des informations fiables."],
-        ["Techniques d'andragogie","Découvrir les principes de formation et d’accompagnement des adultes."]
-      ]],
-      ["EGL 2455","Entreprenariat, Genre et Leadership",[
-        ["Entreprenariat 2","Approfondir la construction et la structuration d’une initiative entrepreneuriale."],
-        ["Compétences de vie","Développer communication, travail en équipe, adaptation et résolution de problèmes."]
-      ]]
-    ]
-  ]
-},
-
-L3:{
-  s:[
-    [
-      ["FOP 3550","Fonctionnement des organisations paysannes",[
-        ["Gouvernance des organisations","Comprendre participation, transparence et responsabilité."],
-        ["Techniques de diagnostic de O.P","Utiliser des outils pour analyser le fonctionnement et les besoins d’une organisation."]
-      ]],
-      ["PSO 3551","Psycho-sociologie des organisations",[
-        ["Psychologie de groupe","Comprendre les comportements et dynamiques au sein des groupes."],
-        ["Techniques de négociation et de concertation","Développer écoute, dialogue et recherche d’accords."],
-        ["Sociologie des organisations","Analyser les relations et comportements au sein des organisations."]
-      ]],
-      ["GPM 3552","Gestion de projet et Marketing",[
-        ["Gestion de projet","Planifier activités, ressources, risques et résultats d’un projet."],
-        ["Marketing social","Utiliser les outils du marketing pour accompagner des objectifs sociaux."]
-      ]],
-      ["TRP 3553","Techniques de rédaction professionnelle",[
-        ["Techniques de rédaction d'un rapport","Structurer un rapport professionnel avec méthodologie, résultats et recommandations."],
-        ["Technique de rédaction administrative","Rédiger des documents administratifs de manière claire et professionnelle."]
-      ]],
-      ["SER 3554","Sociologie et Economie Rurale",[
-        ["Sociologie économique","Étudier les dimensions sociales des activités économiques."],
-        ["Sociologie des réseaux","Comprendre les relations et réseaux entre les différents acteurs."],
-        ["Economie rurale 3","Approfondir l’analyse économique des activités et territoires ruraux."]
-      ]],
-      ["ACP 3555","Audit et construction de partenariat",[
-        ["Audit financier des organisations","Examiner les informations financières, contrôles et pratiques comptables."],
-        ["Technique de construction de partenariat","Construire des relations durables entre organisations et partenaires."]
-      ]]
-    ],
-    [
-      ["CSD 3650","Communication sociale et de développement",[
-        ["Principes et approches de la communication","Comprendre modèles, stratégies et publics de la communication."],
-        ["Techniques de communication sociale","Utiliser des techniques adaptées à la communication avec groupes et communautés."]
-      ]],
-      ["ROP 3651","Renforcement des organisations paysannes",[
-        ["Entrepreneuriat 3","Consolider les compétences entrepreneuriales et la gestion des opportunités."],
-        ["Suivi-évaluation de projet","Mesurer activités, résultats et changements produits par un projet."],
-        ["Techniques d'andragogie 2","Approfondir la conception et l’animation de formations destinées aux adultes."]
-      ]],
-      ["CSA 3652","Connaissance des services d'appui aux ruraux",[
-        ["Assurances agricoles","Comprendre les mécanismes de couverture et de gestion des risques agricoles."],
-        ["Analyse des filières et chaînes de valeurs","Analyser acteurs, marchés, contraintes et opportunités d’une filière."],
-        ["Structures d'approvisionnement en intrants et équipements agricoles","Comprendre l’organisation de l’accès aux intrants, équipements et fournisseurs."]
-      ]],
-      ["RFC 3653","Rapport fin de cycle",[
-        ["Rapport de fin de cycle","Mettre en pratique les acquis de la formation dans un travail académique et professionnel."]
-      ]]
-    ]
-  ]
+const data={
+L1:{title:"Licence 1",sub:"Fondations · Découvrir les organisations paysannes",sem:[
+[
+["DOP 1150","Développement rural et organisations paysannes",["Principes du développement","Histoire et typologie des organisations paysannes"]],
+["BSA 1151","Bases en Sociologie et anthropologie",["Sociologie : Genèse et questionnements","Anthropologie : Genèse et questionnements"]],
+["CAR 1152","Conseil agricole et rural",["Conseil agricole","Vulgarisation agricole"]],
+["BCD 1153","Bases de Communication pour le développement",["Communication, média et société","Communication pour le développement"]],
+["MTR 1154","Méthodes et techniques de recherche en sciences sociales",["Étapes de la recherche en sciences sociales","Techniques de collecte de données"]],
+["OCL 1155","Outils de communication et langues",["Expression orale et écrite en anglais 1","Bureautique 1","Techniques d'expression en français"]]
+],[
+["COP 1250","Connaissances des organisations paysannes",["Théories des organisations","Méthodes de diagnostic d'organisations paysannes"]],
+["SER 1251","Sociologie et Economie rurale",["Sociologie Rurale","Economie Rurale"]],
+["TRP 1252","Techniques de recherche et participative",["Techniques d'échantillonnage Quanti/Quali","Méthode active de recherche participative"]],
+["PSO 1253","Psycho-sociologie des organisations",["Psychologie générale","Typologie et profil du manager"]],
+["CFO 1254","Comptabilité et financement des organisations",["Comptabilité générale","Sources de financement de l'agriculture"]],
+["EGL 1255","Entreprenariat, Genre et Leadership",["Entrepreneuriat 1","Langues nationales 1","Leadership"]]
+]}},
+L2:{title:"Licence 2",sub:"Structuration · Accompagner et organiser",sem:[
+[
+["SOP 2350","Structuration des Organisations Paysannes",["Typologie du Management","Sociologie des organisations"]],
+["GAO 2351","Gestion administrative des organisations",["Gestion des ressources humaines","Droit Social","Principes de l'audit organisationnel"]],
+["PAR 2352","Politiques agricoles et rurales",["Politiques agricoles continentales et sous régionales","Négociations sur les politiques agricoles et rurales"]],
+["ERC 2353","Economie rurale et Comptabilité",["Gestion comptable","Economie Rurale niveau 2"]],
+["SGD 2354","Sociologie du genre et du développement",["Sociologie du Genre","Sociologie du développement"]],
+["OCL 2355","Outils de communication et langues",["Expression orale et écrite en anglais 2","Bureautique 2","Langues nationales 2"]]
+],[
+["COP 2450","Capacitation des organisations paysannes",["Théories du Management","Planification Stratégique"]],
+["TAO 2451","Techniques d'accompagnement des OP",["Techniques d'élaboration de projet","Technique de construction de partenariat 1"]],
+["DCV 2452","Développement local et chaînes de valeurs",["Développement Local","Typologies des filières et chaînes de valeurs"]],
+["GFA 2453","Gestion foncière et aménagement du territoire",["Gestion Foncière","Aménagement des territoires"]],
+["TRA 2454","Technique de recherche et d'animation",["Technique de recherche documentaire","Techniques d'andragogie"]],
+["EGL 2455","Entreprenariat, Genre et Leadership",["Entreprenariat 2","Compétences de vie"]]
+]}},
+L3:{title:"Licence 3",sub:"Professionnalisation · Consolider ses compétences",sem:[
+[
+["FOP 3550","Fonctionnement des organisations paysannes",["Gouvernance des organisations","Techniques de diagnostic de O.P"]],
+["PSO 3551","Psycho-sociologie des organisations",["Psychologie de groupe","Techniques de négociation et de concertation","Sociologie des organisations"]],
+["GPM 3552","Gestion de projet et Marketing",["Gestion de projet","Marketing social"]],
+["TRP 3553","Techniques de rédaction professionnelle",["Techniques de rédaction d'un rapport","Technique de rédaction administrative"]],
+["SER 3554","Sociologie et Economie Rurale",["Sociologie économique","Sociologie des réseaux","Economie rurale 3"]],
+["ACP 3555","Audit et construction de partenariat",["Audit financier des organisations","Technique de construction de partenariat"]]
+],[
+["CSD 3650","Communication sociale et de développement",["Principes et approches de la communication","Techniques de communication sociale"]],
+["ROP 3651","Renforcement des organisations paysannes",["Entrepreneuriat 3","Suivi-évaluation de projet","Techniques d'andragogie 2"]],
+["CSA 3652","Connaissance des services d'appui aux ruraux",["Assurances agricoles","Analyse des filières et chaînes de valeurs","Structures d'approvisionnement en intrants et équipements agricoles"]],
+["RFC 3653","Rapport fin de cycle",["Rapport de fin de cycle"]]
+]}}
 };
-
-let current = "L1";
-
-function openLicence(level){
-  current = level;
-  document.getElementById("modalLevel").textContent = "Licence " + level.replace("L","");
-  document.getElementById("modal").classList.add("open");
-  document.body.style.overflow = "hidden";
-  showSemester(0);
-}
-
-function closeModal(){
-  document.getElementById("modal").classList.remove("open");
-  document.body.style.overflow = "";
-}
-
-function outsideClose(e){
-  if(e.target.id === "modal") closeModal();
-}
-
-function showSemester(index){
-  document.querySelectorAll(".sem-tab").forEach((b,i)=>b.classList.toggle("active",i===index));
-  const list = data[current].s[index];
-
-  document.getElementById("modalContent").innerHTML = `
-    <div class="sem-panel active">
-      ${list.map((ue,i)=>`
-        <article class="ue" style="animation-delay:${i*90}ms">
-          <div class="ue-head">
-            <span class="ue-code">${ue[0]}</span>
-            <div class="ue-title">${ue[1]}</div>
-            <span class="ue-tag">OBLIGATOIRE</span>
-          </div>
-          <div class="subjects">
-            ${ue[2].map(s=>`
-              <div class="subject">
-                <strong>${s[0]}</strong>
-                <p>${s[1]}</p>
-              </div>
-            `).join("")}
-          </div>
-        </article>
-      `).join("")}
-    </div>
-  `;
-}
-
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape") closeModal();
-});
-</script>
-</body>
-</html>
+const modal=document.querySelector("#modal"),panel=document.querySelector(".panel"),list=document.querySelector("#ueList"),tabs=[...document.querySelectorAll(".tab")];let level="L1",sem=0,oldFocus=null;
+function render(s){sem=s;tabs.forEach((t,i)=>{t.setAttribute("aria-selected",String(i===s));t.tabIndex=i===s?0:-1});const semesterNumber=(level==="L1"?1:level==="L2"?3:5)+s;document.querySelector("#semTitle").textContent="Semestre "+semesterNumber;const courses=data[level].sem[s];document.querySelector("#count").textContent=courses.length+" unités d’enseignement";list.replaceChildren();courses.forEach((c,i)=>{const article=document.createElement("article");article.className="ue";article.style.setProperty("--i",i);const code=document.createElement("div");code.className="code";code.textContent=c[0];const h=document.createElement("h4");h.textContent=c[1];const ul=document.createElement("ul");c[2].forEach(topic=>{const li=document.createElement("li");li.textContent=topic;ul.append(li)});article.append(code,h,ul);list.append(article)})}
+function openLicence(l){level=l;oldFocus=document.activeElement;document.querySelector("#modalTitle").textContent=data[l].title;document.querySelector("#subtitle").textContent=data[l].sub;document.querySelector("#modalKicker").textContent="Programme de licence · "+l;render(0);modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";setTimeout(()=>panel.focus(),40)}
+function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow="";if(oldFocus)oldFocus.focus()}
+tabs.forEach(t=>t.addEventListener("click",()=>render(+t.dataset.s)));document.querySelector("#close").addEventListener("click",closeModal);modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeModal()});
+const toggle=document.querySelector("#toggle"),links=document.querySelector("#links");toggle.addEventListener("click",()=>{const open=links.classList.toggle("open");toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"×":"☰"});links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")));
+const observer=("IntersectionObserver"in window)?new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12}):null;document.querySelectorAll(".reveal").forEach(el=>observer?observer.observe(el):el.classList.add("visible"));document.querySelector("#year").textContent=new Date().getFullYear();
+</script></body></html>
